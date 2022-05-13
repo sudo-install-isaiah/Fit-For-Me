@@ -17,13 +17,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: labber
+  password: labber
+  host: localhost
+  port: 5432
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: server_development
+  database: fit_for_me_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: server_test
+  database: fit_for_me_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: server_production
+  database: fit_for_me_production
   username: server
   password: <%= ENV['SERVER_DATABASE_PASSWORD'] %>
