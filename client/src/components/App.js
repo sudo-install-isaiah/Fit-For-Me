@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Login from "./user/Login";
 import Signup from "./user/Signup";
+import Frequency from "./Frequency";
+import Header from "./Header";
 
 function App() {
 	useEffect(() => {
@@ -17,6 +19,8 @@ function App() {
 			<h1>Users</h1>
 			{/* <Login/> */}
 			{/* <Signup/> */}
+			{/* <Frequency/> */}
+			<Header/>
 		</div>
 	);
 }
