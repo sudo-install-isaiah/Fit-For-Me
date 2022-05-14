@@ -1,8 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Login from "./user/Login";
-import Signup from "./user/Signup";
+import Login from "./routes/Login";
+import Signup from "./routes/Signup";
+import { Routes, Route, Link, Outlet } from 'react-router-dom'
 
 function App() {
 	useEffect(() => {
@@ -15,6 +16,9 @@ function App() {
 	return (
 		<div className='App'>
 			<h1>Users</h1>
+			<Link to='/signup'>Signup</Link><br/>
+			<Link to='/login'>Log in</Link>
+			<Outlet/>
 			{/* <Login/> */}
 			{/* <Signup/> */}
 		</div>
