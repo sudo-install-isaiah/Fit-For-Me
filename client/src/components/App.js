@@ -4,12 +4,17 @@ import axios from "axios";
 import Login from "./user/Login";
 import Signup from "./user/Signup";
 
+const foo = "barbell";
 function App() {
 	useEffect(() => {
 		// for demo purposes, hardcoded URL
-		axios.get("http://localhost:8080/users").then(res => {
-			console.log(res);
-		});
+		axios
+			.get("http://localhost:8080/api/chest/", {
+				params: { equipment: foo },
+			})
+			.then(res => {
+				console.log(res);
+			});
 	}, []);
 
 	return (
