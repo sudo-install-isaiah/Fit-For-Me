@@ -7,7 +7,7 @@ import Signup from "./user/Signup";
 function App() {
 	useEffect(() => {
 		// for demo purposes, hardcoded URL
-		axios.get("http://localhost:3000/users").then(res => {
+		axios.get("http://localhost:8080/users").then(res => {
 			console.log(res);
 		});
 	}, []);
