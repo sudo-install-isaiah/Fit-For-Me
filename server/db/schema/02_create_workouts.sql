@@ -20,9 +20,9 @@ DROP TABLE IF EXISTS workout_day_exercises CASCADE;
 
 CREATE TABLE workout_day_exercises (
   id SERIAL PRIMARY KEY,
+  workout_day_id integer REFERENCES workout_days(id),
   name VARCHAR(255) NOT NULL,
   type VARCHAR(255) NOT NULL,
-  workout_day_id integer REFERENCES workout_days(id),
   equipment VARCHAR(255) NOT NULL,
   image TEXT NOT NULL
 );
