@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const bcrypt = require('bcryptjs');
 module.exports = db => {
 	// all routes will go here
 	const getEmail = function(email) {
@@ -38,13 +38,16 @@ module.exports = db => {
 		if (email === "" || password === "" || name === "") {
 			return res.status(403).send("Invalid User");
 		}
+		// bcrypt used to hash a password
+		const hashedPassword = bcrypt.hashSync(password, 10);
+		
 		getEmail(email)
 			.then(checkemail => {
 				if (checkemail) {
 					res.status(400).send('Email already exists');
 				}
 				else {
-					addUser(name, email, password)
+					addUser(name, email, hashedPassword)
 						.then(result => {
 							if (!result) {
 								res.send({ error: "error" });
