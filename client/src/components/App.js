@@ -7,25 +7,33 @@ import { Routes, Route, Link, Outlet } from 'react-router-dom'
 
 const foo = "barbell";
 function App() {
+const [exercise, setExercise] = useState([])
 	useEffect(() => {
 		// for demo purposes, hardcoded URL
 		axios
 			.get("http://localhost:8080/api/chest/", {
-				params: { equipment: foo },
+				params: { equipment: foo }
 			})
 			.then(res => {
-				console.log(res);
+				// console.log(res);
+				console.log(res.data)
+				setExercise(res.data)
 			});
 	}, []);
+
+	const test = exercise.map(data => {
+		return `${data.name}\n ${data.bodyPart}\n ${data.gifUrl}\n`
+})
 
 	return (
 		<div className='App'>
 			<h1>Users</h1>
 			<Link to='/signup'>Signup</Link><br/>
 			<Link to='/login'>Log in</Link>
+			<ul>
+			{test}
+			</ul>
 			<Outlet/>
-			{/* <Login/> */}
-			{/* <Signup/> */}
 		</div>
 	);
 }
