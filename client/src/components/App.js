@@ -5,12 +5,17 @@ import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
 
+const foo = "barbell";
 function App() {
 	useEffect(() => {
 		// for demo purposes, hardcoded URL
-		axios.get("http://localhost:8080/users").then(res => {
-			console.log(res);
-		});
+		axios
+			.get("http://localhost:8080/api/chest/", {
+				params: { equipment: foo },
+			})
+			.then(res => {
+				console.log(res);
+			});
 	}, []);
 
 	return (
