@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS workouts CASCADE;
 CREATE TABLE workouts (
   id SERIAL PRIMARY KEY,
   user_id integer REFERENCES users(id) ON DELETE CASCADE NOT NULL,
-  name character VARCHAR(255) NOT NULL,
-  current? boolean NOT NULL DEFAULT false
+  name VARCHAR(255) NOT NULL,
+  is_current boolean NOT NULL DEFAULT false
 );
 
 DROP TABLE IF EXISTS workout_days CASCADE;
@@ -13,7 +13,7 @@ CREATE TABLE workout_days (
   id SERIAL PRIMARY KEY,
   workout_id integer REFERENCES workouts(id) ON DELETE CASCADE NOT NULL,
   day integer NOT NULL,
-  current? boolean NOT NULL DEFAULT false
+  is_current boolean NOT NULL DEFAULT false
 );
 
 DROP TABLE IF EXISTS workout_day_exercises CASCADE;
