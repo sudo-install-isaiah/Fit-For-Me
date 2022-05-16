@@ -1,23 +1,17 @@
 import React from "react";
-import "./Userauth.css";
-import Userauth from "./Userauth";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
 import axios from "axios";
 import { useRef, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
-import Logout from "./Logout";
 
 export default function User() {
-  // const userRef = useRef();
-  // const errRef = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errMsg, setErrmsg] = useState("");
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [allUsers, setAllUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
  
+  //grabs all user info from db and sets it to allUser state
   useEffect(() => {
     axios.get("http://localhost:8080/users").then((res) => {
       console.log('res', res);
@@ -25,8 +19,8 @@ export default function User() {
     });
   }, []);
 
-  // let navigate = useNavigate()
 
+  //gets checks user input against db
   const getUserbyEmail = (email) => {
     const arrayUser = allUsers.filter((user) => user.email === email);
     return arrayUser;
@@ -42,12 +36,12 @@ export default function User() {
     return console.log("error");
   };
   
-  // console.log('@@@@@', currentUser);
-
+//deletes cookie 
 const logout = () => {
   removeCookie('id')
 }
 
+// sets current user and resets email/password state to undefined
 const handleSubmit = (e) => {
   e.preventDefault();
   setCurrentUser(correctInfo(password, email));
@@ -57,6 +51,7 @@ const handleSubmit = (e) => {
   setPassword("");
 };
 
+//sets cookie for signed in user
 useEffect(() => {
   setCookie('id', currentUser.id, {path: '/'})
 }, [currentUser])
@@ -64,7 +59,6 @@ console.log(cookies);
 
   return (
     <main className="user-auth">
-      {/* <Logout/> */}
       <p>
 				{cookies.id}
 			</p>
@@ -80,7 +74,6 @@ console.log(cookies);
               type="text"
               placeholder="Enter email here."
               id="email"
-              // ref={userRef}
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
