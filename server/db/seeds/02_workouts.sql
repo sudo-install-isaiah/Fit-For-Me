@@ -2,7 +2,7 @@
 
 -- day 1
 
-INSERT INTO workouts (id, user_id, name, is_current) VALUES (1, 1, 'Test Workout Plan', false);
+INSERT INTO workouts (id, user_id, name, is_current) VALUES (1, 1, 'Test Workout Plan', true);
 
 INSERT INTO workout_days (id, workout_id, day, is_current) VALUES (1, 1, 1, false);
 
