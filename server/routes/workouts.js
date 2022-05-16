@@ -2,7 +2,8 @@ const router = require("express").Router();
 
 module.exports = db => {
 	router.get("/", (req, res) => {
-		db.query(`
+		db.query(
+			`
     SELECT workouts.name as name,
       workouts.is_current as current_workout, workout_days.day,
       workout_days.is_current as current_day,
@@ -14,7 +15,11 @@ module.exports = db => {
     WHERE workouts.user_id = 1 
     GROUP BY workouts.id, workout_days.id, workout_day_exercises.id
     ORDER BY workout_days.day, workout_day_exercises.priority, workout_day_exercises.type;
-    `);
+    `
+		).then(response => {
+			console.log(response.rows);
+			res.json(response.rows);
+		});
 	});
 
 	return router;

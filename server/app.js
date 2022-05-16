@@ -9,6 +9,7 @@ const db = require("./configs/db.config");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const apiExercisesRouter = require("./routes/apiExercises.js");
+const workoutsRouter = require("./routes/workouts.js");
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter(db));
 app.use("/api", apiExercisesRouter);
+app.use("/workouts", workoutsRouter(db));
 
 module.exports = app;
