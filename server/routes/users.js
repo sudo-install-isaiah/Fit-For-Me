@@ -57,5 +57,9 @@ module.exports = db => {
 				}
 			});
 	});
+
+	router.get('/login', (req, res) => {
+
+	})
 	return router;
 };
