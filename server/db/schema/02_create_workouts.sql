@@ -22,8 +22,10 @@ CREATE TABLE workout_day_exercises (
   id SERIAL PRIMARY KEY,
   workout_day_id integer REFERENCES workout_days(id),
   name VARCHAR(255) NOT NULL,
+  priority SMALLINT NOT NULL, 
   type VARCHAR(255) NOT NULL,
   equipment VARCHAR(255) NOT NULL,
   image TEXT NOT NULL
 );
 
+ 
