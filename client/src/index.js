@@ -8,6 +8,7 @@ import Signup from './components/routes/Signup';
 import Login from './components/routes/Login';
 import { CookiesProvider } from 'react-cookie';
 import UserProvider from './components/providers/UserProvider';
+import Frequency from './components/Frequency';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,7 @@ root.render(
                     <Route path='/' element={<App />} />
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />
+                    <Route path='new' element={<Frequency />} />
                 </Routes>
             </BrowserRouter>
         </UserProvider>

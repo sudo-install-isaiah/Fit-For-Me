@@ -8,7 +8,6 @@ import { useCookies } from "react-cookie";
 import Logout from "./Logout";
 import { UsersContext } from "../providers/UserProvider";
 
-
 export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

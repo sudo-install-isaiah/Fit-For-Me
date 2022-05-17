@@ -5,6 +5,8 @@ import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
 import { withCookies, Cookies } from "react-cookie";
+import Frequency from "./Frequency";
+
 
 const foo = "barbell";
 function App() {
@@ -32,6 +34,7 @@ function App() {
 		
 			<Link to='/signup'>Signup</Link><br/>
 			<Link to='/login'>Log in</Link>
+			<Link to='/new'>create new workout</Link>
 			<ul>
 			{/* {test} */}
 			</ul>
