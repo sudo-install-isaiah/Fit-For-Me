@@ -11,6 +11,7 @@ export default function UserProvider(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   //grabs all user info from db and sets it to allUser state
   useEffect(() => {
     axios.get("http://localhost:8080/users").then((res) => {
@@ -63,6 +64,7 @@ export default function UserProvider(props) {
     setEmail("");
     setPassword("");
   };
+  
   const userData = {
     cookies,
     allUsers,

@@ -5,7 +5,8 @@ import Login from "./routes/Login";
 import Signup from "./routes/Signup";
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
 import { withCookies, Cookies } from "react-cookie";
-import Frequency from "./Frequency";
+import NewWorkout from "./NewWorkout";
+import Button from '@mui/material/Button'
 
 
 const foo = "barbell";
@@ -31,7 +32,7 @@ function App() {
 	return (
 		<div className='App'>
 			<h1>Users</h1>
-		
+		<Button variant="contained">hello</Button>
 			<Link to='/signup'>Signup</Link><br/>
 			<Link to='/login'>Log in</Link>
 			<Link to='/new'>create new workout</Link>
