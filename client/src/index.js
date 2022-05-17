@@ -1,28 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './components/App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Signup from './components/routes/Signup';
-import Login from './components/routes/Login';
-import { CookiesProvider } from 'react-cookie';
-import UserProvider from './components/providers/UserProvider';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./components/App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./components/routes/Signup";
+import Login from "./components/routes/Login";
+import { CookiesProvider } from "react-cookie";
+import UserProvider from "./components/providers/UserProvider";
+import "bootstrap/dist/css/bootstrap.min.css";
+import $ from "jquery";
+import Popper from "@popperjs/core";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <CookiesProvider>
-        <UserProvider>
-            <BrowserRouter >
-                <Routes>
-                    <Route path='/' element={<App />} />
-                    <Route path='signup' element={<Signup />} />
-                    <Route path='login' element={<Login />} />
-                </Routes>
-            </BrowserRouter>
-        </UserProvider>
-    </CookiesProvider>
+	<CookiesProvider>
+		<UserProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/' element={<App />} />
+					<Route path='signup' element={<Signup />} />
+					<Route path='login' element={<Login />} />
+				</Routes>
+			</BrowserRouter>
+		</UserProvider>
+	</CookiesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
