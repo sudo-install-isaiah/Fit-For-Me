@@ -1,6 +1,8 @@
 import React from "react";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "./Navbar.css";
 import { Link, Outlet } from "react-router-dom";
 
@@ -13,27 +15,9 @@ export default function Header(props) {
 					<span>FitForMe</span>
 				</div>
 				<span className='nav-item'>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						width='16'
-						height='16'
-						fill='currentColor'
-						class='bi bi-caret-left'
-						viewBox='0 0 16 16'
-					>
-						<path d='M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z' />
-					</svg>
+					<ArrowBackIosNewIcon className='logo-icon'></ArrowBackIosNewIcon>
 					Current Day
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						width='16'
-						height='16'
-						fill='currentColor'
-						class='bi bi-caret-right'
-						viewBox='0 0 16 16'
-					>
-						<path d='M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z' />
-					</svg>
+					<ArrowForwardIosIcon className='logo-icon'></ArrowForwardIosIcon>
 				</span>
 				<div className='nav-item'>
 					<Link to='/new'>
