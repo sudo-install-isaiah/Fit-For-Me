@@ -29,7 +29,7 @@ function App() {
 
 	return (
 		<div className='App'>
-			<Navbar></Navbar>
+			<Navbar/>
 			<h1>Fit for Me</h1>
 			<Link to='/signup'>Signup</Link>
 			<br />

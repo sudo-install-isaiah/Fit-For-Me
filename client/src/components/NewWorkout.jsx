@@ -16,6 +16,7 @@ export default function NewWorkout() {
   const [auth2, setAuth2] = useState(false);
   const [auth3, setAuth3] = useState(false);
   const [value, setValue] = useState("");
+  const [name, setName] = useState('')
 
   const handleChange = (event) => {
     setValue(event.target.value);
