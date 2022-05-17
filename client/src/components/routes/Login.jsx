@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Routes, Route, Link, Outlet } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UsersContext } from "../providers/UserProvider";
-
+import Navbar from '../Navbar'
 
 
 const theme = createTheme();
@@ -23,6 +23,7 @@ export default function User() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Navbar/>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

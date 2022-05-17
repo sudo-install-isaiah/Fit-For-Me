@@ -16,6 +16,7 @@ import { UsersContext } from "../providers/UserProvider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import NavBar from '../Navbar'
 
 const theme = createTheme();
 
@@ -69,6 +70,7 @@ export default function Signup() {
 
   return (
     <ThemeProvider theme={theme}>
+      <NavBar/>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
