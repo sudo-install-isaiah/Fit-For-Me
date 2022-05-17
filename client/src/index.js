@@ -10,6 +10,7 @@ import { CookiesProvider } from 'react-cookie';
 import UserProvider from './components/providers/UserProvider';
 import NewWorkout from './components/NewWorkout';
 import Popper from "@popperjs/core";
+import DayOne from './components/pickWorkouts/OneDay';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,7 @@ root.render(
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />
                     <Route path='new' element={<NewWorkout />} />
+                    <Route path='test' element={<DayOne/>}/>
                 </Routes>
             </BrowserRouter>
         </UserProvider>
