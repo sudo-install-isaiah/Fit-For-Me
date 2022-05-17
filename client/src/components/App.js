@@ -1,9 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Login from "./routes/Login";
-import Signup from "./routes/Signup";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import {  Link, Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const foo = "barbell";

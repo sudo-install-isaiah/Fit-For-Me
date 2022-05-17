@@ -1,6 +1,8 @@
 import React from "react";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import "./Navbar.css";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Header(props) {
 	return (
@@ -33,7 +35,11 @@ export default function Header(props) {
 						<path d='M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z' />
 					</svg>
 				</span>
-				<span className='nav-item'>Create</span>
+				<div className='nav-item'>
+					<Link to='/new'>
+						<AddCircleIcon className='logo-icon'></AddCircleIcon>
+					</Link>
+				</div>
 			</div>
 		</nav>
 	);
