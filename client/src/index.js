@@ -9,7 +9,6 @@ import Login from './components/routes/Login';
 import { CookiesProvider } from 'react-cookie';
 import UserProvider from './components/providers/UserProvider';
 import NewWorkout from './components/NewWorkout';
-import $ from "jquery";
 import Popper from "@popperjs/core";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
