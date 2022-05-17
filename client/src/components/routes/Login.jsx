@@ -6,7 +6,7 @@ import { useCookies } from "react-cookie";
 import { UsersContext } from "../providers/UserProvider";
 
 export default function User() {
-const {setEmail, cookies, setPassword, logout, handleSubmit, email, password} = useContext(UsersContext)
+const {emailSet, cookies, passwordSet, logout, handleSubmit, email, password} = useContext(UsersContext)
 
   return (
     <main className="user-auth">
@@ -25,7 +25,7 @@ const {setEmail, cookies, setPassword, logout, handleSubmit, email, password} = 
               type="text"
               placeholder="Enter email here."
               id="email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => emailSet(e)}
               value={email}
               required
             />
@@ -38,7 +38,7 @@ const {setEmail, cookies, setPassword, logout, handleSubmit, email, password} = 
               type="password"
               placeholder="Enter password here."
               id="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => passwordSet(e)}
               value={password}
               required
             />

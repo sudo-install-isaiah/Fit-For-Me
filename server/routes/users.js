@@ -30,7 +30,7 @@ module.exports = db => {
 	});
 
 	router.post('/create', (req, res) => {
-		console.log(req.body);
+		console.log('req', req.body);
 		const user = req.body;
 		const name = user.name;
 		const password = user.password;

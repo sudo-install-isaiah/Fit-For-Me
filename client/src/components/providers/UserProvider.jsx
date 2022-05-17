@@ -14,10 +14,17 @@ export default function UserProvider(props) {
   //grabs all user info from db and sets it to allUser state
   useEffect(() => {
     axios.get("http://localhost:8080/users").then((res) => {
-      console.log("res", res);
       setAllUsers(res.data);
     });
   }, []);
+
+  const emailSet = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const passwordSet = (e) => {
+    setPassword(e.target.value)
+  }
 
   //gets checks user input against db
   const getUserbyEmail = (email) => {
@@ -48,14 +55,11 @@ export default function UserProvider(props) {
   useEffect(() => {
     setCookie("id", currentUser.id, { path: "/" });
   }, [currentUser]);
-  console.log(cookies);
 
   // sets current user and resets email/password state to undefined
   const handleSubmit = (e) => {
     e.preventDefault();
     login();
-    console.log("current user", currentUser);
-    // login(currentUser.id);
     setEmail("");
     setPassword("");
   };
@@ -68,13 +72,13 @@ export default function UserProvider(props) {
     getUserbyEmail,
     correctInfo,
     email,
-    setEmail,
+    emailSet,
     password,
-    setPassword,
+    passwordSet,
     currentUser,
     setCurrentUser,
-    handleSubmit,
+    handleSubmit
   };
 
-  return <UsersContext>{props.children}</UsersContext>;
+  return ( <UsersContext.Provider value={userData}>{props.children}</UsersContext.Provider>)
 }

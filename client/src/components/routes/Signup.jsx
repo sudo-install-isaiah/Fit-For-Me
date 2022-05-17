@@ -2,16 +2,19 @@ import Userauth from "./Userauth";
 import "./Userauth.css";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Logout from "./Logout";
+import { UsersContext } from "../providers/UserProvider";
+
 
 export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [cookie, setCookie] = useCookies(['user'])
+  const [cookie, setCookie] = useCookies()
+  const {cookies} = useContext(UsersContext) 
   
   
   // for testing purposes
@@ -25,12 +28,12 @@ export default function Signup() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setCookie('Email', email, {path: '/'})
-    // setCookie('Password', password, {path: '/'})
+    // setCookie('Email', email, {path: '/'})
     const userObject = {
       name: name,
       email: email,
       password: password,
+      cookie: Number(cookies.id) //testing purposes
     };
     axios
       .post("http://localhost:8080/users/create", userObject)
@@ -49,6 +52,7 @@ export default function Signup() {
   return (
     <main className="user-auth">
       <h1>Please Sign Up</h1>
+      <p>{cookies.id}</p>
       <div>
         <Link to="/">homepage</Link>
         <form onSubmit={onSubmit}>
