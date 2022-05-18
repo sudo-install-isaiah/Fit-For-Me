@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Template1 from "./Templates/Template1";
-import Template2 from "./Templates/Template 2";
-import Template3 from "./Templates/Template3";
+import Template1 from "../Templates/Template1";
+import Template2 from "../Templates/Template 2";
+import Template3 from "../Templates/Template3";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { InputLabel } from "@mui/material/InputLabel";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import NavBar from "./Navbar";
+import NavBar from "../Navbar";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
