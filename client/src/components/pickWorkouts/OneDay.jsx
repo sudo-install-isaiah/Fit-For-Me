@@ -15,8 +15,9 @@ import List from "@mui/material/List";
 import { ListItemText } from "@mui/material";
 import { Divider } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import WorkoutList from "../Workout/WorkoutList";
 
-export default function DayOne() {
+export default function OneDay() {
   const [exercise, setExercise] = useState([]);
   const [equipment, setEquipment] = useState("");
 
@@ -37,12 +38,8 @@ export default function DayOne() {
   };
 
   const data = exercise.map((ex) => {
-     return( <div key={ex.id} id={ex.id}><p>{ex.bodyPart} - {ex.name} - {ex.equipment}</p><img src={ex.gifUrl}/></div>
-	)});
-
-
-  
-
+     return( <div key={ex.id} id={ex.id}><p>{ex.bodyPart} - {ex.name} - {ex.equipment}</p></div>
+  )});
 
   return (
     <div>
@@ -64,9 +61,6 @@ export default function DayOne() {
             </Select>
           </FormControl>
         </Grid>
-				<div>
-				{data}
-				</div>
         <Grid>
           <Accordion>
             <AccordionSummary
@@ -77,6 +71,9 @@ export default function DayOne() {
               <Typography align="center">Day 1</Typography>
             </AccordionSummary>
             <AccordionDetails>
+              <div>
+				{data}
+				</div>
               <List>
                 <Divider />
                 <ListItemText primary="Chest" />

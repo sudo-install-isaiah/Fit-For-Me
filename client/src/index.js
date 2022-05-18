@@ -13,7 +13,8 @@ import $ from "jquery";
 import Popper from "@popperjs/core";
 import "./index.css";
 import NewWorkout from './components/NewWorkout';
-import DayOne from './components/pickWorkouts/OneDay';
+import OneDay from './components/pickWorkouts/OneDay';
+import TwoDay from "./components/pickWorkouts/TwoDay";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,7 +26,8 @@ root.render(
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />
                     <Route path='new' element={<NewWorkout />} />
-                    <Route path='test' element={<DayOne/>}/>
+                    <Route path='test' element={<OneDay/>}/>
+                    <Route path='test1' element={<TwoDay/>}/>
                 </Routes>
             </BrowserRouter>
         </UserProvider>
