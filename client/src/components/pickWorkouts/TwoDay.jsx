@@ -58,17 +58,7 @@ export default function TwoDay() {
   const [exercise, setExercise] = useState([]);
   const [equipment, setEquipment] = useState("");
 
-  // need name, bodypart, equipment, image,
-  const foo = equipment;
-  const x = "chest";
-  // useEffect(() => {
-  //   // for demo purposes, hardcoded URL
-  //   axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {
-  //     console.log(res.data);
-  //     setExercise(res.data);
-  //   });
-  // }, []);
-  console.log(equipment); ////////////
+  console.log('is this the one', equipment);
 
   const handleChanges = (event) => {
     setEquipment(event.target.value);
@@ -134,7 +124,6 @@ export default function TwoDay() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  {/* <List>{data}</List> */}
                   <MuscleGroup muscle={'chest'} equipment={equipment}/>
                 </AccordionDetails>
               </Accordion>
@@ -152,7 +141,7 @@ export default function TwoDay() {
                     <strong>Please select one!</strong>
                     <Select
                       value={equipment}
-                      labelId="Select equipment"
+                      labelId="another option"
                       onChange={handleChanges}
                     >
                       <MenuItem value="">Empty</MenuItem>

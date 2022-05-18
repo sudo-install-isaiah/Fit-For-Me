@@ -22,8 +22,7 @@ export default function OneDay() {
   const [equipment, setEquipment] = useState("");
 
   // need name, bodypart, equipment, image,
-  const foo = equipment;
-  const x = "chest";
+ 
   // useEffect(() => {
   //   // for demo purposes, hardcoded URL
   //   axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {

@@ -54,27 +54,6 @@ export default function NewWorkout() {
       setAuth3(true);
     }
   }, [value]);
-  //////////////////////////////////////////
-  useEffect(() => {
-    // for demo purposes, hardcoded URL
-    axios.get(`http://localhost:8080/api/chest`,{
-      params: {
-        _limit: 60
-      }
-    }).then((res) => {
-      const result = exerciseFilter('barbell', res.data)
-      console.log(result);
-      setExercise(result);
-    });
-  }, []);
-  console.log('_____', exercise);
-
-  const exerciseFilter = function (equipment, array) {
-    return array.filter(exercise => {
-      return exercise.equipment === equipment;
-    });
-  };
-/////////////////////////////////////////////////
   return (
     <Box sx={{ minWidth: 120 }}>
       <NavBar />
