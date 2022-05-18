@@ -101,7 +101,7 @@ export default function MuscleGroup(props) {
 
   
   const handleClick = (e) => {
-    setChoice(e.target.value)
+    setChoice([...choice, e.target.value])
   }
   console.log('choice', choice);
   useEffect(() => {
@@ -119,10 +119,10 @@ export default function MuscleGroup(props) {
   console.log("_____", exercise);
 
   const data = exercise.map((ex, index) => {
-      // console.log(ex);
+      const info = JSON.stringify(ex);
     return <div>
       <WorkoutListItem name={ex.name} image={ex.gifUrl} priority={1} type={ex.bodyPart}/>
-      <Checkbox value={ex} onChange={e => handleClick(e)}/>
+      <Checkbox value={info} onChange={e => handleClick(e)}/>
       </div>;
   });
   return (
