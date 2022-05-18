@@ -1,6 +1,6 @@
 .navbar {
 	display: grid;
-	background-color: rgb(54, 54, 54);
+	background-color: #242f40;
 	color: white;
 }
 .nav-item {
@@ -13,5 +13,5 @@
 
 .logo-icon {
 	font-size: 2rem;
-	color: white;
+	color: #cca43b;
 }
