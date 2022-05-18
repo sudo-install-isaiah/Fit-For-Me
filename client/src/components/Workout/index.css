@@ -8,3 +8,7 @@
 div.MuiAccordionSummary-content {
 	justify-content: space-between;
 }
+
+p.MuiTypography-root {
+	color: #363636;
+}
