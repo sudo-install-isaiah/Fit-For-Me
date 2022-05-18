@@ -4,10 +4,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel"
-import Checkbox from "@mui/material/Checkbox";
 
 export default function WorkoutListItem(props) {
 	const reps = priority => {
@@ -21,7 +17,6 @@ export default function WorkoutListItem(props) {
 			return "2 sets of 12-15 reps";
 		}
 	};
-const stringify = JSON.stringify(props)
 
 	return (
 		<Accordion>
@@ -30,14 +25,12 @@ const stringify = JSON.stringify(props)
 				aria-controls='panel1a-content'
 				id='panel1a-header'
 			>
-				
 				<Typography>{props.name}</Typography>
 				<Typography>{reps(props.priority)}</Typography>
 			</AccordionSummary>
 			<AccordionDetails>
 				<img src={props.image} alt={`gif of ${props.name}`}></img>
 			</AccordionDetails>
-				<Checkbox value={stringify} onChange={e => props.handleClick(e)}/>
 		</Accordion>
 	);
 }

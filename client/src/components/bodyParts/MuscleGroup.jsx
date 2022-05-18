@@ -119,11 +119,12 @@ export default function MuscleGroup(props) {
   console.log("_____", exercise);
 
   const data = exercise.map((ex, index) => {
+      // console.log(ex);
     return <div>
-      <WorkoutListItem handleClick={handleClick} name={ex.name} image={ex.gifUrl} priority={1} type={ex.bodyPart}/>
+      <WorkoutListItem name={ex.name} image={ex.gifUrl} priority={1} type={ex.bodyPart}/>
+      <Checkbox value={ex} onChange={e => handleClick(e)}/>
       </div>;
   });
-
   return (
    <div>{data}</div>
   )
