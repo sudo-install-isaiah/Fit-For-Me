@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+import ListSubheader from "@mui/material/ListSubheader";
+import List from "@mui/material/List";
+import WorkoutListItem from "./WorkoutListItem";
+
+export default function WorkoutList(props) {
+	const exerciseItem = props.group.map((item, index) => {
+		return (
+			<WorkoutListItem
+				key={index}
+				image={item.image}
+				name={item.exercise_name}
+			></WorkoutListItem>
+		);
+	});
+
+	return (
+		<List
+			sx={{ width: "100%", maxWidth: "700px", bgcolor: "background.paper" }}
+			component='nav'
+			aria-labelledby='nested-list-subheader'
+			subheader={
+				<ListSubheader component='div' id='nested-list-subheader'>
+					{props.name}
+				</ListSubheader>
+			}
+		>
+			{exerciseItem}
+		</List>
+	);
+}

@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import "./Navbar.css";
 import { Link, Outlet } from "react-router-dom";
 
-export default function Header(props) {
+export default function Navbar(props) {
 	return (
 		<nav className='navbar'>
 			<div className='container-fluid'>
