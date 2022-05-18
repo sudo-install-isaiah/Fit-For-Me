@@ -21,7 +21,7 @@ export default function WorkoutList(props) {
 			aria-labelledby='nested-list-subheader'
 			subheader={
 				<ListSubheader
-					sx={{ color: "white", bgcolor: "#CCA43B" }}
+					className='exercise-header'
 					component='div'
 					id='nested-list-subheader'
 				>

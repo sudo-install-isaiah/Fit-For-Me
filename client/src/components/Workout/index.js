@@ -2,6 +2,7 @@ import React from "react";
 import WorkoutList from "./WorkoutList.jsx";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
+import "./index.css"
 
 export default function Workout(props) {
 
