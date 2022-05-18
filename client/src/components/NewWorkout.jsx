@@ -12,6 +12,7 @@ import NavBar from "./Navbar";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import axios from "axios";
 // link to at the bottom needs changed for how many days are choosen 
 export default function NewWorkout() {
   const [auth1, setAuth1] = useState(false);
@@ -19,6 +20,9 @@ export default function NewWorkout() {
   const [auth3, setAuth3] = useState(false);
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
+  const [exercise, setExercise] = useState([]);
+  const [test, setTest] = useState([])
+  
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -50,7 +54,27 @@ export default function NewWorkout() {
       setAuth3(true);
     }
   }, [value]);
+  //////////////////////////////////////////
+  useEffect(() => {
+    // for demo purposes, hardcoded URL
+    axios.get(`http://localhost:8080/api/chest`,{
+      params: {
+        _limit: 60
+      }
+    }).then((res) => {
+      const result = exerciseFilter('barbell', res.data)
+      console.log(result);
+      setExercise(result);
+    });
+  }, []);
+  console.log('_____', exercise);
 
+  const exerciseFilter = function (equipment, array) {
+    return array.filter(exercise => {
+      return exercise.equipment === equipment;
+    });
+  };
+/////////////////////////////////////////////////
   return (
     <Box sx={{ minWidth: 120 }}>
       <NavBar />

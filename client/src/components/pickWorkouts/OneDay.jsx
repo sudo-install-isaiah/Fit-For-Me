@@ -24,20 +24,20 @@ export default function OneDay() {
   // need name, bodypart, equipment, image,
   const foo = equipment;
   const x = "chest";
-  useEffect(() => {
-    // for demo purposes, hardcoded URL
-    axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {
-      console.log(res.data);
-      setExercise(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // for demo purposes, hardcoded URL
+  //   axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {
+  //     console.log(res.data);
+  //     setExercise(res.data);
+  //   });
+  // }, []);
   console.log(equipment); ////////////
 
   const handleChange = (event) => {
     setEquipment(event.target.value);
   };
 
-  const data = exercise.map((ex) => {
+  const data = exercise.map((ex,) => {
      return( <div key={ex.id} id={ex.id}><p>{ex.bodyPart} - {ex.name} - {ex.equipment}</p></div>
   )});
 
@@ -45,22 +45,6 @@ export default function OneDay() {
     <div>
       <Navbar />
       <Box>
-        <Grid align="center" margin={2}>
-          <FormControl>
-            <strong>Please select one!</strong>
-            <Select
-              value={equipment}
-              labelId="Select equipment"
-              onChange={handleChange}
-            >
-              <MenuItem value="">Empty</MenuItem>
-              <MenuItem value="barbell">Barbell</MenuItem>
-              <MenuItem value="bands">Bands</MenuItem>
-              <MenuItem value="body weight">Body Weight</MenuItem>
-              <MenuItem value="dumbell">Dumbell</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
         <Grid>
           <Accordion>
             <AccordionSummary

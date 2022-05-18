@@ -18,7 +18,7 @@ import List from "@mui/material/List";
 import { ListItemText } from "@mui/material";
 import { Divider } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
- 
+import MuscleGroup from "../bodyParts/MuscleGroup";
 ////testing can potentially delete everything here /////////////
 
 function TabPanel(props) {
@@ -61,26 +61,20 @@ export default function TwoDay() {
   // need name, bodypart, equipment, image,
   const foo = equipment;
   const x = "chest";
-  useEffect(() => {
-    // for demo purposes, hardcoded URL
-    axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {
-      console.log(res.data);
-      setExercise(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // for demo purposes, hardcoded URL
+  //   axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {
+  //     console.log(res.data);
+  //     setExercise(res.data);
+  //   });
+  // }, []);
   console.log(equipment); ////////////
 
   const handleChanges = (event) => {
     setEquipment(event.target.value);
   };
 
-  const data = exercise.map((ex) => {
-    return (
-      <Typography component={'span'} key={ex.id} id={ex.id}>
-        {ex.bodyPart} - {ex.name} - {ex.equipment}
-      </Typography>
-    );
-  });
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -107,7 +101,9 @@ export default function TwoDay() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography component={'span'} align="center">Body Part</Typography>
+            <Typography component={"span"} align="center">
+              Body Part
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <List>
@@ -118,16 +114,63 @@ export default function TwoDay() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography component={'span'} align="center">Chest</Typography>
+                  {" "}
+                  <FormControl>
+                    <strong>Please select one!</strong>
+                    <Select
+                      value={equipment}
+                      labelId="Select equipment"
+                      onChange={handleChanges}
+                    >
+                      <MenuItem value="">Empty</MenuItem>
+                      <MenuItem value="barbell">Barbell</MenuItem>
+                      <MenuItem value="band">Band</MenuItem>
+                      <MenuItem value="body weight">Body Weight</MenuItem>
+                      <MenuItem value="dumbbell">Dumbbell</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <Typography component={"span"} align="center">
+                    Chest
+                  </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <List>{data}</List>
+                  {/* <List>{data}</List> */}
+                  <MuscleGroup muscle={'chest'} equipment={equipment}/>
                 </AccordionDetails>
               </Accordion>
               <Divider />
               <ListItemText primary="Chest" />
               <Divider />
-              <ListItemText primary="Legs" />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
+                  <FormControl>
+                    <strong>Please select one!</strong>
+                    <Select
+                      value={equipment}
+                      labelId="Select equipment"
+                      onChange={handleChanges}
+                    >
+                      <MenuItem value="">Empty</MenuItem>
+                      <MenuItem value="barbell">Barbell</MenuItem>
+                      <MenuItem value="band">Band</MenuItem>
+                      <MenuItem value="body weight">Body Weight</MenuItem>
+                      <MenuItem value="dumbbell">Dumbbell</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <Typography component={"span"} align="center">
+                    Legs
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {/* <List>{data}</List> */}
+                  <MuscleGroup muscle={'upper legs'} equipment={equipment}/>
+                </AccordionDetails>
+              </Accordion>
               <Divider />
               <ListItemText primary="Legs" />
               <Divider />
