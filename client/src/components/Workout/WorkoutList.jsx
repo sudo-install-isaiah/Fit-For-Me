@@ -10,6 +10,7 @@ export default function WorkoutList(props) {
 				key={index}
 				image={item.image}
 				name={item.exercise_name}
+				priority={item.priority}
 			></WorkoutListItem>
 		);
 	});

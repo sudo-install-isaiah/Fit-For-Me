@@ -1,6 +1,10 @@
-.exercise-header {
+.exercise-header.MuiListSubheader-root {
 	color: white;
 	background-color: #cca43b;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+div.MuiAccordionSummary-content {
+	justify-content: space-between;
 }
