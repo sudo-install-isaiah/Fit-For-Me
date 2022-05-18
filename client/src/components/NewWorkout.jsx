@@ -11,7 +11,8 @@ import TextField from "@mui/material/TextField";
 import NavBar from "./Navbar";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-
+import { Link } from "react-router-dom";
+// link to at the bottom needs changed for how many days are choosen 
 export default function NewWorkout() {
   const [auth1, setAuth1] = useState(false);
   const [auth2, setAuth2] = useState(false);
@@ -23,7 +24,7 @@ export default function NewWorkout() {
     setValue(event.target.value);
   };
   const handleSubmit = () => {
-
+    <Link to='test' />
   };
 
   // console.log(title)
@@ -83,9 +84,11 @@ export default function NewWorkout() {
           <Grid container align="center" margin={2}>
             {auth3 && <Template3 />}
           </Grid>
-          <Button variant="contained" onClick={handleSubmit}>
+          <Link to='/test'>
+          <Button variant="contained">
             Submit
           </Button>
+          </Link>
         </FormControl>
       </Grid>
     </Box>
