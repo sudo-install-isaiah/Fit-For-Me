@@ -11,7 +11,7 @@ export default function Navbar(props) {
 		<nav className='navbar'>
 			<div className='container-fluid'>
 				<div className='nav-item logo '>
-					<FitnessCenterIcon className='logo-Icon'></FitnessCenterIcon>
+					<FitnessCenterIcon className='logo-icon'></FitnessCenterIcon>
 					<span>FitForMe</span>
 				</div>
 				<span className='nav-item'>

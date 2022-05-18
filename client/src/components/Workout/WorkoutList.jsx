@@ -16,11 +16,15 @@ export default function WorkoutList(props) {
 
 	return (
 		<List
-			sx={{ width: "100%", maxWidth: "700px", bgcolor: "background.paper" }}
-			component='nav'
+			sx={{ width: "100%", maxWidth: "700px", bgcolor: "inherit" }}
+			component='section'
 			aria-labelledby='nested-list-subheader'
 			subheader={
-				<ListSubheader component='div' id='nested-list-subheader'>
+				<ListSubheader
+					sx={{ color: "white", bgcolor: "#CCA43B" }}
+					component='div'
+					id='nested-list-subheader'
+				>
 					{props.name}
 				</ListSubheader>
 			}
