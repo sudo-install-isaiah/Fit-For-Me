@@ -10,7 +10,10 @@ export default function UserProvider(props) {
   const [value, setValue] = useState('')
   const [exercise, setExercise] = useState([])
   const [equipment, setEquipment] = useState('')
-  const [choice, setChoice] = useState([])
+  const [choice, setChoice] = useState({
+    name: props.muscle,
+    group: []
+  });
   //deletes cookie
   const logout = () => {
     removeCookie("id");

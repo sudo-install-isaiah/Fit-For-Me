@@ -66,11 +66,15 @@ export default function OneDay() {
   let navigate = useNavigate();
 
   const handleSubmit = () => {
+
+    const options ={
+      userId: Number(cookies.id),
+      title: title,
+      day: value
+    }
     Promise.all([
-      axios.post("http://localhost:8080/workouts/new", cookies.id),
-      axios.post("http://localhost:8080/workouts/new", title),
-      axios.post("http://localhost:8080/workouts/new", choice),
-      axios.post("http://localhost:8080/workouts/new", value),
+      axios.post("http://localhost:8080/workouts/new", options),
+      axios.post("http://localhost:8080/workouts/new", choice.group),
     ]).then((res) => {
       console.log(res.data);
     });
