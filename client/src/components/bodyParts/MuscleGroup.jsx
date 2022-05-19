@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
@@ -9,6 +9,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import Button from "@mui/material/Button";
+import { WorkoutContext } from "../providers/WorkoutFormProvider";
+
 
 const example = [
   {
@@ -94,19 +96,18 @@ const example = [
 ];
 
 export default function MuscleGroup(props) {
-  const [exercise, setExercise] = useState([]);
-  const [choice, setChoice] = useState([]);
+  // const [exercise, setExercise] = useState([]);
+  // const [choice, setChoice] = useState([]);
+  const { exercise, setExercise, choice, setChoice } = useContext(WorkoutContext)
+
   const equipment = props.equipment;
   const bodyPart = props.muscle;
 
   // checks the target value to the exercise id and then logs the entire obj into the state
   const handleClick = (e) => {
     const test = exercise.filter((ex) => {
-      console.log(ex.id);
       if (ex.id === e.target.value) {
-        console.log("res", ex);
         //example of adding the user id to the object as well
-        ex.userID = 3;
         return ex;
       }
     });
@@ -115,19 +116,17 @@ export default function MuscleGroup(props) {
   };
 
   console.log("choice", choice);
-  useEffect(() => {
-    setExercise(example);
-  }, []);
   // useEffect(() => {
-  //     axios
-  //       .get(`http://localhost:8080/api/${bodyPart}/${equipment}`)
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         setExercise(res.data);
-  //       });
-  //   }, [equipment]);
+  //   setExercise(example);
+  // }, []);
+  useEffect(() => {
+      axios
+        .get(`http://localhost:8080/api/${bodyPart}/${equipment}`)
+        .then((res) => {
+          setExercise(res.data);
+        });
+    }, [equipment]);
 
-  console.log("_____", exercise);
 
   const data = exercise.map((ex, index) => {
     const info = JSON.stringify(ex);

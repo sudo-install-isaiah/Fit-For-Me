@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext ,useEffect, useState } from "react";
 import Template1 from "./Templates/Template1";
 import Template2 from "./Templates/Template 2";
 import Template3 from "./Templates/Template3";
@@ -13,25 +13,26 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { WorkoutContext } from "./providers/WorkoutFormProvider";
+
 // link to at the bottom needs changed for how many days are choosen 
 export default function NewWorkout() {
   const [auth1, setAuth1] = useState(false);
   const [auth2, setAuth2] = useState(false);
   const [auth3, setAuth3] = useState(false);
-  const [value, setValue] = useState("");
-  const [title, setTitle] = useState("");
+  // const [value, setValue] = useState("");
+  // const [title, setTitle] = useState("");
   const [exercise, setExercise] = useState([]);
   const [test, setTest] = useState([])
+  const { cookies, title, setTitle, value, setValue } = useContext(WorkoutContext)
   
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  const handleSubmit = () => {
-    <Link to='test' />
-  };
+  
 
-  // console.log(title)
+  console.log(value)
   useEffect(() => {
     if (value === "") {
       setAuth2(false);
@@ -54,6 +55,7 @@ export default function NewWorkout() {
       setAuth3(true);
     }
   }, [value]);
+
   return (
     <Box sx={{ minWidth: 120 }}>
       <NavBar />
@@ -87,8 +89,8 @@ export default function NewWorkout() {
           <Grid container align="center" margin={2}>
             {auth3 && <Template3 />}
           </Grid>
-          <Link to='/test'>
-          <Button variant="contained">
+          <Link to={value}>
+          <Button variant="contained" >
             Submit
           </Button>
           </Link>

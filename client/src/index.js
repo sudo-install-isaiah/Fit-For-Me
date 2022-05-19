@@ -15,21 +15,25 @@ import "./index.css";
 import NewWorkout from './components/NewWorkout';
 import OneDay from './components/pickWorkouts/OneDay';
 import TwoDay from "./components/pickWorkouts/TwoDay";
-
+import WorkoutFormProvider from './components/providers/WorkoutFormProvider'
+import ThreeDay from './components/pickWorkouts/ThreeDay'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <CookiesProvider>
         <UserProvider>
+        <WorkoutFormProvider>
             <BrowserRouter >
                 <Routes>
                     <Route path='/' element={<App />} />
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />
                     <Route path='new' element={<NewWorkout />} />
-                    <Route path='test' element={<OneDay/>}/>
-                    <Route path='test1' element={<TwoDay/>}/>
+                    <Route path='new/one' element={<OneDay/>}/>
+                    <Route path='new/two' element={<TwoDay/>}/>
+                    <Route path='new/three' element={<ThreeDay/>}/>
                 </Routes>
             </BrowserRouter>
+            </WorkoutFormProvider>
         </UserProvider>
     </CookiesProvider>
 );

@@ -10,7 +10,7 @@ export default function UserProvider(props) {
   const [currentUser, setCurrentUser] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+ 
 
   //grabs all user info from db and sets it to allUser state
   useEffect(() => {
