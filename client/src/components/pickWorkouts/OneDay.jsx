@@ -21,6 +21,8 @@ import MuscleGroup from "../bodyParts/MuscleGroup";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import PropTypes from "prop-types";
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,35 +58,35 @@ function a11yProps(index) {
 }
 
 export default function OneDay() {
-  const { cookies, title, value, exercise, setExercise, equipment, setEquipment, choice } = useContext(WorkoutContext);
+  const { cookies, setTitle, title, setValue, value, choice, setChoice } =
+    useContext(WorkoutContext);
+  const [exercise, setExercise] = useState([]);
+  const [equipment, setEquipment] = useState("");
   const [tabValue, setTabValue] = React.useState(0);
+  let navigate = useNavigate();
 
-  // need name, bodypart, equipment, image,
-
-  // useEffect(() => {
-  //   // for demo purposes, hardcoded URL
-  //   axios.get(`http://localhost:8080/api/chest/barbell`).then((res) => {
-  //     console.log(res.data);
-  //     setExercise(res.data);
-  //   });
-  // }, []);
+  const handleSubmit = () => {
+    Promise.all([
+      axios.post("http://localhost:8080/workouts/new", cookies.id),
+      axios.post("http://localhost:8080/workouts/new", title),
+      axios.post("http://localhost:8080/workouts/new", choice),
+      axios.post("http://localhost:8080/workouts/new", value),
+    ]).then((res) => {
+      console.log(res.data);
+    });
+    setTitle("");
+    setValue("");
+    setChoice([]);
+    // navigate("/");
+  };
 
   const handleChanges = (event) => {
     setEquipment(event.target.value);
-    console.log('!!!!', title, value, cookies, choice);
+    console.log("!!!!", title, value, cookies, choice);
   };
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
-  const data = exercise.map((ex) => {
-    return (
-      <div key={ex.id} id={ex.id}>
-        <p>
-          {ex.bodyPart} - {ex.name} - {ex.equipment}
-        </p>
-      </div>
-    );
-  });
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -186,6 +188,7 @@ export default function OneDay() {
           </AccordionDetails>
         </Accordion>
       </TabPanel>
+      <Button onClick={handleSubmit} variant='contained'> Submit</Button>
     </Box>
   );
 }

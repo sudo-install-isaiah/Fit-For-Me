@@ -57,6 +57,7 @@ function a11yProps(index) {
 export default function TwoDay() {
   const [exercise, setExercise] = useState([]);
   const [equipment, setEquipment] = useState("");
+  const [value, setValue] = React.useState(0);
 
   console.log('is this the one', equipment);
 
@@ -64,8 +65,6 @@ export default function TwoDay() {
     setEquipment(event.target.value);
   };
 
-
-  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

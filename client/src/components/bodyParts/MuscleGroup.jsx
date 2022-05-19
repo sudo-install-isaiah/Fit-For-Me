@@ -115,7 +115,7 @@ export default function MuscleGroup(props) {
     setChoice((prev) => [...prev, test]);
   };
 
-  console.log("choice", choice);
+  // console.log("choice", choice);
   // useEffect(() => {
   //   setExercise(example);
   // }, []);

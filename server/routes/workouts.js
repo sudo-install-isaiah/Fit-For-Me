@@ -56,5 +56,9 @@ module.exports = db => {
 		});
 	});
 
+	router.post('/new', (req,res) => {
+		console.log('req', req.body);
+	})
+
 	return router;
 };
