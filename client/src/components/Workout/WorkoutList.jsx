@@ -14,7 +14,7 @@ export default function WorkoutList(props) {
 			></WorkoutListItem>
 		);
 	});
-
+  
 	return (
 		<List
 			sx={{ width: "100%", maxWidth: "700px", bgcolor: "inherit" }}

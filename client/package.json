@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@emotion/react": "^11.9.0",
 		"@emotion/styled": "^11.8.1",
+		"@fortawesome/react-fontawesome": "^0.1.18",
 		"@mui/icons-material": "^5.8.0",
 		"@mui/material": "^5.8.0",
 		"@popperjs/core": "^2.11.5",
@@ -20,6 +21,7 @@
 		"react-dom": "^18.1.0",
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "5.0.1",
+		"uninstall": "*",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
