@@ -74,9 +74,9 @@ export default function NewWorkout() {
             onChange={handleChange}
           >
             <MenuItem value="">Empty</MenuItem>
-            <MenuItem value="one">1</MenuItem>
-            <MenuItem value="two">2</MenuItem>
-            <MenuItem value="three">3</MenuItem>
+            <MenuItem value="1">1</MenuItem>
+            <MenuItem value="2">2</MenuItem>
+            <MenuItem value="3">3</MenuItem>
           </Select>
           <br />
           {value && <p>Preview of workout plan.</p>}

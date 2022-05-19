@@ -20,7 +20,7 @@ module.exports = db => {
   $1, $2, $3) RETURNING *`;
 		return db.query(queryString, [name, email, password]);
 	};
-
+ 
 
 	router.get("/", (req, res) => {
 		const command = "SELECT * FROM users";

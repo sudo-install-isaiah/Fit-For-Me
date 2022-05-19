@@ -28,9 +28,9 @@ root.render(
                     <Route path='signup' element={<Signup />} />
                     <Route path='login' element={<Login />} />
                     <Route path='new' element={<NewWorkout />} />
-                    <Route path='new/one' element={<OneDay/>}/>
-                    <Route path='new/two' element={<TwoDay/>}/>
-                    <Route path='new/three' element={<ThreeDay/>}/>
+                    <Route path='new/1' element={<OneDay/>}/>
+                    <Route path='new/2' element={<TwoDay/>}/>
+                    <Route path='new/3' element={<ThreeDay/>}/>
                 </Routes>
             </BrowserRouter>
             </WorkoutFormProvider>

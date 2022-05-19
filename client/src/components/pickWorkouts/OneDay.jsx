@@ -70,18 +70,17 @@ export default function OneDay() {
     const options ={
       userId: Number(cookies.id),
       title: title,
-      day: value
+      day: Number(value),
+      workouts: choice.group
     }
-    Promise.all([
-      axios.post("http://localhost:8080/workouts/new", options),
-      axios.post("http://localhost:8080/workouts/new", choice.group),
-    ]).then((res) => {
-      console.log(res.data);
-    });
-    setTitle("");
-    setValue("");
-    setChoice([]);
-    // navigate("/");
+   
+    //   axios.post("http://localhost:8080/workouts/new", options).then((res) => {
+    //   console.log(res.data);
+    // });
+    // setTitle("");
+    // setValue("");
+    // setChoice([]);
+    // // navigate("/");
   };
 
   const handleChanges = (event) => {
