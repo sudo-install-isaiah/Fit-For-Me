@@ -80,8 +80,8 @@ export default function TwoDay() {
           aria-label="basic tabs example"
         >
           <Tab label="Day One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Day Two" {...a11yProps(1)} />
+          <Tab label="Day Three" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
