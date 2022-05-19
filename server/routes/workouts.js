@@ -37,6 +37,8 @@ module.exports = db => {
 	});
 
 	router.get("/days/current", (req, res) => {
+		console.log(req);
+		const user = Number(req.query.id)
 		db.query(
 			`
 		SELECT 
@@ -45,7 +47,7 @@ module.exports = db => {
 		FROM workouts
 		JOIN workout_days ON workout_days.workout_id = workouts.id
 		JOIN workout_day_exercises ON workout_day_exercises.workout_day_id = workout_days.id
-		WHERE workouts.user_id = 1 AND workouts.is_current = true AND workout_days.is_current = true
+		WHERE workouts.user_id = ${user} AND workouts.is_current = true AND workout_days.is_current = true
 		GROUP BY workouts.id, workout_days.id, workout_day_exercises.id
 		ORDER BY workout_days.day, workout_day_exercises.priority, workout_day_exercises.type;
 
@@ -69,7 +71,6 @@ module.exports = db => {
 					.then(res => {
 						console.log('after add workoutdays id', res.rows[0].id);
 						workoutData.workouts.map(ex => {
-
 							addWorkoutDayExercises(res.rows[0].id, ex.name, ex.bodyPart, ex.equipment, ex.gifUrl);
 						});
 					});
@@ -79,21 +80,29 @@ module.exports = db => {
 
 	// adds user_id and title of workout to db
 	const addWorkout = (userID, title) => {
+
 		const queryString = `
-		INSERT INTO workouts (user_id, name)
-		VALUES($1, $2)
+		INSERT INTO workouts (user_id, name, is_current)
+		VALUES($1, $2, $3)
 		RETURNING *
 		`;
-		return db.query(queryString, [userID, title]);
+		return db.query(queryString, [userID, title, true]);
 	};
 	//needs fixed for more than 1 day
 	const addWorkoutDays = (workoutID, day) => {
+	const isDay = (day) => {
+		if (day !== 1) {
+			return false
+		} else {
+			return true
+		}
+	}
 		const queryString = `
-		INSERT INTO workout_days (workout_id, day)
-		VALUES($1, $2)
+		INSERT INTO workout_days (workout_id, day, is_current)
+		VALUES($1, $2, $3)
 		RETURNING *
 		`;
-		return db.query(queryString, [workoutID, day]);
+		return db.query(queryString, [workoutID, day, isDay(day)]);
 	};
 	const addWorkoutDayExercises = (workoutDayID, exercise, bodyPart, equipment, image) => {
 		const priority = (bodyPart) => {

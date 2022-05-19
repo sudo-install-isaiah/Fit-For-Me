@@ -23,6 +23,8 @@ import Tab from "@mui/material/Tab";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -74,13 +76,13 @@ export default function OneDay() {
       workouts: choice.group
     }
    
-    //   axios.post("http://localhost:8080/workouts/new", options).then((res) => {
-    //   console.log(res.data);
-    // });
-    // setTitle("");
-    // setValue("");
-    // setChoice([]);
-    // // navigate("/");
+      axios.post("http://localhost:8080/workouts/new", options).then((res) => {
+      console.log(res.data);
+    });
+    setTitle("");
+    setValue("");
+    setChoice([]);
+    // navigate("/");
   };
 
   const handleChanges = (event) => {
@@ -103,16 +105,9 @@ export default function OneDay() {
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography component={"span"} align="center">
-              Body Part
-            </Typography>
-          </AccordionSummary>
+       <Card>
+         <CardContent>
+           <Typography>Body Parts</Typography>
           <AccordionDetails>
             <List>
               <Divider />
@@ -123,20 +118,6 @@ export default function OneDay() {
                   id="panel1a-header"
                 >
                   {" "}
-                  <FormControl>
-                    <strong>Please select one!</strong>
-                    <Select
-                      value={equipment}
-                      labelId="Select equipment"
-                      onChange={handleChanges}
-                    >
-                      <MenuItem value="">Empty</MenuItem>
-                      <MenuItem value="barbell">Barbell</MenuItem>
-                      <MenuItem value="band">Band</MenuItem>
-                      <MenuItem value="body weight">Body Weight</MenuItem>
-                      <MenuItem value="dumbbell">Dumbbell</MenuItem>
-                    </Select>
-                  </FormControl>
                   <Typography component={"span"} align="center">
                     Chest
                   </Typography>
@@ -146,7 +127,37 @@ export default function OneDay() {
                 </AccordionDetails>
               </Accordion>
               <Divider />
-              <ListItemText primary="Chest" />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
+                  <Typography component={"span"} align="center">
+                    Legs
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <MuscleGroup muscle={"upper legs"} equipment={equipment} />
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
+                  
+                  <Typography component={"span"} align="center">
+                    Arms
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <MuscleGroup muscle={"upper arms"} equipment={equipment} />
+                </AccordionDetails>
+              </Accordion>
               <Divider />
               <Accordion>
                 <AccordionSummary
@@ -155,41 +166,20 @@ export default function OneDay() {
                   id="panel1a-header"
                 >
                   {" "}
-                  <FormControl>
-                    <strong>Please select one!</strong>
-                    <Select
-                      value={equipment}
-                      labelId="another option"
-                      onChange={handleChanges}
-                    >
-                      <MenuItem value="">Empty</MenuItem>
-                      <MenuItem value="barbell">Barbell</MenuItem>
-                      <MenuItem value="band">Band</MenuItem>
-                      <MenuItem value="body weight">Body Weight</MenuItem>
-                      <MenuItem value="dumbbell">Dumbbell</MenuItem>
-                    </Select>
-                  </FormControl>
+                  
                   <Typography component={"span"} align="center">
-                    Legs
+                    Core
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  {/* <List>{data}</List> */}
-                  <MuscleGroup muscle={"upper legs"} equipment={equipment} />
+                  <MuscleGroup muscle={"waist"} equipment={equipment} />
                 </AccordionDetails>
               </Accordion>
               <Divider />
-              <ListItemText primary="Legs" />
-              <Divider />
-              <ListItemText primary="Arms" />
-              <Divider />
-              <ListItemText primary="Arms" />
-              <Divider />
-              <ListItemText primary="Core" />
-              <Divider />
             </List>
           </AccordionDetails>
-        </Accordion>
+          </CardContent>
+          </Card>
       </TabPanel>
       <Button onClick={handleSubmit} variant='contained'> Submit</Button>
     </Box>

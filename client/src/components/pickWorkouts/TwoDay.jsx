@@ -19,6 +19,8 @@ import { ListItemText } from "@mui/material";
 import { Divider } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuscleGroup from "../bodyParts/MuscleGroup";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 ////testing can potentially delete everything here /////////////
 
 function TabPanel(props) {
@@ -80,20 +82,12 @@ export default function TwoDay() {
         >
           <Tab label="Day One" {...a11yProps(0)} />
           <Tab label="Day Two" {...a11yProps(1)} />
-          <Tab label="Day Three" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography component={"span"} align="center">
-              Body Part
-            </Typography>
-          </AccordionSummary>
+      <Card>
+         <CardContent>
+           <Typography>Body Parts</Typography>
           <AccordionDetails>
             <List>
               <Divider />
@@ -104,20 +98,6 @@ export default function TwoDay() {
                   id="panel1a-header"
                 >
                   {" "}
-                  <FormControl>
-                    <strong>Please select one!</strong>
-                    <Select
-                      value={equipment}
-                      labelId="Select equipment"
-                      onChange={handleChanges}
-                    >
-                      <MenuItem value="">Empty</MenuItem>
-                      <MenuItem value="barbell">Barbell</MenuItem>
-                      <MenuItem value="band">Band</MenuItem>
-                      <MenuItem value="body weight">Body Weight</MenuItem>
-                      <MenuItem value="dumbbell">Dumbbell</MenuItem>
-                    </Select>
-                  </FormControl>
                   <Typography component={"span"} align="center">
                     Chest
                   </Typography>
@@ -127,7 +107,21 @@ export default function TwoDay() {
                 </AccordionDetails>
               </Accordion>
               <Divider />
-              <ListItemText primary="Chest" />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
+                  <Typography component={"span"} align="center">
+                    Shoulders
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <MuscleGroup muscle={'shoulders'} equipment={equipment}/>
+                </AccordionDetails>
+              </Accordion>
               <Divider />
               <Accordion>
                 <AccordionSummary
@@ -136,47 +130,79 @@ export default function TwoDay() {
                   id="panel1a-header"
                 >
                   {" "}
-                  <FormControl>
-                    <strong>Please select one!</strong>
-                    <Select
-                      value={equipment}
-                      labelId="another option"
-                      onChange={handleChanges}
-                    >
-                      <MenuItem value="">Empty</MenuItem>
-                      <MenuItem value="barbell">Barbell</MenuItem>
-                      <MenuItem value="band">Band</MenuItem>
-                      <MenuItem value="body weight">Body Weight</MenuItem>
-                      <MenuItem value="dumbbell">Dumbbell</MenuItem>
-                    </Select>
-                  </FormControl>
+                  <Typography component={"span"} align="center">
+                    Arms
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <MuscleGroup muscle={'upper arms'} equipment={equipment}/>
+                </AccordionDetails>
+              </Accordion>
+              <Divider />
+            </List>
+          </AccordionDetails>
+          </CardContent>
+        </Card>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+      <Card>
+         <CardContent>
+           <Typography>Body Parts</Typography>
+          <AccordionDetails>
+            <List>
+              <Divider />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
+                  <Typography component={"span"} align="center">
+                    Back
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <MuscleGroup muscle={'back'} equipment={equipment}/>
+                </AccordionDetails>
+              </Accordion>
+              <Divider />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
                   <Typography component={"span"} align="center">
                     Legs
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  {/* <List>{data}</List> */}
                   <MuscleGroup muscle={'upper legs'} equipment={equipment}/>
                 </AccordionDetails>
               </Accordion>
               <Divider />
-              <ListItemText primary="Legs" />
-              <Divider />
-              <ListItemText primary="Arms" />
-              <Divider />
-              <ListItemText primary="Arms" />
-              <Divider />
-              <ListItemText primary="Core" />
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  {" "}
+                  <Typography component={"span"} align="center">
+                    Core
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <MuscleGroup muscle={'waist'} equipment={equipment}/>
+                </AccordionDetails>
+              </Accordion>
               <Divider />
             </List>
           </AccordionDetails>
-        </Accordion>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
+          </CardContent>
+        </Card>
       </TabPanel>
     </Box>
   );

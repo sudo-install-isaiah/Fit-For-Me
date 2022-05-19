@@ -8,20 +8,13 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from "@mui/material/Typography";
+import { Grid } from "@mui/material";
 
 export default function Template1() {
   return (
-    <div>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>Day 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
+    <Grid container>
         <List>
+          <Typography>Day 1</Typography>
         <Divider/>
         <ListItemText primary="Chest" />
           <Divider/>
@@ -36,18 +29,9 @@ export default function Template1() {
         <ListItemText primary="Shoulders" />
          <Divider/>
     </List>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
+    <Divider variant="middle"/>
+        <List>
           <Typography>Day 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-        <List>
          <Divider/>
          <ListItemText primary="Back" />
            <Divider/>
@@ -62,19 +46,10 @@ export default function Template1() {
          <ListItemText primary="Legs" />
           <Divider/>
      </List>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
+         <Divider variant='middle'/>
+        <List>
           <Typography>Day 3</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-        <List>
-         <Divider/>
+           <Divider/>
          <ListItemText primary="Arms" />
            <Divider/>
          <ListItemText primary="Arms" />
@@ -88,8 +63,6 @@ export default function Template1() {
          <ListItemText primary="Core" />
           <Divider/>
      </List>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+    </Grid>
   );
 }

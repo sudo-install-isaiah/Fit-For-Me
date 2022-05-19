@@ -39,17 +39,17 @@ export default function NewWorkout() {
       setAuth3(false);
       setAuth1(false);
     }
-    if (value === "one") {
+    if (value === "1") {
       setAuth2(false);
       setAuth3(false);
       setAuth1(true);
     }
-    if (value === "two") {
+    if (value === '2') {
       setAuth1(false);
       setAuth3(false);
       setAuth2(true);
     }
-    if (value === "three") {
+    if (value === "3") {
       setAuth2(false);
       setAuth1(false);
       setAuth3(true);
