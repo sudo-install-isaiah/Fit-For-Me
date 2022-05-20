@@ -23,9 +23,9 @@ export default function UserProvider(props) {
 	};
 
 	//sets cookie for signed in user
-	useEffect(() => {
-		setCookie("id", currentUser.id, { path: "/" });
-	}, [currentUser]);
+	// useEffect(() => {
+	// 	setCookie("id", currentUser.id, { path: "/" });
+	// }, [currentUser]);
 
 	// sets current user and resets email/password state to undefined
 	const handleSubmit = e => {
@@ -33,7 +33,7 @@ export default function UserProvider(props) {
 		return axios
 			.post("http://localhost:8080/users/login", { email, password })
 			.then(res => {
-				console.log(res);
+				setCookie("id", res.data.id, { path: "/" });
 				setEmail("");
 				setPassword("");
 			});

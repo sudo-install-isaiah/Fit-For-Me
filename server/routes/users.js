@@ -57,9 +57,13 @@ module.exports = db => {
 
 	router.post("/login", (req, res) => {
 		const { email, password } = req.body;
-		authenticate(email, password, bcrypt.compareSync).then(result => {
-			res.json(result);
-		});
+		authenticate(email, password, bcrypt.compareSync)
+			.then(result => {
+				res.json(result);
+			})
+			.catch(err => {
+				res.send({ error: err.message });
+			});
 	});
 
 	return router;
