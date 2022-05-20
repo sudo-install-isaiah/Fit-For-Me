@@ -9,14 +9,14 @@ import Login from "./components/routes/Login";
 import { CookiesProvider } from "react-cookie";
 import UserProvider from "./components/providers/UserProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
-import $ from "jquery";
-import Popper from "@popperjs/core";
 import "./index.css";
-import NewWorkout from './components/NewWorkout';
+import NewWorkout from "./components/NewWorkout";
 import OneDay from './components/pickWorkouts/OneDay';
 import TwoDay from "./components/pickWorkouts/TwoDay";
 import WorkoutFormProvider from './components/providers/WorkoutFormProvider'
 import ThreeDay from './components/pickWorkouts/ThreeDay'
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <CookiesProvider>

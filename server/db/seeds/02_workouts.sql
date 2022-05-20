@@ -32,7 +32,7 @@ VALUES (1, 'hanging leg raises', 2, 'core', 'barbell', 'http://d205bpvrqc9yn1.cl
 
 -- day 2
 
-INSERT INTO workout_days ( workout_id, day, is_current) VALUES (1, 2, false);
+INSERT INTO workout_days ( workout_id, day, is_current) VALUES (1, 2, true);
 
 INSERT INTO workout_day_exercises ( workout_day_id, name, priority, type, equipment, image)
 VALUES (2, 'curls', 3, 'arms', 'dumbbell', 'http://d205bpvrqc9yn1.cloudfront.net/0025.gif'
