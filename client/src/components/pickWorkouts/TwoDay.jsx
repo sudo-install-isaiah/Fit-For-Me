@@ -77,11 +77,11 @@ export default function TwoDay() {
     if (selectedTab === 0) {
       setToggleTab(false);
       setDay1({ day: 1, workouts: choice });
-      setChoice({ day: 1, workout: [] });
+      setChoice({ day: 2, workout: [] });
     }
     if (selectedTab === 1) {
       setDay2({ day: 2, workouts: choice });
-      setChoice({ day: 1, workout: [] });
+      setChoice({ day: 3, workout: [] });
     }
   };
 

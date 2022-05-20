@@ -82,15 +82,14 @@ module.exports = db => {
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
-		const workouts = workoutData.days.map(ex => ex.workouts.workout);
 		addWorkout(userID, title)
-			.then(res => {
+		.then(res => { 
 				workoutData.days.map(d => {
 					addWorkoutDays(res.rows[0].id, d.day)
-						.then(res => {
-							workouts.map(ex => {
-								ex.map(more => {
-									addWorkoutDayExercises(res.rows[0].id, more.name, more.bodyPart, more.equipment, more.gifUrl);
+					.then(res => {
+						  d.workouts.workout.map(ex => {
+								console.log('ex', ex);
+									addWorkoutDayExercises(res.rows[0].id, ex.name, ex.bodyPart, ex.equipment, ex.gifUrl);
 								});
 							});
 
@@ -98,7 +97,6 @@ module.exports = db => {
 				});
 
 			});
-	});
 	// adds user_id and title of workout to db
 	const addWorkout = (userID, title) => {
 
