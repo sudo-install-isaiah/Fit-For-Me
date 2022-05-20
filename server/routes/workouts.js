@@ -58,22 +58,27 @@ module.exports = db => {
 		});
 	});
 
-	router.post('/new', (req, res) => {
-		console.log('req', req.body);
+	router.post("/new", (req, res) => {
+		console.log("req", req.body);
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
 		const day = workoutData.day;
-		addWorkout(userID, title)
-			.then(res => {
-				addWorkoutDays(res.rows[0].id, day)
-					.then(res => {
-						workoutData.workouts.map(ex => {
-							addWorkoutDayExercises(res.rows[0].id, ex.name, ex.bodyPart, ex.equipment, ex.gifUrl);
-						});
-					});
-
+		addWorkout(userID, title).then(res => {
+			console.log("workout id", res.rows[0].id);
+			addWorkoutDays(res.rows[0].id, day).then(res => {
+				console.log("after add workoutdays id", res.rows[0].id);
+				workoutData.workouts.map(ex => {
+					addWorkoutDayExercises(
+						res.rows[0].id,
+						ex.name,
+						ex.bodyPart,
+						ex.equipment,
+						ex.gifUrl
+					);
+				});
 			});
+		});
 	});
 
 
@@ -99,7 +104,6 @@ module.exports = db => {
 			});
 	// adds user_id and title of workout to db
 	const addWorkout = (userID, title) => {
-
 		const queryString = `
 		INSERT INTO workouts (user_id, name, is_current)
 		VALUES($1, $2, $3)
@@ -109,7 +113,7 @@ module.exports = db => {
 	};
 	//needs fixed for more than 1 day
 	const addWorkoutDays = (workoutID, day) => {
-		const isDay = (day) => {
+		const isDay = day => {
 			if (day !== 1) {
 				return false;
 			} else {
@@ -123,17 +127,23 @@ module.exports = db => {
 		`;
 		return db.query(queryString, [workoutID, day, isDay(day)]);
 	};
-	const addWorkoutDayExercises = (workoutDayID, exercise, bodyPart, equipment, image) => {
-		const priority = (bodyPart) => {
+	const addWorkoutDayExercises = (
+		workoutDayID,
+		exercise,
+		bodyPart,
+		equipment,
+		image
+	) => {
+		const priority = bodyPart => {
 			switch (bodyPart) {
-				case 'chest':
-				case 'back':
-				case 'upper legs':
+				case "chest":
+				case "back":
+				case "upper legs":
 					return 1;
-				case 'shoulders':
-				case 'upper arms':
+				case "shoulders":
+				case "upper arms":
 					return 2;
-				case 'waist':
+				case "waist":
 					return 3;
 			}
 		};
@@ -143,9 +153,15 @@ module.exports = db => {
 		VALUES($1, $2, $3, $4, $5, $6)
 		RETURNING *
 		`;
-		return db.query(queryString, [workoutDayID, exercise, priority(bodyPart), bodyPart, equipment, image]);
+		return db.query(queryString, [
+			workoutDayID,
+			exercise,
+			priority(bodyPart),
+			bodyPart,
+			equipment,
+			image,
+		]);
 	};
-
 
 	return router;
 };

@@ -1,27 +1,30 @@
 import React from "react";
-import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import {
+	AddCircle,
+	FitnessCenter,
+	ArrowBackIosNew,
+	ArrowForwardIos,
+} from "@mui/icons-material/";
 import "./Navbar.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
+
 	return (
 		<nav className='navbar'>
 			<div className='container-fluid'>
 				<div className='nav-item logo '>
-					<FitnessCenterIcon className='logo-icon'></FitnessCenterIcon>
+					<FitnessCenter className='logo-icon'></FitnessCenter>
 					<span>FitForMe</span>
 				</div>
 				<span className='nav-item'>
-					<ArrowBackIosNewIcon className='logo-icon'></ArrowBackIosNewIcon>
+					<ArrowBackIosNew className='logo-icon'></ArrowBackIosNew>
 					Current Day
-					<ArrowForwardIosIcon className='logo-icon'></ArrowForwardIosIcon>
+					<ArrowForwardIos className='logo-icon'></ArrowForwardIos>
 				</span>
 				<div className='nav-item'>
 					<Link to='/new'>
-						<AddCircleIcon className='logo-icon'></AddCircleIcon>
+						<AddCircle className='logo-icon'></AddCircle>
 					</Link>
 				</div>
 			</div>
