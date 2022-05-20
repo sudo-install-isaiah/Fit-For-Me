@@ -60,7 +60,7 @@ function a11yProps(index) {
 }
 
 export default function OneDay() {
-  const { cookies, setTitle, title, setValue, value, choice, setChoice } =
+  const { cookies, setTitle, title, setValue, value, choice, setDay1 } =
     useContext(WorkoutContext);
   const [exercise, setExercise] = useState([]);
   const [equipment, setEquipment] = useState("");
@@ -73,7 +73,7 @@ export default function OneDay() {
       userId: Number(cookies.id),
       title: title,
       day: Number(value),
-      workouts: choice.group
+      workouts: choice.workout
     }
    
       axios.post("http://localhost:8080/workouts/new", options).then((res) => {
@@ -81,14 +81,14 @@ export default function OneDay() {
     });
     setTitle("");
     setValue("");
-    setChoice([]);
+    setDay1({});
     // navigate("/");
   };
 
-  const handleChanges = (event) => {
-    setEquipment(event.target.value);
-    console.log("!!!!", title, value, cookies, choice);
-  };
+  // const handleChanges = (event) => {
+  //   setEquipment(event.target.value);
+  //   console.log("!!!!", title, value, cookies, choice);
+  // };
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };

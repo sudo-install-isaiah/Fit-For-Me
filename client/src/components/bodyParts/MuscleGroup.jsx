@@ -119,7 +119,7 @@ export default function MuscleGroup(props) {
     const test1 = test[0];
     console.log(e.target.value);
     setChoice((prev) => {
-      return { ...prev, group: [...prev.group, test1] };
+      return { ...prev, workout: [...prev.workout, test1] };
     });
   };
 
@@ -127,7 +127,6 @@ export default function MuscleGroup(props) {
     setEquipment(event.target.value);
   };
 
-  console.log("choice", choice.group);
   useEffect(() => {
     setExercise(example);
   }, []);

@@ -11,8 +11,20 @@ export default function UserProvider(props) {
   const [exercise, setExercise] = useState([])
   const [equipment, setEquipment] = useState('')
   const [choice, setChoice] = useState({
-    name: props.muscle,
-    group: []
+    day: 1,
+    workout: []
+  });
+  const [day1, setDay1] = useState({
+    day: 1,
+    workout: []
+  });
+  const [day2, setDay2] = useState({
+    day: 2,
+    workout: []
+  });
+  const [day3, setDay3] = useState({
+    day: 3,
+    workout: []
   });
   //deletes cookie
   const logout = () => {
@@ -30,7 +42,13 @@ export default function UserProvider(props) {
     equipment,
     setEquipment,
     choice,
-    setChoice
+    setChoice,
+    day1,
+    setDay1,
+    day2,
+    setDay2,
+    day3,
+    setDay3
   };
 
   return ( <WorkoutContext.Provider value={userData}>{props.children}</WorkoutContext.Provider>)

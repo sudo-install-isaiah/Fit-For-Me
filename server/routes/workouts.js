@@ -38,7 +38,7 @@ module.exports = db => {
 
 	router.get("/days/current", (req, res) => {
 		console.log(req);
-		const user = Number(req.query.id)
+		const user = Number(req.query.id);
 		db.query(
 			`
 		SELECT 
@@ -66,18 +66,42 @@ module.exports = db => {
 		const day = workoutData.day;
 		addWorkout(userID, title)
 			.then(res => {
-				console.log('workout id', res.rows[0].id);
 				addWorkoutDays(res.rows[0].id, day)
 					.then(res => {
-						console.log('after add workoutdays id', res.rows[0].id);
 						workoutData.workouts.map(ex => {
 							addWorkoutDayExercises(res.rows[0].id, ex.name, ex.bodyPart, ex.equipment, ex.gifUrl);
 						});
 					});
+
 			});
 	});
 
 
+	router.post('/new/2', (req, res) => {
+		console.log('req', req.body);
+		const workoutData = req.body;
+		const userID = workoutData.userId;
+		const title = workoutData.title;
+		// const day = workoutData.days.map(day => day.day);
+		const workouts = workoutData.days.map(ex => ex.workouts.workout);
+		addWorkout(userID, title)
+			.then(res => {
+				console.log('workout id', res.rows[0].id);
+				workoutData.days.map(d => {
+					addWorkoutDays(res.rows[0].id, d.day)
+						.then(res => {
+							console.log('_______', workouts);
+							workouts.map(ex => {
+								ex.map(more => {
+									addWorkoutDayExercises(res.rows[0].id, more.name, more.bodyPart, more.equipment, more.gifUrl);
+								});
+							});
+
+						});
+				});
+
+			});
+	});
 	// adds user_id and title of workout to db
 	const addWorkout = (userID, title) => {
 
@@ -90,13 +114,13 @@ module.exports = db => {
 	};
 	//needs fixed for more than 1 day
 	const addWorkoutDays = (workoutID, day) => {
-	const isDay = (day) => {
-		if (day !== 1) {
-			return false
-		} else {
-			return true
-		}
-	}
+		const isDay = (day) => {
+			if (day !== 1) {
+				return false;
+			} else {
+				return true;
+			}
+		};
 		const queryString = `
 		INSERT INTO workout_days (workout_id, day, is_current)
 		VALUES($1, $2, $3)
