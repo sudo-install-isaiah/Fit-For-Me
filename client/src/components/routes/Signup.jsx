@@ -15,9 +15,8 @@ import { useContext, useEffect, useState } from "react";
 import { UsersContext } from "../providers/UserProvider";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import NavBar from "../Navbar";
-
-const theme = createTheme();
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import "./loginSignup.css";
 
 export default function Signup() {
 	const [name, setName] = useState("");
@@ -69,24 +68,14 @@ export default function Signup() {
 
 	return (
 		<>
-			{cookies.id && <Navigate to='/' replace={true} />}
-			<ThemeProvider theme={theme}>
-				<NavBar />
-				<Container component='main' maxWidth='xs'>
-					<CssBaseline />
-					<Box
-						sx={{
-							marginTop: 8,
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-						}}
-					>
-						<Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-							<LockOutlinedIcon />
-						</Avatar>
+			<main className='backdrop'>
+				{cookies.id && <Navigate to='/' replace={true} />}
+
+				<Container component='section' maxWidth='xs'>
+					<Box className='login-signup'>
 						<Typography component='h1' variant='h5'>
-							Sign up
+							<FitnessCenterIcon className='logo-icon' />
+							FitForMe
 						</Typography>
 						<Box component='form' onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
 							<TextField
@@ -133,10 +122,17 @@ export default function Signup() {
 							>
 								Sign Up
 							</Button>
+							<Grid container>
+								<Grid item>
+									<Link className='link' to='/Login' variant='body2'>
+										Login
+									</Link>
+								</Grid>
+							</Grid>
 						</Box>
 					</Box>
 				</Container>
-			</ThemeProvider>
+			</main>
 		</>
 	);
 }

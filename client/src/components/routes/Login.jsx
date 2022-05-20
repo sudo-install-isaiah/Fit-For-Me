@@ -15,6 +15,7 @@ import { useContext, useEffect, useState } from "react";
 import { UsersContext } from "../providers/UserProvider";
 import Navbar from "../Navbar";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import "./loginSignup.css";
 
 export default function User() {
 	const {
@@ -28,25 +29,14 @@ export default function User() {
 	} = useContext(UsersContext);
 
 	return (
-		<>
+		<main className='backdrop'>
 			{cookies.id && <Navigate to='/' replace={true} />}
-			<Container component='main' maxWidth='xs'>
-				<CssBaseline />
-				<Box
-					sx={{
-						marginTop: 8,
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}
-				>
-					<div className='logo'>
-						<FitnessCenterIcon className='logo-icon'></FitnessCenterIcon>
-						<span>FitForMe</span>
-					</div>
 
+			<Container component='section' maxWidth='xs'>
+				<Box className='login-signup'>
 					<Typography component='h1' variant='h5'>
-						Sign in
+						<FitnessCenterIcon className='logo-icon' />
+						FitForMe
 					</Typography>
 					<Box
 						component='form'
@@ -88,15 +78,14 @@ export default function User() {
 						</Button>
 						<Grid container>
 							<Grid item>
-								<Link to='/signup' variant='body2'>
+								<Link className='link' to='/signup' variant='body2'>
 									Signup
 								</Link>
-								<Link to='/'>sada</Link>
 							</Grid>
 						</Grid>
 					</Box>
 				</Box>
 			</Container>
-		</>
+		</main>
 	);
 }
