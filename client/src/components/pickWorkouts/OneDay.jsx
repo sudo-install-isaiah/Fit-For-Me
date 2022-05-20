@@ -68,30 +68,14 @@ export default function OneDay() {
   let navigate = useNavigate();
 
   const handleSubmit = () => {
+  navigate('/new/1/summary')
+  }
 
-    const options ={
-      userId: Number(cookies.id),
-      title: title,
-      day: Number(value),
-      workouts: choice.workout
-    }
-   
-      axios.post("http://localhost:8080/workouts/new", options).then((res) => {
-      console.log(res.data);
-    });
-    setTitle("");
-    setValue("");
-    setDay1({});
-    // navigate("/");
-  };
-
-  // const handleChanges = (event) => {
-  //   setEquipment(event.target.value);
-  //   console.log("!!!!", title, value, cookies, choice);
-  // };
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
   };
+
+  console.log(choice);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -105,83 +89,84 @@ export default function OneDay() {
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0}>
-       <Card>
-         <CardContent>
-           <Typography>Body Parts</Typography>
-          <AccordionDetails>
-            <List>
-              <Divider />
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  {" "}
-                  <Typography component={"span"} align="center">
-                    Chest
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <MuscleGroup muscle={"chest"} equipment={equipment} />
-                </AccordionDetails>
-              </Accordion>
-              <Divider />
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  {" "}
-                  <Typography component={"span"} align="center">
-                    Legs
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <MuscleGroup muscle={"upper legs"} equipment={equipment} />
-                </AccordionDetails>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  {" "}
-                  
-                  <Typography component={"span"} align="center">
-                    Arms
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <MuscleGroup muscle={"upper arms"} equipment={equipment} />
-                </AccordionDetails>
-              </Accordion>
-              <Divider />
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  {" "}
-                  
-                  <Typography component={"span"} align="center">
-                    Core
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <MuscleGroup muscle={"waist"} equipment={equipment} />
-                </AccordionDetails>
-              </Accordion>
-              <Divider />
-            </List>
-          </AccordionDetails>
+        <Card>
+          <CardContent>
+            <Typography>Body Parts</Typography>
+            <AccordionDetails>
+              <List>
+                <Divider />
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    {" "}
+                    <Typography component={"span"} align="center">
+                      Chest
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <MuscleGroup muscle={"chest"} equipment={equipment} />
+                  </AccordionDetails>
+                </Accordion>
+                <Divider />
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    {" "}
+                    <Typography component={"span"} align="center">
+                      Legs
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <MuscleGroup muscle={"upper legs"} equipment={equipment} />
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    {" "}
+                    <Typography component={"span"} align="center">
+                      Arms
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <MuscleGroup muscle={"upper arms"} equipment={equipment} />
+                  </AccordionDetails>
+                </Accordion>
+                <Divider />
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    {" "}
+                    <Typography component={"span"} align="center">
+                      Core
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <MuscleGroup muscle={"waist"} equipment={equipment} />
+                  </AccordionDetails>
+                </Accordion>
+                <Divider />
+              </List>
+            </AccordionDetails>
           </CardContent>
-          </Card>
+        </Card>
       </TabPanel>
-      <Button onClick={handleSubmit} variant='contained'> Submit</Button>
+      <Button onClick={handleSubmit} variant="contained">
+        {" "}
+        Submit
+      </Button>
     </Box>
   );
 }

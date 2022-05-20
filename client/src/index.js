@@ -17,6 +17,9 @@ import OneDay from './components/pickWorkouts/OneDay';
 import TwoDay from "./components/pickWorkouts/TwoDay";
 import WorkoutFormProvider from './components/providers/WorkoutFormProvider'
 import ThreeDay from './components/pickWorkouts/ThreeDay'
+import Summary3 from "./components/summaries/Summary3";
+import Summary1 from "./components/summaries/Summary1";
+import Summary2 from "./components/summaries/Summary2";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <CookiesProvider>
@@ -31,6 +34,9 @@ root.render(
                     <Route path='new/1' element={<OneDay/>}/>
                     <Route path='new/2' element={<TwoDay/>}/>
                     <Route path='new/3' element={<ThreeDay/>}/>
+                    <Route path='new/1/summary' element={<Summary1/>}/>
+                    <Route path='new/2/summary' element={<Summary2/>}/>
+                    <Route path='new/3/summary' element={<Summary3/>}/>
                 </Routes>
             </BrowserRouter>
             </WorkoutFormProvider>

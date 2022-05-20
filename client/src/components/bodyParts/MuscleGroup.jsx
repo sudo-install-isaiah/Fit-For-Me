@@ -142,6 +142,7 @@ export default function MuscleGroup(props) {
     return (
       <>
         <WorkoutListItem
+        key={index}
           name={ex.name}
           image={ex.gifUrl}
           priority={1}

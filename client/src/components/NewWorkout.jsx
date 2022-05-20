@@ -14,6 +14,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { WorkoutContext } from "./providers/WorkoutFormProvider";
+import { Typography } from "@mui/material";
 
 // link to at the bottom needs changed for how many days are choosen 
 export default function NewWorkout() {
@@ -67,7 +68,7 @@ export default function NewWorkout() {
             variant="standard"
             label="Workout Name!"
           />
-          <p>How many times do you want to work out a week?</p>
+          <Typography>How many times do you want to work out a week?</Typography>
           <Select
             value={value}
             labelId="Select Number of Days"
@@ -79,7 +80,7 @@ export default function NewWorkout() {
             <MenuItem value="3">3</MenuItem>
           </Select>
           <br />
-          {value && <p>Preview of workout plan.</p>}
+          {value && <Typography>Preview of workout plan.</Typography>}
           <Grid container align="center">
             {auth1 && <Template1 />}
           </Grid>

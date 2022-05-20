@@ -23,6 +23,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { Button } from "@mui/material";
+import {Link, useNavigate} from 'react-router-dom'
 ////testing can potentially delete everything here /////////////
 
 function TabPanel(props) {
@@ -68,7 +69,7 @@ export default function TwoDay() {
     setValue,
   } = useContext(WorkoutContext);
   const [toggleTab, setToggleTab] = useState(true);
-
+  let navigate = useNavigate()
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -82,34 +83,9 @@ export default function TwoDay() {
     if (selectedTab === 1) {
       setDay2({ day: 2, workouts: choice });
       setChoice({ day: 3, workout: [] });
+      navigate('/new/2/summary')
     }
   };
-
-  const finalSubmit= () => {
-    const options = {
-      userId: Number(cookies.id),
-      title: title,
-      days: [day1, day2],
-    };
-
-    axios.post("http://localhost:8080/workouts/new/2", options).then((res) => {
-      console.log(res.data);
-    });
-    setTitle("");
-    setValue("");
-    setChoice({
-      day: 1,
-      workout: [],
-    });
-    setDay1({
-      day: 1,
-      workout: [],
-    });
-    setDay2({
-      day: 2,
-      workout: [],
-    });
-  }
 
 
   return (
@@ -246,13 +222,6 @@ export default function TwoDay() {
             </AccordionDetails>
             <Button variant="contained" onClick={toggleTabs}>
               Press to me to Lock in Choices
-            </Button>
-            <Divider/>
-            <Divider/>
-            <Divider/>
-            <Divider/>
-            <Button variant="contained" onClick={finalSubmit}>
-              To finish selecting press me!
             </Button>
           </CardContent>
         </Card>

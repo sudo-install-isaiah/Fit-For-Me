@@ -23,6 +23,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 ////testing can potentially delete everything here /////////////
 
 function TabPanel(props) {
@@ -72,6 +73,7 @@ export default function ThreeDay() {
     setValue,
   } = useContext(WorkoutContext);
   const [toggleTab, setToggleTab] = useState(true);
+let navigate = useNavigate()
 
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
@@ -90,37 +92,10 @@ export default function ThreeDay() {
     if (selectedTab === 2) {
       setDay3({day: 3, workouts: choice })
       setChoice({day: 1, workout: []})
+      navigate('/new/3/summary')
     }
   };
-const finalSubmits= () => {
-    const options = {
-      userId: Number(cookies.id),
-      title: title,
-      days: [day1, day2, day3],
-    };
 
-    axios.post("http://localhost:8080/workouts/new/2", options).then((res) => {
-      console.log(res.data);
-    });
-    setTitle("");
-    setValue("");
-    setChoice({
-      day: 1,
-      workout: [],
-    });
-    setDay1({
-      day: 1,
-      workout: [],
-    });
-    setDay2({
-      day: 2,
-      workout: [],
-    });
-    setDay3({
-      day: 3,
-      workout: [],
-    });
-  }
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -272,9 +247,7 @@ const finalSubmits= () => {
           <Button variant="contained" onClick={toggleTabs}>
               Please Submit to Continue
             </Button>
-            <Button variant="contained" onClick={finalSubmits}>
-              To finish selecting press me!
-            </Button>
+            
           </CardContent>
         </Card>
       </TabPanel>
