@@ -21,9 +21,18 @@ button.MuiButtonBase-root {
 	background-color: #cca43b;
 }
 
+button.MuiButtonBase-root:hover {
+	color: #cca43b;
+	background-color: #363636;
+}
+
 .link {
 	color: #cca43b;
 	text-decoration: none;
+}
+
+.link:hover {
+	color: white;
 }
 
 input.MuiOutlinedInput-input {
@@ -37,7 +46,6 @@ fieldset.MuiOutlinedInput-notchedOutline {
 label.MuiFormLabel-root {
 	color: white !important;
 }
-
 
 fieldset.MuiOutlinedInput-notchedOutline.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
 	border-color: white !important;
