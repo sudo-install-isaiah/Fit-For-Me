@@ -4,13 +4,13 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signup from "./components/routes/Signup";
-import Login from "./components/routes/Login";
+import Signup from "./components/UserRoutes/Signup";
+import Login from "./components/UserRoutes/Login";
 import { CookiesProvider } from "react-cookie";
 import UserProvider from "./components/providers/UserProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import NewWorkout from "./components/NewWorkout";
+import NewWorkout from "./components/NewWorkout/";
 import OneDay from './components/pickWorkouts/OneDay';
 import TwoDay from "./components/pickWorkouts/TwoDay";
 import WorkoutFormProvider from './components/providers/WorkoutFormProvider'

@@ -35,5 +35,11 @@ fieldset.MuiOutlinedInput-notchedOutline {
 }
 
 label.MuiFormLabel-root {
-	color: white;
+	color: white !important;
+}
+
+
+fieldset.MuiOutlinedInput-notchedOutline.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+	border-color: white !important;
+	border-width: 2px;
 }

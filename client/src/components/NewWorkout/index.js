@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import Template1 from "./Templates/Template1";
-import Template2 from "./Templates/Template 2";
-import Template3 from "./Templates/Template3";
+import Template1 from "./Template1";
+import Template2 from "./Template 2";
+import Template3 from "./Template3";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -12,7 +12,7 @@ import NavBarCreate from "./NavBarCreate";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { WorkoutContext } from "./providers/WorkoutFormProvider";
+import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import Card from "@mui/material/Card";
 
 // link to at the bottom needs changed for how many days are choosen
@@ -73,10 +73,9 @@ export default function NewWorkout() {
 							labelId='Select Number of Days'
 							onChange={handleChange}
 						>
-							<MenuItem value=''>Empty</MenuItem>
-							<MenuItem value='one'>1</MenuItem>
-							<MenuItem value='two'>2</MenuItem>
-							<MenuItem value='three'>3</MenuItem>
+							<MenuItem value='1'>1</MenuItem>
+							<MenuItem value='2'>2</MenuItem>
+							<MenuItem value='3'>3</MenuItem>
 						</Select>
 						<br />
 						{value && <p>Preview of workout plan.</p>}
@@ -89,7 +88,7 @@ export default function NewWorkout() {
 						<Grid container align='center' margin={2}>
 							{auth3 && <Template3 />}
 						</Grid>
-						<Link to='/test'>
+						<Link to={value}>
 							<Button variant='contained'>Submit</Button>
 						</Link>
 					</FormControl>
