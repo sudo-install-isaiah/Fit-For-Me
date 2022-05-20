@@ -1,0 +1,39 @@
+main.backdrop {
+	display: flex;
+	background-image: url("/public/images/background.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+div.login-signup {
+	margin-top: 15rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #242f409e;
+	border-radius: 10px;
+	color: white;
+}
+
+button.MuiButtonBase-root {
+	background-color: #cca43b;
+}
+
+.link {
+	color: #cca43b;
+	text-decoration: none;
+}
+
+input.MuiOutlinedInput-input {
+	color: white;
+}
+
+fieldset.MuiOutlinedInput-notchedOutline {
+	border-color: white;
+}
+
+label.MuiFormLabel-root {
+	color: white;
+}
