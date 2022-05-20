@@ -31,10 +31,7 @@ module.exports = db => {
 
 	router.post("/create", (req, res) => {
 		console.log("req", req.body);
-		const user = req.body;
-		const name = user.name;
-		const password = user.password;
-		const email = user.email;
+		const { name, password, email } = req.body;
 		if (email === "" || password === "" || name === "") {
 			return res.status(403).send("Invalid User");
 		}
@@ -46,10 +43,7 @@ module.exports = db => {
 				res.status(400).send("Email already exists");
 			} else {
 				addUser(name, email, hashedPassword).then(result => {
-					if (!result) {
-						res.send({ error: "error" });
-						return;
-					}
+					res.json(result.rows[0]);
 				});
 			}
 		});
