@@ -23,6 +23,7 @@ button.MuiButtonBase-root {
 
 .link {
 	color: #cca43b;
+	text-decoration: none;
 }
 
 input.MuiOutlinedInput-input {
