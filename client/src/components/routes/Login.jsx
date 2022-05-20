@@ -28,7 +28,7 @@ export default function User() {
 	} = useContext(UsersContext);
 
 	return (
-		<Container r component='main' maxWidth='xs'>
+		<Container component='main' maxWidth='xs'>
 			<CssBaseline />
 			<Box
 				sx={{
@@ -38,7 +38,7 @@ export default function User() {
 					alignItems: "center",
 				}}
 			>
-				<div className='logo '>
+				<div className='logo'>
 					<FitnessCenterIcon className='logo-icon'></FitnessCenterIcon>
 					<span>FitForMe</span>
 				</div>

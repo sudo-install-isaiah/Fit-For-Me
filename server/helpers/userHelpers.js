@@ -10,6 +10,7 @@ const authenticate = (email, password, cb) => {
 			if (cb(password, res.rows[0].password)) {
 				return res.rows[0];
 			}
+			return false;
 		})
 		.catch(err => console.log(err.message));
 };
