@@ -127,16 +127,16 @@ export default function MuscleGroup(props) {
     setEquipment(event.target.value);
   };
 
-  useEffect(() => {
-    setExercise(example);
-  }, []);
   // useEffect(() => {
-  //     axios
-  //       .get(`http://localhost:8080/api/${bodyPart}/${equipment}`)
-  //       .then((res) => {
-  //         setExercise(res.data);
-  //       });
-  //   }, []);
+  //   setExercise(example);
+  // }, []);
+  useEffect(() => {
+      axios
+        .get(`http://localhost:8080/api/${bodyPart}/${equipment}`)
+        .then((res) => {
+          setExercise(res.data);
+        });
+    }, [equipment]);
 
   const data = exercise.map((ex, index) => {
     return (

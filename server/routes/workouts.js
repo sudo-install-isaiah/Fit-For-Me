@@ -82,15 +82,12 @@ module.exports = db => {
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
-		// const day = workoutData.days.map(day => day.day);
 		const workouts = workoutData.days.map(ex => ex.workouts.workout);
 		addWorkout(userID, title)
 			.then(res => {
-				console.log('workout id', res.rows[0].id);
 				workoutData.days.map(d => {
 					addWorkoutDays(res.rows[0].id, d.day)
 						.then(res => {
-							console.log('_______', workouts);
 							workouts.map(ex => {
 								ex.map(more => {
 									addWorkoutDayExercises(res.rows[0].id, more.name, more.bodyPart, more.equipment, more.gifUrl);
