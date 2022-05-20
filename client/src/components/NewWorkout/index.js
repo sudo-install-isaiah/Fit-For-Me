@@ -14,7 +14,9 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import Card from "@mui/material/Card";
-
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import "./index.css";
 // link to at the bottom needs changed for how many days are choosen
 export default function NewWorkout() {
 	const [auth1, setAuth1] = useState(false);
@@ -57,43 +59,60 @@ export default function NewWorkout() {
 
 	return (
 		<>
-			<Box sx={{ minWidth: 120 }}>
+			<main>
 				<NavBarCreate />
-				<Grid align='center' margin={1}>
-					<FormControl>
-						<TextField
-							onChange={e => setTitle(e.target.value)}
-							value={title}
-							variant='standard'
-							label='Workout Name!'
-						/>
-						<p>How many times do you want to work out a week?</p>
-						<Select
-							value={value}
-							labelId='Select Number of Days'
-							onChange={handleChange}
-						>
-							<MenuItem value='1'>1</MenuItem>
-							<MenuItem value='2'>2</MenuItem>
-							<MenuItem value='3'>3</MenuItem>
-						</Select>
-						<br />
-						{value && <p>Preview of workout plan.</p>}
-						<Grid container align='center'>
-							{auth1 && <Template1 />}
-						</Grid>
-						<Grid container align='center'>
-							{auth2 && <Template2 />}
-						</Grid>
-						<Grid container align='center' margin={2}>
-							{auth3 && <Template3 />}
-						</Grid>
-						<Link to={value}>
-							<Button variant='contained'>Submit</Button>
-						</Link>
-					</FormControl>
-				</Grid>
-			</Box>
+				<Container component='section' maxWidth='md'>
+					<Box className='create-form'>
+						<Typography component='p'>
+							Please choose a name for your workout and the amount of days a
+							week you can train
+						</Typography>
+
+						<FormControl>
+							<TextField
+								margin='normal'
+								required
+								fullWidth
+								id='workout'
+								label='Workout Name'
+								value={title}
+								onChange={e => setTitle(e.target.value)}
+								name='workout'
+								autoFocus
+							/>
+						</FormControl>
+
+						<FormControl sx={{ m: 1, minWidth: 120 }}>
+							<InputLabel id='select-days-label'>Days</InputLabel>
+							<Select
+								label='Days'
+								labelId='select-days-label'
+								value={value}
+								onChange={handleChange}
+							>
+								<MenuItem value='1'>One day</MenuItem>
+								<MenuItem value='2'>Two days</MenuItem>
+								<MenuItem value='3'>Three days</MenuItem>
+							</Select>
+						</FormControl>
+						<Box>
+							{value && <p>Preview of workout plan.</p>}
+							<Grid container align='center'>
+								{auth1 && <Template1 />}
+							</Grid>
+							<Grid container align='center'>
+								{auth2 && <Template2 />}
+							</Grid>
+							<Grid container align='center' margin={2}>
+								{auth3 && <Template3 />}
+							</Grid>
+							<Link className='link' to={value}>
+								<Button variant='contained'>Submit</Button>
+							</Link>
+						</Box>
+					</Box>
+				</Container>
+			</main>
 		</>
 	);
 }

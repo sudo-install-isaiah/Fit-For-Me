@@ -1,0 +1,16 @@
+div.create-form {
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #242f409e;
+	border-radius: 10px;
+	width: 100%;
+	color: white;
+}
+
+p.MuiTypography-root {
+	color: inherit;
+	text-align: center;
+  margin: 20px;
+}

@@ -13,3 +13,10 @@ p.MuiTypography-root {
 	color: #363636;
 }
 
+/* div.MuiFormControl-root {
+	align-items: center;
+} */
+
+div.MuiSelect-select {
+	color: white;
+}
