@@ -6,14 +6,14 @@ import Workout from "./Workout";
 import { UsersContext } from "./providers/UserProvider";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Navigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import React from "react";
 
 function App() {
 	const [workout, setWorkout] = useState([]);
 	const [spinner, setSpinner] = useState(true);
 	const { cookies, currentUser, logout } = useContext(UsersContext);
-
+	const title = workout.map(item => item.name)
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8080/workouts/days/current`, {
@@ -38,7 +38,7 @@ function App() {
 			});
 			window.location.reload(true)
 	};
-console.log('hello', currentUser);
+console.log('hello', title[0]);
 	return (
 		<>
 			{!cookies.id && <Navigate to='/login' replace={true} />}
@@ -50,7 +50,7 @@ console.log('hello', currentUser);
 						<CircularProgress sx={{ color: "#CCA43B" }} />
 					</div>
 				)}
-				{spinner === false &&<Workout workout={workout}></Workout>}
+				{spinner === false &&<> <Typography variant="h2">{title[0]}</Typography><Workout workout={workout}></Workout></>}
 				{workout.length !== 0 && <Button variant="contained" onClick={handleClick}>Workout Complete</Button>}
 			</div>
 		</>
