@@ -17,7 +17,7 @@ import { Divider } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import WorkoutList from "../Workout/WorkoutList";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
-import MuscleGroup from "../bodyParts/MuscleGroup";
+import MuscleGroup from "./MuscleGroup";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import PropTypes from "prop-types";

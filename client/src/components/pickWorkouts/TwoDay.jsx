@@ -18,7 +18,7 @@ import List from "@mui/material/List";
 import { ListItemText } from "@mui/material";
 import { Divider } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MuscleGroup from "../bodyParts/MuscleGroup";
+import MuscleGroup from "./MuscleGroup";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
@@ -27,29 +27,29 @@ import {Link, useNavigate} from 'react-router-dom'
 ////testing can potentially delete everything here /////////////
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+	const { children, value, index, ...other } = props;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+	return (
+		<div
+			role='tabpanel'
+			hidden={value !== index}
+			id={`simple-tabpanel-${index}`}
+			aria-labelledby={`simple-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box sx={{ p: 3 }}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
 }
 
 TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
+	children: PropTypes.node,
+	index: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired,
 };
 
 export default function TwoDay() {

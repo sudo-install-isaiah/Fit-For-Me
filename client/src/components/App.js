@@ -32,7 +32,7 @@ function App() {
 				<br />
 				{spinner === true && (
 					<div style={{ marginTop: "20rem" }}>
-						<CircularProgress />
+						<CircularProgress sx={{ color: "#CCA43B" }} />
 					</div>
 				)}
 				{spinner === false && <Workout workout={workout}></Workout>}

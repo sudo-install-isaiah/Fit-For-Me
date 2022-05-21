@@ -58,6 +58,8 @@ module.exports = db => {
 		});
 	});
 
+
+
 	router.post("/new", (req, res) => {
 		console.log("req", req.body);
 		const workoutData = req.body;
@@ -81,29 +83,31 @@ module.exports = db => {
 		});
 	});
 
+	// TODO refactor into one route
 
-	router.post('/new/2', (req, res) => {
-		console.log('req', req.body);
+	router.post("/new/2", (req, res) => {
+		console.log("req", req.body);
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
-		addWorkout(userID, title)
-		.then(res => { 
-				workoutData.days.map(d => {
-					addWorkoutDays(res.rows[0].id, d.day)
-					.then(res => {
-						  d.workouts.workout.map(ex => {
-								console.log('ex', ex);
-									addWorkoutDayExercises(res.rows[0].id, ex.name, ex.bodyPart, ex.equipment, ex.gifUrl);
-								});
-							});
-
-						});
+		addWorkout(userID, title).then(res => {
+			workoutData.days.map(d => {
+				addWorkoutDays(res.rows[0].id, d.day).then(res => {
+					d.workouts.workout.map(ex => {
+						console.log("ex", ex);
+						addWorkoutDayExercises(
+							res.rows[0].id,
+							ex.name,
+							ex.bodyPart,
+							ex.equipment,
+							ex.gifUrl
+						);
+					});
 				});
-
 			});
-
-			// adds user_id and title of workout to db
+		});
+	});
+	// adds user_id and title of workout to db
 	const addWorkout = (userID, title) => {
 		const queryString = `
 		INSERT INTO workouts (user_id, name, is_current)

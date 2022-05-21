@@ -1,0 +1,45 @@
+div.create-form {
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #242f40;
+	border-radius: 10px;
+	width: 100%;
+	color: white;
+}
+
+p.MuiTypography-root {
+	color: inherit;
+	text-align: center;
+	margin: 15px;
+}
+
+div.template-view {
+	display: flex;
+	flex-direction: row;
+	border-radius: 10px;
+	width: 100%;
+	color: white;
+	justify-content: space-evenly;
+	background-color: #242f40;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+div.MuiListItemText-root {
+	width: 150px;
+}
+
+ul.template-view {
+	margin: 1rem;
+	color: #363636;
+	text-align: center;
+}
+
+li.template-view {
+	background-color: #e5e5e5;
+	border-radius: 10px;
+	padding: 1px;
+	margin: 5px;
+}
