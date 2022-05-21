@@ -54,8 +54,8 @@ export default function TemplatePreview(props) {
 			);
 		}
 		return result;
-	};
-	console.log(`test ${template}`);
+  };
+  
 	return (
 		<>
 			<Box className='template-view'>

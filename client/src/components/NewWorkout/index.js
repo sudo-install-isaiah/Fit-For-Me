@@ -17,7 +17,7 @@ import TemplatePreview from "./TemplatePreview";
 import "./index.css";
 
 export default function NewWorkout() {
-	const { cookies, title, setTitle, value, setValue } =
+	const {  title, setTitle, value, setValue } =
 		useContext(WorkoutContext);
 
 	const handleChange = event => {
@@ -54,7 +54,7 @@ export default function NewWorkout() {
 								label='Days'
 								labelId='select-days-label'
 								value={value}
-								onChange={handleChange}
+								onChange={e=> setValue(e.target.value)}
 							>
 								<MenuItem value='1'>One day</MenuItem>
 								<MenuItem value='2'>Two days</MenuItem>
