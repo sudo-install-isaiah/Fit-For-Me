@@ -102,7 +102,8 @@ module.exports = db => {
 				});
 
 			});
-	// adds user_id and title of workout to db
+
+			// adds user_id and title of workout to db
 	const addWorkout = (userID, title) => {
 		const queryString = `
 		INSERT INTO workouts (user_id, name, is_current)
@@ -111,7 +112,7 @@ module.exports = db => {
 		`;
 		return db.query(queryString, [userID, title, true]);
 	};
-	//needs fixed for more than 1 day
+	
 	const addWorkoutDays = (workoutID, day) => {
 		const isDay = day => {
 			if (day !== 1) {
