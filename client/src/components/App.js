@@ -12,7 +12,7 @@ import React from "react";
 function App() {
 	const [workout, setWorkout] = useState([]);
 	const [spinner, setSpinner] = useState(true);
-	const { cookies } = useContext(UsersContext);
+	const { cookies, currentUser, logout } = useContext(UsersContext);
 
 	useEffect(() => {
 		axios
@@ -38,7 +38,7 @@ function App() {
 			});
 			window.location.reload(true)
 	};
-
+console.log('hello', currentUser);
 	return (
 		<>
 			{!cookies.id && <Navigate to='/login' replace={true} />}

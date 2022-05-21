@@ -1,33 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
-	AddCircle,
-	FitnessCenter,
-	ArrowBackIosNew,
-	ArrowForwardIos,
+  AddCircle,
+  FitnessCenter,
+  ArrowBackIosNew,
+  ArrowForwardIos,
 } from "@mui/icons-material/";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { UsersContext } from "./providers/UserProvider";
+import { Button } from "@mui/material";
 
 export default function Navbar(props) {
+  const { logout } = useContext(UsersContext);
 
-	return (
-		<nav className='navbar'>
-			<div className='container-fluid'>
-				<div className='nav-item logo '>
-					<FitnessCenter className='logo-icon'></FitnessCenter>
-					<span>FitForMe</span>
-				</div>
-				<span className='nav-item'>
-					<ArrowBackIosNew className='logo-icon'></ArrowBackIosNew>
-					Current Day
-					<ArrowForwardIos className='logo-icon'></ArrowForwardIos>
-				</span>
-				<div className='nav-item'>
-					<Link to='/new'>
-						<AddCircle className='logo-icon'></AddCircle>
-					</Link>
-				</div>
-			</div>
-		</nav>
-	);
+  return (
+    <nav className="navbar">
+      <div className="container-fluid">
+        <div className="nav-item logo ">
+          <FitnessCenter className="logo-icon"></FitnessCenter>
+          <span>FitForMe</span>
+        </div>
+        <span className="nav-item">
+          <ArrowBackIosNew className="logo-icon"></ArrowBackIosNew>
+          Current Day
+          <ArrowForwardIos className="logo-icon"></ArrowForwardIos>
+        </span>
+        <div className="nav-item">
+          <Link to="/new">
+            <AddCircle className="logo-icon-circle"></AddCircle>
+          </Link>
+          <Button margin size="small" variant="contained">Logout</Button>
+        </div>
+      </div>
+    </nav>
+  );
 }

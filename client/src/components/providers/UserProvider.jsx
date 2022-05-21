@@ -7,7 +7,7 @@ export const UsersContext = createContext();
 
 export default function UserProvider(props) {
 	// const [allUsers, setAllUsers] = useState([]);
-	const [cookies, setCookie] = useCookies(null);
+	const [cookies, setCookie, removeCookie] = useCookies(null);
 	const [currentUser, setCurrentUser] = useState({});
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -22,10 +22,6 @@ export default function UserProvider(props) {
 		setPassword(e.target.value);
 	};
 
-	//sets cookie for signed in user
-	// useEffect(() => {
-	// 	setCookie("id", currentUser.id, { path: "/" });
-	// }, [currentUser]);
 
 	// sets current user and resets email/password state to undefined
 	const handleSubmit = e => {
@@ -38,6 +34,10 @@ export default function UserProvider(props) {
 				setPassword("");
 			});
 	};
+	  //deletes cookie
+		const logout = () => {
+			removeCookie("id", {path: '/'});
+		};
 
 	const userData = {
 		cookies,
@@ -48,6 +48,7 @@ export default function UserProvider(props) {
 		currentUser,
 		setCurrentUser,
 		handleSubmit,
+		logout
 	};
 
 	return (

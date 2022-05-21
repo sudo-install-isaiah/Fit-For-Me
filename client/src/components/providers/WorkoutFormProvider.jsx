@@ -26,10 +26,7 @@ export default function UserProvider(props) {
     day: 3,
     workout: []
   });
-  //deletes cookie
-  const logout = () => {
-    removeCookie("id");
-  };
+
   
   const userData = {
     cookies,

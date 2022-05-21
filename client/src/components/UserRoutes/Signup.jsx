@@ -34,18 +34,9 @@ export default function Signup() {
 	const passwordSet = e => {
 		setPassword(e.target.value);
 	};
-	// for testing purposes
-	// useEffect(() => {
-	//   axios.get("http://localhost:8080/users").then((res) => {
-	//     console.log(res);
-	//   });
-	// }, []);
-
-	// let navigate = useNavigate();
 
 	const onSubmit = e => {
 		e.preventDefault();
-		// setCookie('Email', email, {path: '/'})
 		const userObject = {
 			name: name,
 			email: email,
