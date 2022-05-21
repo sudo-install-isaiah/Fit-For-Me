@@ -51,7 +51,7 @@ function App() {
 					</div>
 				)}
 				{spinner === false &&<Workout workout={workout}></Workout>}
-				{workout.length !== 0 && <Button onClick={handleClick}>Workout Complete</Button>}
+				{workout.length !== 0 && <Button variant="contained" onClick={handleClick}>Workout Complete</Button>}
 			</div>
 		</>
 	);
