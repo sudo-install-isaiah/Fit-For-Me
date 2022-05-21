@@ -7,7 +7,6 @@ import Empty from "./Empty";
 
 export default function Workout(props) {
 	const exercises = props.workout;
-
 	
 	const groupedExercises = exercises.reduce((obj, exercise) => {
 		if (!obj[exercise.type]) {

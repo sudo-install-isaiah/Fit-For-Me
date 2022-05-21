@@ -29,7 +29,7 @@ export default function Navbar(props) {
           <Link to="/new">
             <AddCircle className="logo-icon-circle"></AddCircle>
           </Link>
-          <Button margin size="small" variant="contained">Logout</Button>
+          <Button size="small" variant="contained">Logout</Button>
         </div>
       </div>
     </nav>

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import WorkoutListItem from "./WorkoutListItem";
+import { Typography } from "@mui/material";
 
 export default function WorkoutList(props) {
+	const title = props.group.map(item => item.name)
 	const exerciseItem = props.group.map((item, index) => {
 		return (
 			<WorkoutListItem
@@ -16,6 +18,8 @@ export default function WorkoutList(props) {
 	});
   
 	return (
+	<>
+	<Typography variant='h3'>{title}</Typography>
 		<List
 			sx={{ width: "100%", maxWidth: "700px", bgcolor: "inherit" }}
 			component='section'
@@ -32,5 +36,6 @@ export default function WorkoutList(props) {
 		>
 			{exerciseItem}
 		</List>
+		</>
 	);
 }
