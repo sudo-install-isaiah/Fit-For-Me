@@ -16,7 +16,7 @@ export default function Template1() {
       <List>
         <Typography>Day 1</Typography>
         <Divider />
-        <ListItemText primary="Chest" />
+        <ListItemText primary="Chest " />
         <Divider />
         <ListItemText primary="Chest" />
         <Divider />
