@@ -6,6 +6,8 @@ import Workout from "./Workout";
 import { UsersContext } from "./providers/UserProvider";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Navigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import React from "react";
 
 function App() {
 	const [workout, setWorkout] = useState([]);
@@ -18,11 +20,24 @@ function App() {
 				params: { id: cookies.id },
 			})
 			.then(res => {
-				console.log(res.data);
+				console.log('res data', res.data);
 				setWorkout(res.data);
 				setSpinner(false);
 			});
 	}, [cookies]);
+
+	console.log('workout', workout);
+
+	const handleClick = () => {
+		const options = {
+			isCurrent: false,
+			userId: Number(cookies.id),
+		};
+		axios.put('http://localhost:8080/workouts/iscurrent', options)
+			.then(res => {
+			});
+			window.location.reload(true)
+	};
 
 	return (
 		<>
@@ -36,6 +51,7 @@ function App() {
 					</div>
 				)}
 				{spinner === false && <Workout workout={workout}></Workout>}
+				<Button onClick={handleClick}>Workout Complete</Button>
 			</div>
 		</>
 	);

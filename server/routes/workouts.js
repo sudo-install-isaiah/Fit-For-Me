@@ -11,7 +11,6 @@ module.exports = db => {
 			ORDER BY workouts.id
 		`
 		).then(response => {
-			console.log(response.rows);
 			res.json(response.rows);
 		});
 	});
@@ -31,13 +30,11 @@ module.exports = db => {
 		ORDER BY workout_days.day, workout_day_exercises.priority, workout_day_exercises.type;
 		`
 		).then(response => {
-			console.log(response.rows);
 			res.json(response.rows);
 		});
 	});
 
 	router.get("/days/current", (req, res) => {
-		console.log(req);
 		const user = Number(req.query.id);
 		db.query(
 			`
@@ -53,23 +50,92 @@ module.exports = db => {
 
 		`
 		).then(response => {
-			console.log(response.rows);
 			res.json(response.rows);
 		});
 	});
 
+	const currentWorkout = (user) => {
+		const queryString = `
+	SELECT 
+	workout_days.id, workout_days.workout_id
+	FROM workouts
+	JOIN workout_days ON workout_days.workout_id = workouts.id
+	WHERE workouts.user_id = $1 
+	AND workout_days.is_current = true;
+	`;
+		return db.query(queryString, [user]);
+	};
 
+	const workoutIsCurrent = (isCurrent, workoutId, user) => {
+		const queryString = `
+		UPDATE workouts
+		SET is_current = $1
+		FROM workout_days
+		WHERE workout_days.id = $2
+		AND user_id = $3
+		RETURNING *;
+		`;
+		return db.query(queryString, [isCurrent, workoutId, user]);
+	};
+
+
+	const workoutDaysIsCurrent = (isCurrent, workoutId) => {
+		const queryString = `
+		UPDATE workout_days
+		SET is_current = $1
+		FROM workouts
+		WHERE workout_days.id = $2
+		RETURNING *;
+		`;
+		return db.query(queryString, [isCurrent, workoutId]);
+	};
+
+	const checkForAnotherDay = (workoutId, day) => {
+		const queryString = `
+		SELECT 
+		workout_days.day, workout_days.id
+		FROM workouts
+		JOIN workout_days ON workout_days.workout_id = workouts.id
+		WHERE workout_days.workout_id = $1 
+		AND workout_days.day = $2
+		AND workout_days.is_current = false;
+		`;
+		return db.query(queryString, [workoutId, day]);
+	};
+
+	router.put('/iscurrent', (req, res) => {
+		const body = req.body;
+		const isCurrent = body.isCurrent;
+		const user = body.userId;
+		currentWorkout(user)
+			.then(result => {
+				const workoutIdRef = result.rows[0].workout_id;
+				const workoutDaysId = result.rows[0].id;
+				workoutDaysIsCurrent(isCurrent, workoutDaysId)
+					.then(result => {
+						const day = result.rows[0].day;
+						const add = day + 1;
+						checkForAnotherDay(workoutIdRef, add)
+							.then(result => {
+								if (!result.rows[0]) {
+									workoutIsCurrent(false, workoutIdRef, user);
+								} else {
+									const newWorkoutDayId = result.rows[0].id;
+									workoutDaysIsCurrent(true, newWorkoutDayId);
+								}
+							});
+					});
+			});
+
+	});
 
 	router.post("/new", (req, res) => {
-		console.log("req", req.body);
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
 		const day = workoutData.day;
 		addWorkout(userID, title).then(res => {
-			console.log("workout id", res.rows[0].id);
 			addWorkoutDays(res.rows[0].id, day).then(res => {
-				console.log("after add workoutdays id", res.rows[0].id);
 				workoutData.workouts.map(ex => {
 					addWorkoutDayExercises(
 						res.rows[0].id,
@@ -86,7 +152,6 @@ module.exports = db => {
 	// TODO refactor into one route
 
 	router.post("/new/2", (req, res) => {
-		console.log("req", req.body);
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
@@ -94,7 +159,6 @@ module.exports = db => {
 			workoutData.days.map(d => {
 				addWorkoutDays(res.rows[0].id, d.day).then(res => {
 					d.workouts.workout.map(ex => {
-						console.log("ex", ex);
 						addWorkoutDayExercises(
 							res.rows[0].id,
 							ex.name,
@@ -116,7 +180,7 @@ module.exports = db => {
 		`;
 		return db.query(queryString, [userID, title, true]);
 	};
-	
+
 	const addWorkoutDays = (workoutID, day) => {
 		const isDay = day => {
 			if (day !== 1) {
