@@ -54,54 +54,7 @@ module.exports = db => {
 		});
 	});
 
-	const currentWorkout = (user) => {
-		const queryString = `
-	SELECT 
-	workout_days.id, workout_days.workout_id
-	FROM workouts
-	JOIN workout_days ON workout_days.workout_id = workouts.id
-	WHERE workouts.user_id = $1 
-	AND workout_days.is_current = true;
-	`;
-		return db.query(queryString, [user]);
-	};
-
-	const workoutIsCurrent = (isCurrent, workoutId, user) => {
-		const queryString = `
-		UPDATE workouts
-		SET is_current = $1
-		FROM workout_days
-		WHERE workout_days.id = $2
-		AND user_id = $3
-		RETURNING *;
-		`;
-		return db.query(queryString, [isCurrent, workoutId, user]);
-	};
-
-
-	const workoutDaysIsCurrent = (isCurrent, workoutId) => {
-		const queryString = `
-		UPDATE workout_days
-		SET is_current = $1
-		FROM workouts
-		WHERE workout_days.id = $2
-		RETURNING *;
-		`;
-		return db.query(queryString, [isCurrent, workoutId]);
-	};
-
-	const checkForAnotherDay = (workoutId, day) => {
-		const queryString = `
-		SELECT 
-		workout_days.day, workout_days.id
-		FROM workouts
-		JOIN workout_days ON workout_days.workout_id = workouts.id
-		WHERE workout_days.workout_id = $1 
-		AND workout_days.day = $2
-		AND workout_days.is_current = false;
-		`;
-		return db.query(queryString, [workoutId, day]);
-	};
+	
 
 	router.put('/iscurrent', (req, res) => {
 		const body = req.body;
@@ -230,6 +183,54 @@ module.exports = db => {
 			equipment,
 			image,
 		]);
+	};
+	const currentWorkout = (user) => {
+		const queryString = `
+			SELECT 
+			workout_days.id, workout_days.workout_id
+			FROM workouts
+			JOIN workout_days ON workout_days.workout_id = workouts.id
+			WHERE workouts.user_id = $1 
+			AND workout_days.is_current = true;
+	`;
+		return db.query(queryString, [user]);
+	};
+
+	const workoutIsCurrent = (isCurrent, workoutId, user) => {
+		const queryString = `
+		UPDATE workouts
+		SET is_current = $1
+		FROM workout_days
+		WHERE workout_days.id = $2
+		AND user_id = $3
+		RETURNING *;
+		`;
+		return db.query(queryString, [isCurrent, workoutId, user]);
+	};
+
+
+	const workoutDaysIsCurrent = (isCurrent, workoutId) => {
+		const queryString = `
+		UPDATE workout_days
+		SET is_current = $1
+		FROM workouts
+		WHERE workout_days.id = $2
+		RETURNING *;
+		`;
+		return db.query(queryString, [isCurrent, workoutId]);
+	};
+
+	const checkForAnotherDay = (workoutId, day) => {
+		const queryString = `
+		SELECT 
+		workout_days.day, workout_days.id
+		FROM workouts
+		JOIN workout_days ON workout_days.workout_id = workouts.id
+		WHERE workout_days.workout_id = $1 
+		AND workout_days.day = $2
+		AND workout_days.is_current = false;
+		`;
+		return db.query(queryString, [workoutId, day]);
 	};
 
 	return router;

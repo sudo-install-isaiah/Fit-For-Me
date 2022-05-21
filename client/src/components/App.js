@@ -50,8 +50,8 @@ function App() {
 						<CircularProgress sx={{ color: "#CCA43B" }} />
 					</div>
 				)}
-				{spinner === false && <Workout workout={workout}></Workout>}
-				<Button onClick={handleClick}>Workout Complete</Button>
+				{spinner === false &&<Workout workout={workout}></Workout>}
+				{workout.length !== 0 && <Button onClick={handleClick}>Workout Complete</Button>}
 			</div>
 		</>
 	);
