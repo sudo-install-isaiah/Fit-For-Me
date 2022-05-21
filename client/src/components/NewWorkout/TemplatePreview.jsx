@@ -1,11 +1,11 @@
 import React from "react";
-import Divider from "@mui/material/Divider";
-import List from "@mui/material/List";
-import ListItemText from "@mui/material/ListItemText";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import ListSubheader from "@mui/material/ListSubheader";
-import ListItem from "@mui/material/ListItem";
+import {
+	List,
+	ListItemText,
+	Box,
+	Typography,
+	ListSubheader,
+} from "@mui/material/";
 
 export default function TemplatePreview(props) {
 	const template = props.template;
@@ -44,25 +44,20 @@ export default function TemplatePreview(props) {
 		const result = [];
 		for (const muscle in dayObj) {
 			result.push(
-        <>
-          <li className="template-view">
-
+				<li className='template-view'>
 					<Typography>{muscle}</Typography>
 					<ListItemText primary={`${dayObj[muscle]} exercises`} />
-          </li>
-				</>
+				</li>
 			);
 		}
 		return result;
-  };
-  
+	};
+
 	return (
-		<>
-			<Box className='template-view'>
-				{template === "1" && displayTemplate(oneDay)}
-				{template === "2" && displayTemplate(twoDay)}
-				{template === "3" && displayTemplate(threeDay)}
-			</Box>
-		</>
+		<Box className='template-view'>
+			{template === "1" && displayTemplate(oneDay)}
+			{template === "2" && displayTemplate(twoDay)}
+			{template === "3" && displayTemplate(threeDay)}
+		</Box>
 	);
 }
