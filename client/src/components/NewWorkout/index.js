@@ -20,10 +20,6 @@ export default function NewWorkout() {
 	const {  title, setTitle, value, setValue } =
 		useContext(WorkoutContext);
 
-	const handleChange = event => {
-		setValue(event.target.value);
-	};
-
 	return (
 		<>
 			<main>
