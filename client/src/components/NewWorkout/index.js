@@ -35,6 +35,10 @@ export default function NewWorkoutPage() {
 		return setTemplate(value);
 	};
 
+	// useEffect(() => {
+	// 	setTemplate(value);
+	// }, []);
+
 	return (
 		<>
 			<main>
@@ -50,9 +54,13 @@ export default function NewWorkoutPage() {
 					></NewWorkout>
 				)}
 
-				{template === "1" && <OneDay></OneDay>}
-				{template === "2" && <TwoDay></TwoDay>}
-				{template === "3" && <ThreeDay></ThreeDay>}
+				<Container component='section' maxWidth='md'>
+					<Box className='create-form days'>
+						{template === "1" && <OneDay></OneDay>}
+						{template === "2" && <TwoDay></TwoDay>}
+						{template === "3" && <ThreeDay></ThreeDay>}
+					</Box>
+				</Container>
 			</main>
 		</>
 	);

@@ -78,7 +78,7 @@ export default function OneDay() {
   console.log(choice);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={tabValue}
@@ -167,6 +167,6 @@ export default function OneDay() {
         {" "}
         Submit
       </Button>
-    </Box>
+    </>
   );
 }

@@ -20,8 +20,6 @@ export default function NewWorkout({
 	value,
 	handleClick,
 }) {
-	// const { title, setTitle } = useState(props.title);
-
 	return (
 		<>
 			<Container component='section' maxWidth='sm'>
