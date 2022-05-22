@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import ListSubheader from "@mui/material/ListSubheader";
-import List from "@mui/material/List";
+import React from "react";
+import { ListSubheader, List} from "@mui/material";
 import WorkoutListItem from "./WorkoutListItem";
-import { Typography } from "@mui/material";
 
 export default function WorkoutList(props) {
 	const exerciseItem = props.group.map((item, index) => {

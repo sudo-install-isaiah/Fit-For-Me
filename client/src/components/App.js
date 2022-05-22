@@ -25,7 +25,6 @@ function App() {
 			});
 	}, []);
 
-
 	const handleClick = () => {
 		const options = {
 			isCurrent: false,

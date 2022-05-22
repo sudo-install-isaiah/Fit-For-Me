@@ -1,10 +1,8 @@
 import React from "react";
 import WorkoutList from "./WorkoutList.jsx";
-import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import "./index.css";
 import Empty from "./Empty";
-import { Typography } from "@mui/material";
 
 export default function Workout(props) {
 	const exercises = props.workout;

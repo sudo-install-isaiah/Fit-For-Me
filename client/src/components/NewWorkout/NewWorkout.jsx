@@ -27,7 +27,6 @@ export default function NewWorkout({
 					<Typography component='p'>
 						Most importantly, How many days can you train?
 					</Typography>
-
 					<FormControl>
 						<TextField
 							margin='normal'
@@ -41,7 +40,6 @@ export default function NewWorkout({
 							autoFocus
 						/>
 					</FormControl>
-
 					<FormControl sx={{ m: 1, minWidth: 120 }}>
 						<InputLabel id='select-days-label'>Days</InputLabel>
 						<Select
@@ -57,7 +55,6 @@ export default function NewWorkout({
 					</FormControl>
 				</Box>
 			</Container>
-
 			<Container component='section' maxWidth='md'>
 				<TemplatePreview template={value} />
 				<Grid

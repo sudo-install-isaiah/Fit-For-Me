@@ -1,30 +1,11 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Grid from "@mui/material/Grid";
-import Navbar from "../Navbar";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import List from "@mui/material/List";
-import { ListItemText } from "@mui/material";
-import { Divider } from "@mui/material";
+import { Tabs, Tab, Typography, Box, Accordion, AccordionSummary, AccordionDetails, List, Divider, Card, CardContent, Button } from "@mui/material";
+import { useState, useContext } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuscleGroup from "./MuscleGroup";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import NavBarCreate from "../NewWorkout/NavBarCreate";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -52,22 +33,14 @@ TabPanel.propTypes = {
 };
 
 export default function ThreeDay() {
-	const [exercise, setExercise] = useState([]);
 	const [equipment, setEquipment] = useState("");
 	const [selectedTab, setSelectedTab] = React.useState(0);
 	const {
-		cookies,
-		setTitle,
-		title,
-		day1,
 		setDay1,
-		day2,
 		setDay2,
-		day3,
 		setDay3,
 		choice,
 		setChoice,
-		setValue,
 	} = useContext(WorkoutContext);
 	const [toggleTab, setToggleTab] = useState(true);
 	let navigate = useNavigate();

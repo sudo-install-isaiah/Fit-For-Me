@@ -1,6 +1,5 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { useCookies } from "react-cookie";
-import axios from "axios";
 
 export const WorkoutContext = createContext();
 

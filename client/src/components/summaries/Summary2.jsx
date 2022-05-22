@@ -5,12 +5,10 @@ import WorkoutListItem from "../Workout/WorkoutListItem";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {
-  Card,
   Typography,
   Grid,
   FormControl,
-  Button,
-  TextField,
+  Button
 } from "@mui/material";
 import { Box } from "@mui/system";
 import NavBarCreate from "../NewWorkout/NavBarCreate";
@@ -83,7 +81,6 @@ export default function Summary2() {
               {dayInfo2}
             </Grid>
           </Grid>
-
           <Button variant="contained" onClick={finalSubmit}>Submit</Button>
         </FormControl>
       </Grid>

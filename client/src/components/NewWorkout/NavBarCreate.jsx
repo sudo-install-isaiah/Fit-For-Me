@@ -3,7 +3,7 @@ import { FitnessCenter, ArrowBackIosNew } from "@mui/icons-material/";
 import "../Navbar.css";
 import { Link } from "react-router-dom";
 
-export default function NavBarCreate(props) {
+export default function NavBarCreate() {
 	return (
 		<nav className='navbar'>
 			<div className='container-fluid'>
