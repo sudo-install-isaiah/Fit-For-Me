@@ -13,6 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import NavBarCreate from "../NewWorkout/NavBarCreate";
 
 export default function Summary2() {
   const { day1, day2, title, cookies, setTitle, setValue, setDay1, setDay2, setChoice } = useContext(WorkoutContext);
@@ -67,6 +68,8 @@ export default function Summary2() {
   }
 
   return (
+    <>
+    <NavBarCreate/>
     <Box sx={{ minWidth: 120 }}>
       <Grid align="center" margin={1}>
         <Typography variant="h2">{title}</Typography>
@@ -86,5 +89,6 @@ export default function Summary2() {
         </FormControl>
       </Grid>
     </Box>
+    </>
   );
 }

@@ -24,8 +24,7 @@ import CardContent from "@mui/material/CardContent";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { Button } from "@mui/material";
 import {Link, useNavigate} from 'react-router-dom'
-////testing can potentially delete everything here /////////////
-
+import NavBarCreate from "../NewWorkout/NavBarCreate";
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -90,6 +89,8 @@ export default function TwoDay() {
 
 
   return (
+    <>
+    <NavBarCreate/>
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
@@ -228,5 +229,6 @@ export default function TwoDay() {
         </Card>
       </TabPanel>
     </Box>
+    </>
   );
 }

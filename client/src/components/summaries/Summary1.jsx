@@ -4,7 +4,7 @@ import { useContext } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import NavBarCreate from "../NewWorkout/NavBarCreate";
 import {
   Card,
   Typography,
@@ -53,6 +53,8 @@ export default function Summary1() {
 
   };
   return (
+    <>
+    <NavBarCreate/>
     <Box sx={{ minWidth: 120 }}>
       <Grid align="center" margin={1}>
         <Typography variant="h2">{title}</Typography >
@@ -67,5 +69,6 @@ export default function Summary1() {
         </FormControl>
       </Grid>
     </Box>
+    </>
   );
 }
