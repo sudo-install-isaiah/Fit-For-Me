@@ -57,8 +57,8 @@ export default function Summary1() {
       <Grid align="center" margin={1}>
         <Typography variant="h2">{title}</Typography >
         <FormControl>
-          <Grid container>
-            <Grid item xs={12} sm={6} md={3}>
+          <Grid container rowSpacing={1}>
+            <Grid item xs={12} sm={12} md={12}>
             <Typography variant="h6" >day 1</Typography>
               {dayInfo1}
             </Grid>

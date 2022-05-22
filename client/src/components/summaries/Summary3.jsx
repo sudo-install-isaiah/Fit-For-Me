@@ -90,7 +90,7 @@ export default function Summary3() {
       <Grid align="center" margin={1}>
         <Typography variant="h2">{title}</Typography>
         <FormControl>
-          <Grid container>
+          <Grid container columnSpacing={1} rowSpacing={1}>
             <Grid item xs={12} sm={4} md={4}>
             <Typography variant="h6">day 1</Typography>
               {dayInfo1}

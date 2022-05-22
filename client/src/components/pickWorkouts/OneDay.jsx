@@ -165,7 +165,7 @@ export default function OneDay() {
       </TabPanel>
       <Button onClick={handleSubmit} variant="contained">
         {" "}
-        Submit
+        Submit to see summary of exercises
       </Button>
     </Box>
   );
