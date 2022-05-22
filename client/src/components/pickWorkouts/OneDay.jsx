@@ -27,146 +27,146 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+	const { children, value, index, ...other } = props;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+	return (
+		<div
+			role='tabpanel'
+			hidden={value !== index}
+			id={`simple-tabpanel-${index}`}
+			aria-labelledby={`simple-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box sx={{ p: 3 }}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
 }
 
 TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
+	children: PropTypes.node,
+	index: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired,
 };
 
 function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
+	return {
+		id: `simple-tab-${index}`,
+		"aria-controls": `simple-tabpanel-${index}`,
+	};
 }
 
 export default function OneDay() {
-  const { cookies, setTitle, title, setValue, value, choice, setDay1 } =
-    useContext(WorkoutContext);
-  const [exercise, setExercise] = useState([]);
-  const [equipment, setEquipment] = useState("");
-  const [tabValue, setTabValue] = React.useState(0);
-  let navigate = useNavigate();
+	const { cookies, setTitle, title, setValue, value, choice, setDay1 } =
+		useContext(WorkoutContext);
+	const [exercise, setExercise] = useState([]);
+	const [equipment, setEquipment] = useState("");
+	const [tabValue, setTabValue] = React.useState(0);
+	let navigate = useNavigate();
 
-  const handleSubmit = () => {
-  navigate('/new/1/summary')
-  }
+	const handleSubmit = () => {
+		navigate("/new/1/summary");
+	};
 
-  const handleChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
+	const handleChange = (event, newValue) => {
+		setTabValue(newValue);
+	};
 
-  console.log(choice);
+	console.log(choice);
 
-  return (
-    <>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={tabValue}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Day One" {...a11yProps(0)} />
-        </Tabs>
-      </Box>
-      <TabPanel value={tabValue} index={0}>
-        <Card>
-          <CardContent>
-            <Typography>Body Parts</Typography>
-            <AccordionDetails>
-              <List>
-                <Divider />
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    {" "}
-                    <Typography component={"span"} align="center">
-                      Chest
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <MuscleGroup muscle={"chest"} equipment={equipment} />
-                  </AccordionDetails>
-                </Accordion>
-                <Divider />
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    {" "}
-                    <Typography component={"span"} align="center">
-                      Legs
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <MuscleGroup muscle={"upper legs"} equipment={equipment} />
-                  </AccordionDetails>
-                </Accordion>
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    {" "}
-                    <Typography component={"span"} align="center">
-                      Arms
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <MuscleGroup muscle={"upper arms"} equipment={equipment} />
-                  </AccordionDetails>
-                </Accordion>
-                <Divider />
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    {" "}
-                    <Typography component={"span"} align="center">
-                      Core
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <MuscleGroup muscle={"waist"} equipment={equipment} />
-                  </AccordionDetails>
-                </Accordion>
-                <Divider />
-              </List>
-            </AccordionDetails>
-          </CardContent>
-        </Card>
-      </TabPanel>
-      <Button onClick={handleSubmit} variant="contained">
-        {" "}
-        Submit
-      </Button>
-    </>
-  );
+	return (
+		<>
+			<Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+				<Tabs
+					value={tabValue}
+					onChange={handleChange}
+					aria-label='basic tabs example'
+				>
+					<Tab label='Day One' {...a11yProps(0)} />
+				</Tabs>
+			</Box>
+			<TabPanel value={tabValue} index={0}>
+				<Card>
+					<CardContent>
+						<Typography>Body Parts</Typography>
+						<AccordionDetails>
+							<List>
+								<Divider />
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls='panel1a-content'
+										id='panel1a-header'
+									>
+										{" "}
+										<Typography component={"span"} align='center'>
+											Chest
+										</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<MuscleGroup muscle={"chest"} equipment={equipment} />
+									</AccordionDetails>
+								</Accordion>
+								<Divider />
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls='panel1a-content'
+										id='panel1a-header'
+									>
+										{" "}
+										<Typography component={"span"} align='center'>
+											Legs
+										</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<MuscleGroup muscle={"upper legs"} equipment={equipment} />
+									</AccordionDetails>
+								</Accordion>
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls='panel1a-content'
+										id='panel1a-header'
+									>
+										{" "}
+										<Typography component={"span"} align='center'>
+											Arms
+										</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<MuscleGroup muscle={"upper arms"} equipment={equipment} />
+									</AccordionDetails>
+								</Accordion>
+								<Divider />
+								<Accordion>
+									<AccordionSummary
+										expandIcon={<ExpandMoreIcon />}
+										aria-controls='panel1a-content'
+										id='panel1a-header'
+									>
+										{" "}
+										<Typography component={"span"} align='center'>
+											Core
+										</Typography>
+									</AccordionSummary>
+									<AccordionDetails>
+										<MuscleGroup muscle={"waist"} equipment={equipment} />
+									</AccordionDetails>
+								</Accordion>
+								<Divider />
+							</List>
+						</AccordionDetails>
+						<Button onClick={handleSubmit} variant='contained'>
+							{" "}
+							Submit
+						</Button>
+					</CardContent>
+				</Card>
+			</TabPanel>
+		</>
+	);
 }

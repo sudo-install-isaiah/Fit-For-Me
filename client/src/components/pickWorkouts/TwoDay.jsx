@@ -78,11 +78,12 @@ export default function TwoDay() {
     if (selectedTab === 0) {
       setToggleTab(false);
       setDay1({ day: 1, workouts: choice });
-      setChoice({ day: 2, workout: [] });
+			setChoice({ day: 2, workout: [] });
+			setSelectedTab(1);
     }
     if (selectedTab === 1) {
       setDay2({ day: 2, workouts: choice });
-      setChoice({ day: 3, workout: [] });
+			setChoice({ day: 3, workout: [] });
       navigate('/new/2/summary')
     }
   };
@@ -157,7 +158,7 @@ export default function TwoDay() {
 							</List>
 						</AccordionDetails>
 						<Button variant='contained' onClick={toggleTabs}>
-							Please Submit to Continue
+							Continue 
 						</Button>
 					</CardContent>
 				</Card>
@@ -220,7 +221,7 @@ export default function TwoDay() {
 							</List>
 						</AccordionDetails>
 						<Button variant='contained' onClick={toggleTabs}>
-							Press to me to Lock in Choices
+							Submit
 						</Button>
 					</CardContent>
 				</Card>

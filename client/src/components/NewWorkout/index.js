@@ -35,9 +35,6 @@ export default function NewWorkoutPage() {
 		return setTemplate(value);
 	};
 
-	// useEffect(() => {
-	// 	setTemplate(value);
-	// }, []);
 
 	return (
 		<>
@@ -61,6 +58,9 @@ export default function NewWorkoutPage() {
 						{template === "3" && <ThreeDay></ThreeDay>}
 					</Box>
 				</Container>
+
+				
+
 			</main>
 		</>
 	);

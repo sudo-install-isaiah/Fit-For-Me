@@ -24,7 +24,7 @@ function App() {
 				setWorkout(res.data);
 				setSpinner(false);
 			});
-	}, [cookies]);
+	}, []);
 
 	console.log('workout', workout);
 

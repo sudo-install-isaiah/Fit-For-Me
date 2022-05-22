@@ -81,11 +81,13 @@ export default function ThreeDay() {
 		if (selectedTab === 0) {
 			setToggleTab(false);
 			setDay1({ day: 1, workouts: choice });
-			setChoice({ day: 1, workout: [] });
+      setChoice({ day: 1, workout: [] });
+      setSelectedTab(1);
 		}
 		if (selectedTab === 1) {
 			setDay2({ day: 2, workouts: choice });
-			setChoice({ day: 1, workout: [] });
+      setChoice({ day: 1, workout: [] });
+      setSelectedTab(2);
 		}
 		if (selectedTab === 2) {
 			setDay3({ day: 3, workouts: choice });
@@ -149,7 +151,7 @@ export default function ThreeDay() {
 							</List>
 						</AccordionDetails>
 						<Button variant='contained' onClick={toggleTabs}>
-							Please Submit to Continue
+							Continue
 						</Button>
 					</CardContent>
 				</Card>
@@ -196,7 +198,7 @@ export default function ThreeDay() {
 							</List>
 						</AccordionDetails>
 						<Button variant='contained' onClick={toggleTabs}>
-							Please Submit to Continue
+							Continue
 						</Button>
 					</CardContent>
 				</Card>
@@ -243,7 +245,7 @@ export default function ThreeDay() {
 							</List>
 						</AccordionDetails>
 						<Button variant='contained' onClick={toggleTabs}>
-							Please Submit to Continue
+							Submit
 						</Button>
 					</CardContent>
 				</Card>
