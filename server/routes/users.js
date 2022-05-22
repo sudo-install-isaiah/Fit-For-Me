@@ -30,7 +30,6 @@ module.exports = db => {
 	});
 
 	router.post("/create", (req, res) => {
-		console.log("req", req.body);
 		const { name, password, email } = req.body;
 		if (email === "" || password === "" || name === "") {
 			return res.status(403).send("Invalid User");

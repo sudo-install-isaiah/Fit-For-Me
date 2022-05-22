@@ -76,8 +76,6 @@ export default function OneDay() {
     setTabValue(newValue);
   };
 
-  console.log(choice);
-
   return (
     <>
     <NavBarCreate/>

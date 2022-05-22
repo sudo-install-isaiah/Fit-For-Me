@@ -117,7 +117,6 @@ export default function MuscleGroup(props) {
     });
     // returns array of objects
     const test1 = test[0];
-    console.log(e.target.value);
     setChoice((prev) => {
       return { ...prev, workout: [...prev.workout, test1] };
     });

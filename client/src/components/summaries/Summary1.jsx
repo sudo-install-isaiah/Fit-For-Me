@@ -40,7 +40,6 @@ export default function Summary1() {
     };
 
     axios.post("http://localhost:8080/workouts/new", options).then((res) => {
-      console.log(res.data);
     });
     setTitle("");
     setValue("");
