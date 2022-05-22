@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -15,64 +14,45 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import TemplatePreview from "./TemplatePreview";
 import "./index.css";
+import NewWorkout from "./NewWorkout";
+import OneDay from "../pickWorkouts/OneDay";
+import TwoDay from "../pickWorkouts/TwoDay";
+import ThreeDay from "../pickWorkouts/ThreeDay";
 
-export default function NewWorkout() {
-	const {  title, setTitle, value, setValue } =
-		useContext(WorkoutContext);
+export default function NewWorkoutPage() {
+	const [template, setTemplate] = useState("");
+	const { title, setTitle, value, setValue } = useContext(WorkoutContext);
+
+	const addTitle = e => {
+		setTitle(e.target.value);
+	};
+
+	const chooseDay = e => {
+		setValue(e.target.value);
+	};
+
+	const handleClick = value => {
+		return setTemplate(value);
+	};
 
 	return (
 		<>
 			<main>
 				<NavBarCreate />
-				<Container component='section' maxWidth='sm'>
-					<Box className='create-form'>
-						<Typography component='p'>
-							Most importantly, How many days can you train?
-						</Typography>
 
-						<FormControl>
-							<TextField
-								margin='normal'
-								required
-								fullWidth
-								id='workout'
-								label='Workout Name'
-								value={title}
-								onChange={e => setTitle(e.target.value)}
-								name='workout'
-								autoFocus
-							/>
-						</FormControl>
+				{template === "" && (
+					<NewWorkout
+						title={title}
+						chooseDay={chooseDay}
+						addTitle={addTitle}
+						value={value}
+						handleClick={handleClick}
+					></NewWorkout>
+				)}
 
-						<FormControl sx={{ m: 1, minWidth: 120 }}>
-							<InputLabel id='select-days-label'>Days</InputLabel>
-							<Select
-								label='Days'
-								labelId='select-days-label'
-								value={value}
-								onChange={e=> setValue(e.target.value)}
-							>
-								<MenuItem value='1'>One day</MenuItem>
-								<MenuItem value='2'>Two days</MenuItem>
-								<MenuItem value='3'>Three days</MenuItem>
-							</Select>
-						</FormControl>
-					</Box>
-				</Container>
-				<Container component='section' maxWidth='md'>
-					<TemplatePreview template={value} />
-					<Grid
-						sx={{ paddingBottom: "2rem" }}
-						container
-						direction='row'
-						justifyContent='center'
-						alignItems='center'
-					>
-						<Link className='link' to={value}>
-							<Button variant='contained'>Choose Workout Plan</Button>
-						</Link>
-					</Grid>
-				</Container>
+				{template === "1" && <OneDay></OneDay>}
+				{template === "2" && <TwoDay></TwoDay>}
+				{template === "3" && <ThreeDay></ThreeDay>}
 			</main>
 		</>
 	);
