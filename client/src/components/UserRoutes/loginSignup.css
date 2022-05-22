@@ -44,7 +44,13 @@ fieldset.MuiOutlinedInput-notchedOutline {
 }
 
 label.MuiFormLabel-root {
-	color: white !important;
+	color: white;
+}
+
+#name-label,
+#password-label,
+#email-label {
+	color: white;
 }
 
 fieldset.MuiOutlinedInput-notchedOutline.css-1d3z3hw-MuiOutlinedInput-notchedOutline {

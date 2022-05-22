@@ -158,7 +158,7 @@ export default function ThreeDay() {
 			<TabPanel value={selectedTab} index={1}>
 				<Card>
 					<CardContent>
-						<Typography>Body Parts</Typography>
+						<Typography>Muscle Group</Typography>
 						<AccordionDetails>
 							<List>
 								<Divider />

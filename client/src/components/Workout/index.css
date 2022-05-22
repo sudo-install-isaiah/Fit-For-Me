@@ -13,15 +13,34 @@ p.MuiTypography-root {
 	color: #363636;
 }
 
-/* div.MuiFormControl-root {
-	align-items: center;
-} */
-
 div.MuiSelect-select {
 	color: white;
 }
 
-div.equipment-form.MuiSelect-select {
-	color: black;
-	background-color: yellow;
+/* div.MuiSelect-select.MuiSelect-outlined.MuiOutlinedInput-input.MuiInputBase-input {
+	color: white;
+} */
+
+span.MuiCheckbox-root.Mui-checked {
+	color: #cca43b;
+}
+
+#workout-label {
+	color: white;
+}
+
+#select-days-label {
+	color: white;
+}
+
+#select-equipment-label {
+	color: #363636;
+}
+
+#equipment {
+	color: #363636;
+}
+
+div.MuiFilledInput-root-MuiSelect-root:after {
+	color: #cca43b;
 }

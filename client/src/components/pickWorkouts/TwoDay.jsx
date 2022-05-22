@@ -23,7 +23,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { Button } from "@mui/material";
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 import NavBarCreate from "../NewWorkout/NavBarCreate";
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -52,43 +52,42 @@ TabPanel.propTypes = {
 };
 
 export default function TwoDay() {
-  const [exercise, setExercise] = useState([]);
-  const [equipment, setEquipment] = useState("");
-  const [selectedTab, setSelectedTab] = React.useState(0);
-  const {
-    cookies,
-    setTitle,
-    title,
-    day1,
-    setDay1,
-    day2,
-    setDay2,
-    choice,
-    setChoice,
-    setValue,
-  } = useContext(WorkoutContext);
-  const [toggleTab, setToggleTab] = useState(true);
-  let navigate = useNavigate()
-  const handleChange = (event, newValue) => {
-    setSelectedTab(newValue);
-  };
+	const [exercise, setExercise] = useState([]);
+	const [equipment, setEquipment] = useState("");
+	const [selectedTab, setSelectedTab] = React.useState(0);
+	const {
+		cookies,
+		setTitle,
+		title,
+		day1,
+		setDay1,
+		day2,
+		setDay2,
+		choice,
+		setChoice,
+		setValue,
+	} = useContext(WorkoutContext);
+	const [toggleTab, setToggleTab] = useState(true);
+	let navigate = useNavigate();
+	const handleChange = (event, newValue) => {
+		setSelectedTab(newValue);
+	};
 
-  const toggleTabs = () => {
-    if (selectedTab === 0) {
-      setToggleTab(false);
-      setDay1({ day: 1, workouts: choice });
+	const toggleTabs = () => {
+		if (selectedTab === 0) {
+			setToggleTab(false);
+			setDay1({ day: 1, workouts: choice });
 			setChoice({ day: 2, workout: [] });
 			setSelectedTab(1);
-    }
-    if (selectedTab === 1) {
-      setDay2({ day: 2, workouts: choice });
+		}
+		if (selectedTab === 1) {
+			setDay2({ day: 2, workouts: choice });
 			setChoice({ day: 3, workout: [] });
-      navigate('/new/2/summary')
-    }
-  };
+			navigate("/new/2/summary");
+		}
+	};
 
-
-  return (
+	return (
 		<>
 			<Tabs
 				value={selectedTab}
@@ -102,7 +101,7 @@ export default function TwoDay() {
 			<TabPanel value={selectedTab} index={0}>
 				<Card>
 					<CardContent>
-						<Typography>Body Parts</Typography>
+						<Typography>Muscle Group</Typography>
 						<AccordionDetails>
 							<List>
 								<Divider />
@@ -157,7 +156,7 @@ export default function TwoDay() {
 							</List>
 						</AccordionDetails>
 						<Button variant='contained' onClick={toggleTabs}>
-							Continue 
+							Continue
 						</Button>
 					</CardContent>
 				</Card>

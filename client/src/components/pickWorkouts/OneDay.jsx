@@ -92,7 +92,7 @@ export default function OneDay() {
 			<TabPanel value={tabValue} index={0}>
 				<Card>
 					<CardContent>
-						<Typography>Body Parts</Typography>
+						<Typography>Muscle Groups</Typography>
 						<AccordionDetails>
 							<List>
 								<Divider />

@@ -149,18 +149,20 @@ export default function MuscleGroup(props) {
 
 	return (
 		<>
-			<FormControl className="equipment-form" sx={{ m: 1, minWidth: 120 }}>
-				<InputLabel
-					sx={{ backgroundColor: "white", color: "#CCA43B" }}
-					labelID='select-equipment-label'
-				>
+			<FormControl className='equipment-form' sx={{ m: 1, minWidth: 120 }}>
+				{/* <Typography></Typography> */}
+				<InputLabel className='equipment-form' id='select-equipment-label'>
 					Equipment
 				</InputLabel>
 				<Select
+					style={{ backgroundColor: "rgb(204 164 58 / 55%)" }}
+					variant='filled'
+					id='equipment'
 					label='equipment'
 					value={equipment}
 					labelId='select-equipment-label'
 					onChange={handleChanges}
+					disableUnderline
 				>
 					<MenuItem value='barbell'>Barbell</MenuItem>
 					<MenuItem value='band'>Band</MenuItem>
