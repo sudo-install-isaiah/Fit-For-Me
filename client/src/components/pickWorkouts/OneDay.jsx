@@ -25,6 +25,7 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import NavBarCreate from "../NewWorkout/NavBarCreate";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;

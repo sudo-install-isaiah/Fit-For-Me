@@ -4,7 +4,7 @@ import { useContext } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import NavBarCreate from "../NewWorkout/NavBarCreate";
 import {
   Card,
   Typography,
@@ -40,7 +40,6 @@ export default function Summary1() {
     };
 
     axios.post("http://localhost:8080/workouts/new", options).then((res) => {
-      console.log(res.data);
     });
     setTitle("");
     setValue("");
@@ -53,12 +52,14 @@ export default function Summary1() {
 
   };
   return (
+    <>
+    <NavBarCreate/>
     <Box sx={{ minWidth: 120 }}>
       <Grid align="center" margin={1}>
         <Typography variant="h2">{title}</Typography >
         <FormControl>
-          <Grid container>
-            <Grid item xs={12} sm={6} md={3}>
+          <Grid container rowSpacing={1}>
+            <Grid item xs={12} sm={12} md={12}>
             <Typography variant="h6" >day 1</Typography>
               {dayInfo1}
             </Grid>
@@ -67,5 +68,6 @@ export default function Summary1() {
         </FormControl>
       </Grid>
     </Box>
+    </>
   );
 }

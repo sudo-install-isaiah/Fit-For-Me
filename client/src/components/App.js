@@ -20,13 +20,11 @@ function App() {
 				params: { id: cookies.id },
 			})
 			.then(res => {
-				console.log('res data', res.data);
 				setWorkout(res.data);
 				setSpinner(false);
 			});
 	}, []);
 
-	console.log('workout', workout);
 
 	const handleClick = () => {
 		const options = {
@@ -38,7 +36,6 @@ function App() {
 			});
 			window.location.reload(true)
 	};
-console.log('hello', title[0]);
 	return (
 		<>
 			{!cookies.id && <Navigate to='/login' replace={true} />}

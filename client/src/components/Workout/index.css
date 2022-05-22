@@ -20,3 +20,8 @@ p.MuiTypography-root {
 div.MuiSelect-select {
 	color: white;
 }
+
+div.equipment-form.MuiSelect-select {
+	color: black;
+	background-color: yellow;
+}

@@ -3,7 +3,7 @@ import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { useContext } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
 import axios from "axios";
-
+import NavBarCreate from "../NewWorkout/NavBarCreate";
 
 import {
   Card,
@@ -60,7 +60,6 @@ export default function Summary3() {
     };
 
     axios.post("http://localhost:8080/workouts/new/2", options).then((res) => {
-      console.log(res.data);
     });
     setTitle("");
     setValue("");
@@ -86,11 +85,13 @@ export default function Summary3() {
   }
 
   return (
+    <>
+    <NavBarCreate/>
     <Box sx={{ minWidth: 120 }}>
       <Grid align="center" margin={1}>
         <Typography variant="h2">{title}</Typography>
         <FormControl>
-          <Grid container>
+          <Grid container columnSpacing={1} rowSpacing={1}>
             <Grid item xs={12} sm={4} md={4}>
             <Typography variant="h6">day 1</Typography>
               {dayInfo1}
@@ -108,5 +109,6 @@ export default function Summary3() {
         </FormControl>
       </Grid>
     </Box>
+    </>
   );
 }

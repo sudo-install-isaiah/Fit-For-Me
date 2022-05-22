@@ -46,7 +46,6 @@ export default function Signup() {
 		axios
 			.post("http://localhost:8080/users/create", userObject)
 			.then(res => {
-				console.log(res.data);
 				setCookie("id", res.data.id, { path: "/" });
 				setName("");
 				setEmail("");

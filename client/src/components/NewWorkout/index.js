@@ -1,17 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+
+import { Select, MenuItem, FormControl, InputLabel, Box, TextField, Grid, Button, Container, Typography } from "@mui/material";
 import NavBarCreate from "./NavBarCreate";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import TemplatePreview from "./TemplatePreview";
 import "./index.css";
 import NewWorkout from "./NewWorkout";
