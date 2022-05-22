@@ -68,8 +68,8 @@ export default function OneDay() {
   let navigate = useNavigate();
 
   const handleSubmit = () => {
-  navigate('/new/1/summary')
-  }
+    navigate("/new/1/summary");
+  };
 
   const handleChange = (event, newValue) => {
     setTabValue(newValue);
@@ -160,13 +160,13 @@ export default function OneDay() {
                 <Divider />
               </List>
             </AccordionDetails>
+            <Button onClick={handleSubmit} variant="contained">
+              {" "}
+              Submit to see summary of exercises
+            </Button>
           </CardContent>
         </Card>
       </TabPanel>
-      <Button onClick={handleSubmit} variant="contained">
-        {" "}
-        Submit to see summary of exercises
-      </Button>
     </Box>
   );
 }
