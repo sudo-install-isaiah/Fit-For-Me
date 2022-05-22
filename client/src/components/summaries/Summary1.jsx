@@ -6,12 +6,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBarCreate from "../NewWorkout/NavBarCreate";
 import {
-  Card,
   Typography,
   Grid,
   FormControl,
-  Button,
-  TextField,
+  Button
 } from "@mui/material";
 import { Box } from "@mui/system";
 
@@ -19,7 +17,6 @@ export default function Summary1() {
   const { title, value, choice, cookies, setTitle, setValue, setDay1, setChoice } = useContext(WorkoutContext);
 
   let navigate = useNavigate()
-
 
   const dayInfo1 = choice.workout.map((work) => {
     return (

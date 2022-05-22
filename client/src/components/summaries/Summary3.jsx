@@ -4,24 +4,19 @@ import { useContext } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
 import axios from "axios";
 import NavBarCreate from "../NewWorkout/NavBarCreate";
-
 import {
-  Card,
   Typography,
   Grid,
   FormControl,
-  Button,
-  TextField,
+  Button
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-
 
 export default function Summary3() {
   const { day1, setDay1, day2, setDay2, day3, setDay3, setTitle, title, setValue, setChoice, cookies} = useContext(WorkoutContext);
 
   let navigate = useNavigate()
-
 
   const dayInfo1 = day1.workouts.workout.map((work) => {
     return (
@@ -80,8 +75,6 @@ export default function Summary3() {
       workout: [],
     });
     navigate('/')
-
-    
   }
 
   return (

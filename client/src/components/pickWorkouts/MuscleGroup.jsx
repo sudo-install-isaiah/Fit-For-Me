@@ -1,16 +1,10 @@
 import React, { useContext } from "react";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
+import {InputLabel, MenuItem, FormControl, Select, Checkbox} from "@mui/material";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 
+// can be deleted hardcoded for testing purposes
 const example = [
 	{
 		bodyPart: "upper legs",
@@ -95,11 +89,9 @@ const example = [
 ];
 
 export default function MuscleGroup(props) {
-	const { exercise, setExercise, choice, setChoice } =
+	const { exercise, setExercise, setChoice } =
 		useContext(WorkoutContext);
 	const [equipment, setEquipment] = useState("");
-
-	const bodyPart = props.muscle;
 
 	// checks the target value to the exercise id and then logs the entire obj into the state
 	const handleClick = e => {
@@ -119,11 +111,13 @@ export default function MuscleGroup(props) {
 	const handleChanges = event => {
 		setEquipment(event.target.value);
 	};
-
+	
+//for testing purposes
 	useEffect(() => {
 		setExercise(example);
 	}, []);
 
+// real data from api
 	// useEffect(() => {
 	//     axios
 	//       .get(`http://localhost:8080/api/${bodyPart}/${equipment}`)

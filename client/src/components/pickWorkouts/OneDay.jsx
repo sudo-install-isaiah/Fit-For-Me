@@ -1,31 +1,10 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
-import Grid from "@mui/material/Grid";
-import Navbar from "../Navbar";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import { ListItemText } from "@mui/material";
-import { Divider } from "@mui/material";
+import { useState } from "react";
+import {Box, Accordion, AccordionSummary, AccordionDetails, Typography, List, Divider, Tabs, Tab, Card, CardContent, Button} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import WorkoutList from "../Workout/WorkoutList";
-import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import MuscleGroup from "./MuscleGroup";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import NavBarCreate from "../NewWorkout/NavBarCreate";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -61,9 +40,6 @@ function a11yProps(index) {
 }
 
 export default function OneDay() {
-	const { cookies, setTitle, title, setValue, value, choice, setDay1 } =
-		useContext(WorkoutContext);
-	const [exercise, setExercise] = useState([]);
 	const [equipment, setEquipment] = useState("");
 	const [tabValue, setTabValue] = React.useState(0);
 	let navigate = useNavigate();
@@ -75,8 +51,6 @@ export default function OneDay() {
 	const handleChange = (event, newValue) => {
 		setTabValue(newValue);
 	};
-
-	console.log(choice);
 
 	return (
 		<>

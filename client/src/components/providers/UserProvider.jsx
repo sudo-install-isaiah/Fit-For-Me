@@ -1,18 +1,14 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 
 export const UsersContext = createContext();
 
 export default function UserProvider(props) {
-	// const [allUsers, setAllUsers] = useState([]);
 	const [cookies, setCookie, removeCookie] = useCookies(null);
 	const [currentUser, setCurrentUser] = useState({});
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
-	// let navigate = useNavigate();
 
 	const emailSet = e => {
 		setEmail(e.target.value);
@@ -21,7 +17,6 @@ export default function UserProvider(props) {
 	const passwordSet = e => {
 		setPassword(e.target.value);
 	};
-
 
 	// sets current user and resets email/password state to undefined
 	const handleSubmit = e => {
