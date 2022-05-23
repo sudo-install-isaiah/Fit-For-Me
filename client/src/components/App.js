@@ -13,8 +13,7 @@ function App() {
 	const [workout, setWorkout] = useState([]);
 	const [spinner, setSpinner] = useState(true);
 	const { cookies, currentUser, logout } = useContext(UsersContext);
-	const title = workout.map(item => item.name)
-	
+	const title = workout.map(item => item.name);
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8080/workouts/days/current`, {
@@ -31,10 +30,10 @@ function App() {
 			isCurrent: false,
 			userId: Number(cookies.id),
 		};
-		axios.put('http://localhost:8080/workouts/iscurrent', options)
-			.then(res => {
-			});
-			window.location.reload(true)
+		axios.put("http://localhost:8080/workouts/iscurrent", options).then(res => {
+			console.log(res);
+			return window.location.reload(true);
+		});
 	};
 	return (
 		<>
@@ -47,8 +46,18 @@ function App() {
 						<CircularProgress sx={{ color: "#CCA43B" }} />
 					</div>
 				)}
-				{spinner === false &&<> <Typography variant="h2">{title[0]}</Typography><Workout workout={workout}></Workout></>}
-				{workout.length !== 0 && <Button variant="contained" onClick={handleClick}>Workout Complete</Button>}
+				{spinner === false && (
+					<>
+						{" "}
+						<Typography variant='h2'>{title[0]}</Typography>
+						<Workout workout={workout}></Workout>
+					</>
+				)}
+				{workout.length !== 0 && (
+					<Button variant='contained' onClick={() => handleClick()}>
+						Workout Complete
+					</Button>
+				)}
 			</div>
 		</>
 	);

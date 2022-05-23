@@ -47,71 +47,53 @@ module.exports = db => {
 		WHERE workouts.user_id = ${user} AND workouts.is_current = true AND workout_days.is_current = true
 		GROUP BY workouts.id, workout_days.id, workout_day_exercises.id
 		ORDER BY workout_days.day, workout_day_exercises.priority, workout_day_exercises.type;
-
 		`
-		).then(response => {
-			res.json(response.rows);
-		});
+		)
+			.then(response => {
+				res.json(response.rows);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	});
 
-	
-
-	router.put('/iscurrent', (req, res) => {
+	router.put("/iscurrent", (req, response) => {
 		const body = req.body;
 		const isCurrent = body.isCurrent;
 		const user = body.userId;
-		currentWorkout(user)
-			.then(result => {
-				const workoutIdRef = result.rows[0].workout_id;
-				const workoutDaysId = result.rows[0].id;
-				workoutDaysIsCurrent(isCurrent, workoutDaysId)
+		currentWorkout(user).then(result => {
+			const workoutIdRef = result.rows[0].workout_id;
+			const workoutDaysId = result.rows[0].id;
+			workoutDaysIsCurrent(isCurrent, workoutDaysId).then(result => {
+				const day = result.rows[0].day;
+				const add = day + 1;
+				checkForAnotherDay(workoutIdRef, add)
 					.then(result => {
-						const day = result.rows[0].day;
-						const add = day + 1;
-						checkForAnotherDay(workoutIdRef, add)
-							.then(result => {
-								if (!result.rows[0]) {
-									workoutIsCurrent(false, workoutIdRef, user);
-								} else {
-									const newWorkoutDayId = result.rows[0].id;
-									workoutDaysIsCurrent(true, newWorkoutDayId);
-								}
-							});
+						if (!result.rows[0]) {
+							workoutIsCurrent(false, workoutIdRef, user);
+							response.json(result);
+						} else {
+							const newWorkoutDayId = result.rows[0].id;
+							workoutDaysIsCurrent(true, newWorkoutDayId);
+							response.json(result);
+						}
+					})
+					.catch(err => {
+						console.log(err);
 					});
 			});
-
+		});
 	});
 
-	router.post("/new", (req, res) => {
+	router.post("/new", (req, response) => {
 		const workoutData = req.body;
 		const userID = workoutData.userId;
 		const title = workoutData.title;
 		const day = workoutData.day;
 		addWorkout(userID, title).then(res => {
-			addWorkoutDays(res.rows[0].id, day).then(res => {
-				workoutData.workouts.map(ex => {
-					addWorkoutDayExercises(
-						res.rows[0].id,
-						ex.name,
-						ex.bodyPart,
-						ex.equipment,
-						ex.gifUrl
-					);
-				});
-			});
-		});
-	});
-
-	// TODO refactor into one route
-
-	router.post("/new/2", (req, res) => {
-		const workoutData = req.body;
-		const userID = workoutData.userId;
-		const title = workoutData.title;
-		addWorkout(userID, title).then(res => {
-			workoutData.days.map(d => {
-				addWorkoutDays(res.rows[0].id, d.day).then(res => {
-					d.workouts.workout.map(ex => {
+			addWorkoutDays(res.rows[0].id, day)
+				.then(res => {
+					workoutData.workouts.map(ex => {
 						addWorkoutDayExercises(
 							res.rows[0].id,
 							ex.name,
@@ -120,7 +102,38 @@ module.exports = db => {
 							ex.gifUrl
 						);
 					});
+					response.json(res);
+				})
+				.catch(err => {
+					console.log(err);
 				});
+		});
+	});
+
+	// TODO refactor into one route
+
+	router.post("/new/2", (req, response) => {
+		const workoutData = req.body;
+		const userID = workoutData.userId;
+		const title = workoutData.title;
+		addWorkout(userID, title).then(res => {
+			workoutData.days.map(d => {
+				addWorkoutDays(res.rows[0].id, d.day)
+					.then(res => {
+						d.workouts.workout.map(ex => {
+							addWorkoutDayExercises(
+								res.rows[0].id,
+								ex.name,
+								ex.bodyPart,
+								ex.equipment,
+								ex.gifUrl
+							);
+						});
+						response.json(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
 			});
 		});
 	});
@@ -184,7 +197,7 @@ module.exports = db => {
 			image,
 		]);
 	};
-	const currentWorkout = (user) => {
+	const currentWorkout = user => {
 		const queryString = `
 			SELECT 
 			workout_days.id, workout_days.workout_id
@@ -207,7 +220,6 @@ module.exports = db => {
 		`;
 		return db.query(queryString, [isCurrent, workoutId, user]);
 	};
-
 
 	const workoutDaysIsCurrent = (isCurrent, workoutId) => {
 		const queryString = `
