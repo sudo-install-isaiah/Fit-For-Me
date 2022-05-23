@@ -17,10 +17,6 @@ div.MuiSelect-select {
 	color: white;
 }
 
-/* div.MuiSelect-select.MuiSelect-outlined.MuiOutlinedInput-input.MuiInputBase-input {
-	color: white;
-} */
-
 span.MuiCheckbox-root.Mui-checked {
 	color: #cca43b;
 }
@@ -43,4 +39,16 @@ span.MuiCheckbox-root.Mui-checked {
 
 div.MuiFilledInput-root-MuiSelect-root:after {
 	color: #cca43b;
+}
+
+.workout-header {
+	background-color: #363636;
+	color: #cca43a;
+	height: 125px;
+	width: 500px;
+	border-radius: 10px;
+	display: grid;
+	align-content: center;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 }

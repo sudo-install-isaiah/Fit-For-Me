@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
@@ -6,15 +7,16 @@ import Workout from "./Workout";
 import { UsersContext } from "./providers/UserProvider";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Navigate } from "react-router-dom";
-import { Button, Typography } from "@mui/material";
-import React from "react";
+import { Button, } from "@mui/material";
+import Title from "./Title";
 
 function App() {
 	const [workout, setWorkout] = useState([]);
 	const [spinner, setSpinner] = useState(true);
 	const { cookies, logout } = useContext(UsersContext);
-	
-	const title = workout.map(item => item.name);
+
+	const workoutName = workout[0]?.name;
+	const currentDay = workout[0]?.day;
 
 	useEffect(() => {
 		axios
@@ -50,9 +52,8 @@ function App() {
 				)}
 				{spinner === false && (
 					<>
-						{" "}
-						<Typography variant='h2'>{title[0]}</Typography>
-						<Workout workout={workout}></Workout>
+						<Title workoutName={workoutName} currentDay={currentDay} />
+						<Workout workout={workout} />
 					</>
 				)}
 				{workout.length !== 0 && (

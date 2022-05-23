@@ -40,6 +40,7 @@ module.exports = db => {
 			`
 		SELECT 
 		workout_day_exercises.name as exercise_name,
+		workout_days.day as day,
 		priority, type, equipment, image, workouts.name
 		FROM workouts
 		JOIN workout_days ON workout_days.workout_id = workouts.id
