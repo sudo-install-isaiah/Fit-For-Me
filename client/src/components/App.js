@@ -12,7 +12,7 @@ import React from "react";
 function App() {
 	const [workout, setWorkout] = useState([]);
 	const [spinner, setSpinner] = useState(true);
-	const { cookies, currentUser, logout } = useContext(UsersContext);
+	const { cookies, currentUser, setCurrentUser, logout } = useContext(UsersContext);
 	const title = workout.map(item => item.name);
 	useEffect(() => {
 		axios
@@ -22,6 +22,7 @@ function App() {
 			.then(res => {
 				setWorkout(res.data);
 				setSpinner(false);
+				setCurrentUser(cookies.name)
 			});
 	}, []);
 

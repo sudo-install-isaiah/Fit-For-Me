@@ -20,14 +20,14 @@ export default function Navbar(props) {
           <FitnessCenter className="logo-icon"></FitnessCenter>
           <span>FitForMe</span>
         </div>
-        <span className="nav-item">
-         💪 Welcome {currentUser}! 💪
-        </span>
+        <span className="nav-item">💪 Welcome {currentUser}! 💪</span>
         <div className="nav-item">
           <Link to="/new">
             <AddCircle className="logo-icon-circle"></AddCircle>
           </Link>
-          <Button size="small" variant="contained" onClick={logout}>Logout</Button>
+          <Button size="small" variant="contained" onClick={logout}>
+            Logout
+          </Button>
         </div>
       </div>
     </nav>

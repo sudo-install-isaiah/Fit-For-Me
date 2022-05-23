@@ -25,9 +25,10 @@ export default function UserProvider(props) {
       .post("http://localhost:8080/users/login", { email, password })
       .then((res) => {
         setCookie("id", res.data.id, { path: "/" });
+				setCookie('name', res.data.name, { path: '/'});
         setEmail("");
         setPassword("");
-				setCurrentUser(res.data.name)
+				setCurrentUser(cookies.name)
       });
   };
   //deletes cookie
