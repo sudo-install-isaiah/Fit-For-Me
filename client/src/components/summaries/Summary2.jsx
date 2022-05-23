@@ -46,22 +46,23 @@ export default function Summary2() {
     };
 
     axios.post("http://localhost:8080/workouts/new/2", options).then((res) => {
+      console.log(res)
+      setTitle("");
+      setValue("");
+      setChoice({
+        day: 1,
+        workout: [],
+      });
+      setDay1({
+        day: 1,
+        workout: [],
+      });
+      setDay2({
+        day: 2,
+        workout: [],
+      });
+      navigate('/')
     });
-    setTitle("");
-    setValue("");
-    setChoice({
-      day: 1,
-      workout: [],
-    });
-    setDay1({
-      day: 1,
-      workout: [],
-    });
-    setDay2({
-      day: 2,
-      workout: [],
-    });
-    navigate('/')
   }
 
   return (
@@ -81,7 +82,7 @@ export default function Summary2() {
               {dayInfo2}
             </Grid>
           </Grid>
-          <Button variant="contained" onClick={finalSubmit}>Submit</Button>
+          <Button variant="contained" onClick={()=> finalSubmit()}>Submit</Button>
         </FormControl>
       </Grid>
     </Box>
