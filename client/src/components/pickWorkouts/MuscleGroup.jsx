@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import axios from "axios";
+import axios from "axios"; //keep
 import { useEffect, useState } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
 import {InputLabel, MenuItem, FormControl, Select, Checkbox} from "@mui/material";
@@ -93,7 +93,7 @@ export default function MuscleGroup(props) {
 	const { exercise, setExercise, setChoice } =
 		useContext(WorkoutContext);
 	const [equipment, setEquipment] = useState("");
-	const bodyPart = props.muscle
+	const bodyPart = props.muscle // keep
 	
 	// checks the target value to the exercise id and then logs the entire obj into the state
 	const handleClick = e => {

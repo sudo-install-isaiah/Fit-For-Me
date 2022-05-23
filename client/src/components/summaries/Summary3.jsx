@@ -75,6 +75,7 @@ export default function Summary3() {
       workout: [],
     });
     navigate('/')
+		window.location.reload(true)
   }
 
   return (
