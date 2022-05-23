@@ -62,7 +62,7 @@ export default function Summary1() {
               {dayInfo1}
             </Grid>
           </Grid>
-          <Button variant="contained" onClick={()=> handleSubmit()}>Submit</Button>
+          <Button variant="contained" onClick={handleSubmit}>Submit</Button>
         </FormControl>
       </Grid>
     </Box>

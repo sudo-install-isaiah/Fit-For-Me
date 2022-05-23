@@ -6,6 +6,7 @@ import Empty from "./Empty";
 
 export default function Workout(props) {
 	const exercises = props.workout;
+
 	const groupedExercises = exercises.reduce((obj, exercise) => {
 		if (!obj[exercise.type]) {
 			return {
@@ -19,22 +20,19 @@ export default function Workout(props) {
 			};
 		}
 	}, {});
-	
+
 	const muscleGroups = Object.keys(groupedExercises).map((group, index) => {
 		return (
 			<WorkoutList key={index} name={group} group={groupedExercises[group]} />
-			);
+		);
 	});
-	
-		const isEmpty = (exercises, arr) => {
-			if (exercises.length !== 0)
-				return arr;
-			return <Empty></Empty>
-		}
 
-	return (
-		<Grid align='center'>
-			{isEmpty(exercises, muscleGroups)}
-		</Grid>
-	);
+	const isEmpty = (exercises, arr) => {
+		if (exercises.length !== 0) return arr;
+		return <Empty></Empty>;
+	};
+
+	const display = isEmpty(exercises, muscleGroups);
+
+	return <Grid align='center'>{display}</Grid>;
 }
