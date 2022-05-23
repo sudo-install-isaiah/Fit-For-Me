@@ -12,8 +12,10 @@ import React from "react";
 function App() {
 	const [workout, setWorkout] = useState([]);
 	const [spinner, setSpinner] = useState(true);
-	const { cookies, currentUser, setCurrentUser, logout } = useContext(UsersContext);
+	const { cookies, logout } = useContext(UsersContext);
+	
 	const title = workout.map(item => item.name);
+
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8080/workouts/days/current`, {
@@ -22,7 +24,6 @@ function App() {
 			.then(res => {
 				setWorkout(res.data);
 				setSpinner(false);
-				setCurrentUser(cookies.name)
 			});
 	}, []);
 
@@ -32,15 +33,15 @@ function App() {
 			userId: Number(cookies.id),
 		};
 		axios.put("http://localhost:8080/workouts/iscurrent", options).then(res => {
-			console.log(res);
 			return window.location.reload(true);
 		});
 	};
+
 	return (
 		<>
 			{!cookies.id && <Navigate to='/login' replace={true} />}
 			<div className='App'>
-				<Navbar></Navbar>
+				<Navbar username={cookies.name} logout={logout}></Navbar>
 				<br />
 				{spinner === true && (
 					<div style={{ marginTop: "20rem" }}>

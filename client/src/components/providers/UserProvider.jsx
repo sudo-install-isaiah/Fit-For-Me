@@ -6,7 +6,6 @@ export const UsersContext = createContext();
 
 export default function UserProvider(props) {
   const [cookies, setCookie, removeCookie] = useCookies(null);
-  const [currentUser, setCurrentUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,13 +27,12 @@ export default function UserProvider(props) {
 				setCookie('name', res.data.name, { path: '/'});
         setEmail("");
         setPassword("");
-				setCurrentUser(cookies.name)
       });
   };
   //deletes cookie
   const logout = () => {
     removeCookie("id", { path: "/" });
-    setCurrentUser("");
+    removeCookie("name", { path: "/" });
   };
 
   const userData = {
@@ -43,8 +41,6 @@ export default function UserProvider(props) {
     emailSet,
     password,
     passwordSet,
-    currentUser,
-    setCurrentUser,
     handleSubmit,
     logout,
   };
