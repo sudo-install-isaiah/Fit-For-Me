@@ -8,6 +8,7 @@ export default function UserProvider(props) {
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [current, setCurrentUser] = useState('')
 
   const emailSet = (e) => {
     setEmail(e.target.value);
@@ -24,15 +25,17 @@ export default function UserProvider(props) {
       .post("http://localhost:8080/users/login", { email, password })
       .then((res) => {
         setCookie("id", res.data.id, { path: "/" });
-				setCookie('name', res.data.name, { path: '/'});
+        setCookie("name", res.data.name, { path: "/" });
         setEmail("");
         setPassword("");
+        setCurrentUser(cookies.name);
       });
   };
   //deletes cookie
   const logout = () => {
     removeCookie("id", { path: "/" });
     removeCookie("name", { path: "/" });
+    setCurrentUser("");
   };
 
   const userData = {
