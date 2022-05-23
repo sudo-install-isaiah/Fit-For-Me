@@ -14,6 +14,7 @@ function App() {
 	const [spinner, setSpinner] = useState(true);
 	const { cookies, currentUser, logout } = useContext(UsersContext);
 	const title = workout.map(item => item.name)
+	
 	useEffect(() => {
 		axios
 			.get(`http://localhost:8080/workouts/days/current`, {

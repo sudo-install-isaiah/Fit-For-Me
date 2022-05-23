@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import WorkoutListItem from "../Workout/WorkoutListItem";
 import {InputLabel, MenuItem, FormControl, Select, Checkbox} from "@mui/material";
@@ -92,7 +93,8 @@ export default function MuscleGroup(props) {
 	const { exercise, setExercise, setChoice } =
 		useContext(WorkoutContext);
 	const [equipment, setEquipment] = useState("");
-
+	const bodyPart = props.muscle
+	
 	// checks the target value to the exercise id and then logs the entire obj into the state
 	const handleClick = e => {
 		const test = exercise.filter(ex => {
@@ -112,7 +114,7 @@ export default function MuscleGroup(props) {
 		setEquipment(event.target.value);
 	};
 	
-//for testing purposes
+// for testing purposes
 	useEffect(() => {
 		setExercise(example);
 	}, []);

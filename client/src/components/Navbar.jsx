@@ -11,7 +11,7 @@ import { UsersContext } from "./providers/UserProvider";
 import { Button } from "@mui/material";
 
 export default function Navbar(props) {
-  const { logout } = useContext(UsersContext);
+  const { logout, currentUser } = useContext(UsersContext);
 
   return (
     <nav className="navbar">
@@ -21,9 +21,7 @@ export default function Navbar(props) {
           <span>FitForMe</span>
         </div>
         <span className="nav-item">
-          <ArrowBackIosNew className="logo-icon"></ArrowBackIosNew>
-          Current Day
-          <ArrowForwardIos className="logo-icon"></ArrowForwardIos>
+         💪 Welcome {currentUser}! 💪
         </span>
         <div className="nav-item">
           <Link to="/new">

@@ -13,10 +13,12 @@ export default function Signup() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [cookie, setCookie] = useCookies();
-	const { cookies } = useContext(UsersContext);
+	const { cookies, setCurrentUser } = useContext(UsersContext);
+
 
 	const nameSet = e => {
 		setName(e.target.value);
+		setCurrentUser(e.target.value)
 	};
 	const emailSet = e => {
 		setEmail(e.target.value);

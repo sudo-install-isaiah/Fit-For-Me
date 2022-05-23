@@ -36,7 +36,8 @@ export default function Summary1() {
       workouts: choice.workout,
     };
 
-    axios.post("http://localhost:8080/workouts/new", options).then((res) => {
+    axios.post("http://localhost:8080/workouts/new", options)
+    .then((res) => {
     });
     setTitle("");
     setValue("");
@@ -46,7 +47,7 @@ export default function Summary1() {
       workout: [],
     });
     navigate('/')
-
+		window.location.reload(true)
   };
   return (
     <>
