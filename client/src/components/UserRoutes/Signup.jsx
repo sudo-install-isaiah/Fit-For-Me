@@ -13,7 +13,7 @@ export default function Signup() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [cookie, setCookie] = useCookies();
-	const { cookies, setCurrentUser } = useContext(UsersContext);
+	const { cookies, setCurrentUser, currentUser } = useContext(UsersContext);
 
 
 	const nameSet = e => {
@@ -39,6 +39,8 @@ export default function Signup() {
 			.post("http://localhost:8080/users/create", userObject)
 			.then(res => {
 				setCookie("id", res.data.id, { path: "/" });
+				// console.log('res', res.data.name, { path: '/'});
+				setCookie('name', res.data.name, { path: '/'});
 				setName("");
 				setEmail("");
 				setPassword("");
