@@ -68,26 +68,30 @@ export default function Summary2() {
   }
 
   return (
-    <>
-    <NavBarCreate/>
-    <Box sx={{ minWidth: 120 }}>
-      <Grid align="center" margin={1}>
-        <Typography variant="h2">{title}</Typography>
-        <FormControl>
-          <Grid container columnSpacing={1} rowSpacing={1}>
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography variant="h6">day 1</Typography>
-              {dayInfo1}
-            </Grid>
-            <Grid item xs={12} sm={6} md={6}>
-            <Typography variant="h6">day 2</Typography>
-              {dayInfo2}
-            </Grid>
-          </Grid>
-          <Button variant="contained" onClick={()=> finalSubmit()}>Submit</Button>
-        </FormControl>
-      </Grid>
-    </Box>
-    </>
-  );
+		<>
+			<NavBarCreate />
+			<Box sx={{ minWidth: 120 }}>
+				<Grid align='center' margin={1}>
+					<header className='workout-header'>
+						<h2>Summary of your workout "{title}"</h2>
+					</header>
+					<FormControl>
+						<Grid container columnSpacing={1} rowSpacing={1}>
+							<Grid item xs={12} sm={6} md={6}>
+								<Typography variant='h6'>day 1</Typography>
+								{dayInfo1}
+							</Grid>
+							<Grid item xs={12} sm={6} md={6}>
+								<Typography variant='h6'>day 2</Typography>
+								{dayInfo2}
+							</Grid>
+						</Grid>
+						<Button variant='contained' onClick={() => finalSubmit()}>
+							Submit
+						</Button>
+					</FormControl>
+				</Grid>
+			</Box>
+		</>
+	);
 }
