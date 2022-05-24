@@ -21,6 +21,7 @@ export default function Summary2() {
   const dayInfo1 = day1.workouts.workout.map((work) => {
     return (
       <WorkoutListItem
+      key={work.id}
         type={work.bodyPart}
         name={work.name}
         image={work.gifUrl}
@@ -31,6 +32,7 @@ export default function Summary2() {
   const dayInfo2 = day2.workouts.workout.map((work) => {
     return (
       <WorkoutListItem
+      key={work.id}
         type={work.bodyPart}
         name={work.name}
         image={work.gifUrl}
