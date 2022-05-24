@@ -1,6 +1,19 @@
 import React from "react";
 import { useState } from "react";
-import {Box, Accordion, AccordionSummary, AccordionDetails, Typography, List, Divider, Tabs, Tab, Card, CardContent, Button} from "@mui/material";
+import {
+	Box,
+	Accordion,
+	AccordionSummary,
+	AccordionDetails,
+	Typography,
+	List,
+	Divider,
+	Tabs,
+	Tab,
+	Card,
+	CardContent,
+	Button,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuscleGroup from "./MuscleGroup";
 import PropTypes from "prop-types";
@@ -18,7 +31,7 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ p: 3 }}>
+				<Box className='exercise-select' sx={{ p: 3 }}>
 					{children}
 				</Box>
 			)}

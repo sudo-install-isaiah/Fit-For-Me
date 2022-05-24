@@ -1,5 +1,10 @@
 import React from "react";
-import { Accordion, AccordionSummary, AccordionDetails, Typography} from "@mui/material";
+import {
+	Accordion,
+	AccordionSummary,
+	AccordionDetails,
+	Typography,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function WorkoutListItem(props) {
@@ -22,8 +27,8 @@ export default function WorkoutListItem(props) {
 				aria-controls='panel1a-content'
 				id='panel1a-header'
 			>
-			{props.name}
-			{reps(props.priority)}
+				<p>{props.name}</p>
+				<p>{reps(props.priority)}</p>
 			</AccordionSummary>
 			<AccordionDetails>
 				<img src={props.image} alt={`gif of ${props.name}`}></img>

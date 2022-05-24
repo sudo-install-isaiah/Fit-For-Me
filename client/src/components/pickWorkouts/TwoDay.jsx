@@ -1,11 +1,24 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { Tabs, Tab, Typography, Box, Accordion, AccordionSummary, AccordionDetails, List, Divider, Card, CardContent, Button} from "@mui/material";
+import {
+	Tabs,
+	Tab,
+	Typography,
+	Box,
+	Accordion,
+	AccordionSummary,
+	AccordionDetails,
+	List,
+	Divider,
+	Card,
+	CardContent,
+	Button,
+} from "@mui/material";
 import { useState, useContext } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuscleGroup from "./MuscleGroup";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -19,7 +32,7 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ p: 3 }}>
+				<Box className='exercise-select' sx={{ p: 3 }}>
 					{children}
 				</Box>
 			)}
@@ -34,20 +47,15 @@ TabPanel.propTypes = {
 };
 
 export default function TwoDay() {
-  const [equipment, setEquipment] = useState("");
-  const [selectedTab, setSelectedTab] = React.useState(0);
-  const {
-    setDay1,
-    setDay2,
-    choice,
-    setChoice
-  } = useContext(WorkoutContext);
-  const [toggleTab, setToggleTab] = useState(true);
-  let navigate = useNavigate()
-  
+	const [equipment, setEquipment] = useState("");
+	const [selectedTab, setSelectedTab] = React.useState(0);
+	const { setDay1, setDay2, choice, setChoice } = useContext(WorkoutContext);
+	const [toggleTab, setToggleTab] = useState(true);
+	let navigate = useNavigate();
+
 	const handleChange = (event, newValue) => {
-    setSelectedTab(newValue);
-  };
+		setSelectedTab(newValue);
+	};
 
 	const toggleTabs = () => {
 		if (selectedTab === 0) {
@@ -63,7 +71,7 @@ export default function TwoDay() {
 		}
 	};
 
-  return (
+	return (
 		<>
 			<Tabs
 				value={selectedTab}

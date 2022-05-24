@@ -8,6 +8,12 @@ div.create-form {
 	width: 100%;
 	color: white;
 }
+
+div.equipment-form {
+	display: grid;
+	justify-items: center;
+}
+
 div.days {
 	background-color: #cca43b;
 }
@@ -60,4 +66,14 @@ svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiSelect-icon.MuiSelect-iconOutli
 
 .MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected {
 	color: white;
+}
+
+li.exercise-select {
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+}
+
+span.MuiCheckbox-root:hover {
+	background-color: rgb(204 164 58 / 20%);
 }
