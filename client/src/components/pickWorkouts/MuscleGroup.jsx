@@ -11,6 +11,7 @@ import {
 	ListItem,
 } from "@mui/material";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
+import './muscleGroup.css'
 
 // can be deleted hardcoded for testing purposes
 const example = [
@@ -150,7 +151,7 @@ export default function MuscleGroup(props) {
 	});
 
 	return (
-		<>
+		<div className="muscle-group">
 			<FormControl  sx={{ m: 1, minWidth: 120 }}>
 				<InputLabel className='equipment-form' id='select-equipment-label'>
 					Equipment
@@ -172,6 +173,6 @@ export default function MuscleGroup(props) {
 				</Select>
 			</FormControl>
 			{data}
-		</>
+		</div>
 	);
 }
