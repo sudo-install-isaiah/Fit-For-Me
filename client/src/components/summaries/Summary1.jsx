@@ -58,7 +58,9 @@ export default function Summary1() {
 			<NavBarCreate />
 			<Box sx={{ minWidth: 120 }}>
 				<Grid align='center' margin={1}>
-					<Typography variant='h2'>{title}</Typography>
+					<header className='workout-header'>
+						<h2>Summary of your workout "{title}"</h2>
+					</header>
 					<FormControl>
 						<Grid container rowSpacing={1}>
 							<Grid item xs={12} sm={12} md={12}>

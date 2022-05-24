@@ -28,7 +28,7 @@ export default function Summary3() {
 	const dayInfo1 = day1.workouts.workout.map(work => {
 		return (
 			<WorkoutListItem
-			key={work.id}
+				key={work.id}
 				type={work.bodyPart}
 				name={work.name}
 				image={work.gifUrl}
@@ -39,7 +39,7 @@ export default function Summary3() {
 	const dayInfo2 = day2.workouts.workout.map(work => {
 		return (
 			<WorkoutListItem
-			key={work.id}
+				key={work.id}
 				type={work.bodyPart}
 				name={work.name}
 				image={work.gifUrl}
@@ -50,7 +50,7 @@ export default function Summary3() {
 	const dayInfo3 = day3.workouts.workout.map(work => {
 		return (
 			<WorkoutListItem
-			key={work.id}
+				key={work.id}
 				type={work.bodyPart}
 				name={work.name}
 				image={work.gifUrl}
@@ -64,28 +64,27 @@ export default function Summary3() {
 			days: [day1, day2, day3],
 		};
 
-    axios.post("http://localhost:8080/workouts/new/2", options).then(res => {
-      
-      setTitle("");
-      setValue("");
-      setChoice({
-        day: 1,
-        workout: [],
-      });
-		setDay1({
-			day: 1,
-			workout: [],
+		axios.post("http://localhost:8080/workouts/new/2", options).then(res => {
+			setTitle("");
+			setValue("");
+			setChoice({
+				day: 1,
+				workout: [],
+			});
+			setDay1({
+				day: 1,
+				workout: [],
+			});
+			setDay2({
+				day: 2,
+				workout: [],
+			});
+			setDay3({
+				day: 3,
+				workout: [],
+			});
+			navigate("/");
 		});
-		setDay2({
-			day: 2,
-			workout: [],
-		});
-		setDay3({
-      day: 3,
-			workout: [],
-		});
-		navigate("/");
-  });
 	};
 
 	return (
@@ -93,7 +92,9 @@ export default function Summary3() {
 			<NavBarCreate />
 			<Box sx={{ minWidth: 120 }}>
 				<Grid align='center' margin={1}>
-					<Typography variant='h2'>{title}</Typography>
+					<header className='workout-header'>
+						<h2>Summary of your workout "{title}"</h2>
+					</header>
 					<FormControl>
 						<Grid container columnSpacing={1} rowSpacing={1}>
 							<Grid item xs={12} sm={4} md={4}>
