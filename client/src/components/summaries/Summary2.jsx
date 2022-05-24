@@ -73,7 +73,8 @@ export default function Summary2() {
 			<Box sx={{ minWidth: 120 }}>
 				<Grid align='center' margin={1}>
 					<header className='workout-header'>
-						<h2>Summary of your workout "{title}"</h2>
+						<h2>Summary of your workout</h2>
+						<h2 className='workout-name'>{title}</h2>
 					</header>
 					<FormControl>
 						<Grid container columnSpacing={1} rowSpacing={1}>
