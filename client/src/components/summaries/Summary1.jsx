@@ -5,7 +5,14 @@ import WorkoutListItem from "../Workout/WorkoutListItem";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBarCreate from "../NewWorkout/NavBarCreate";
-import { Typography, Grid, FormControl, Button } from "@mui/material";
+import {
+	Typography,
+	Grid,
+	FormControl,
+	Button,
+	List,
+	ListSubheader,
+} from "@mui/material";
 import { Box } from "@mui/system";
 
 export default function Summary1() {
@@ -59,19 +66,28 @@ export default function Summary1() {
 			<Box sx={{ minWidth: 120 }}>
 				<Grid align='center' margin={1}>
 					<header className='workout-header'>
-						<h2>Summary of your workout "{title}"</h2>
+						<h2>Summary of your workout</h2>
+						<h2 className='workout-name'>{title}</h2>
 					</header>
-					<FormControl>
-						<Grid container rowSpacing={1}>
-							<Grid item xs={12} sm={12} md={12}>
-								<Typography variant='h6'>day 1</Typography>
-								{dayInfo1}
-							</Grid>
-						</Grid>
-						<Button variant='contained' onClick={handleSubmit}>
-							Submit
-						</Button>
-					</FormControl>
+					<List
+						sx={{ width: "100%", maxWidth: "700px", bgcolor: "inherit" }}
+						component='section'
+						aria-labelledby='nested-list-subheader'
+						subheader={
+							<ListSubheader
+								className='exercise-header'
+								component='div'
+								id='nested-list-subheader'
+							>
+								Day 1
+							</ListSubheader>
+						}
+					>
+						{dayInfo1}
+					</List>
+					<Button variant='contained' onClick={() => handleSubmit()}>
+						Submit
+					</Button>
 				</Grid>
 			</Box>
 		</>

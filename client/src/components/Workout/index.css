@@ -43,7 +43,7 @@ div.MuiFilledInput-root-MuiSelect-root:after {
 
 .workout-header {
 	background-color: #242f40;
-	color: #cca43a;
+	color: white;
 	height: 125px;
 	width: 500px;
 	border-radius: 10px;
@@ -51,4 +51,8 @@ div.MuiFilledInput-root-MuiSelect-root:after {
 	align-content: center;
 	margin-top: 3rem;
 	margin-bottom: 3rem;
+}
+
+.workout-name {
+	color: #cca43b;
 }
