@@ -6,7 +6,7 @@ export default function WorkoutList(props) {
 	const exerciseItem = props.group.map((item, index) => {
 		return (
 			<WorkoutListItem
-				key={index}
+				key={item.exercise_name}
 				image={item.image}
 				name={item.exercise_name}
 				priority={item.priority}

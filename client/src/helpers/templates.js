@@ -22,7 +22,7 @@ const displayTemplate = workout => {
 	const result = [];
 	for (const day in workout) {
 		result.push(
-			<List className='template-view'>
+			<List className='template-view' key={day}>
 				<ListSubheader component='li' className='template-view'>
 					{day}
 				</ListSubheader>
@@ -39,7 +39,7 @@ const displayMuscle = dayObj => {
 	const result = [];
 	for (const muscle in dayObj) {
 		result.push(
-			<li className='template-view'>
+			<li className='template-view' key={muscle}>
 				<Typography>{muscle}</Typography>
 				<ListItemText primary={`${dayObj[muscle]} exercises`} />
 			</li>

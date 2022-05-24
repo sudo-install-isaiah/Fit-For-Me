@@ -21,6 +21,7 @@ export default function Summary1() {
   const dayInfo1 = choice.workout.map((work) => {
     return (
       <WorkoutListItem
+      key={work.id}
         type={work.bodyPart}
         name={work.name}
         image={work.gifUrl}

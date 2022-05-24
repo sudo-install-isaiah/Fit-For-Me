@@ -130,23 +130,23 @@ export default function MuscleGroup(props) {
 
 	const data = exercise.map((ex, index) => {
 		return (
-			<>
+			<ul key={ex.id}>
 				<WorkoutListItem
-					key={index}
+					key={ex.id}
 					name={ex.name}
 					image={ex.gifUrl}
 					priority={1}
 					type={ex.bodyPart}
-				/>
+				>
+				</WorkoutListItem>
 				<Checkbox value={ex.id} onChange={e => handleClick(e)} />
-			</>
+				</ul>
 		);
 	});
 
 	return (
 		<>
 			<FormControl className='equipment-form' sx={{ m: 1, minWidth: 120 }}>
-				{/* <Typography></Typography> */}
 				<InputLabel className='equipment-form' id='select-equipment-label'>
 					Equipment
 				</InputLabel>

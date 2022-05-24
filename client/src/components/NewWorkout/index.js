@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 
-import { Box, Container} from "@mui/material";
+import { Box, Container } from "@mui/material";
 import NavBarCreate from "./NavBarCreate";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import "./index.css";
@@ -25,11 +25,11 @@ export default function NewWorkoutPage() {
 		return setTemplate(value);
 	};
 
-	return (
-		<>
-			<main>
+	if (template === '') {
+		return (
+			<>
 				<NavBarCreate />
-				{template === "" && (
+				<main>
 					<NewWorkout
 						title={title}
 						chooseDay={chooseDay}
@@ -37,7 +37,15 @@ export default function NewWorkoutPage() {
 						value={value}
 						handleClick={handleClick}
 					></NewWorkout>
-				)}
+				</main>
+			</>
+		);
+	}
+
+	return (
+		<>
+			<NavBarCreate />
+			<main>
 				<Container component='section' maxWidth='md'>
 					<Box className='create-form days'>
 						{template === "1" && <OneDay></OneDay>}

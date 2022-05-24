@@ -22,8 +22,8 @@ export default function WorkoutListItem(props) {
 				aria-controls='panel1a-content'
 				id='panel1a-header'
 			>
-				<Typography>{props.name}</Typography>
-				<Typography>{reps(props.priority)}</Typography>
+			{props.name}
+			{reps(props.priority)}
 			</AccordionSummary>
 			<AccordionDetails>
 				<img src={props.image} alt={`gif of ${props.name}`}></img>

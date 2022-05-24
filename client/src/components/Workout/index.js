@@ -23,7 +23,7 @@ export default function Workout(props) {
 
 	const muscleGroups = Object.keys(groupedExercises).map((group, index) => {
 		return (
-			<WorkoutList key={index} name={group} group={groupedExercises[group]} />
+			<WorkoutList key={group} name={group} group={groupedExercises[group]} />
 		);
 	});
 
