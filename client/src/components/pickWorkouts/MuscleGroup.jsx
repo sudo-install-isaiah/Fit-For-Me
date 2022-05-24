@@ -151,7 +151,7 @@ export default function MuscleGroup(props) {
 
 	return (
 		<>
-			<FormControl className sx={{ m: 1, minWidth: 120 }}>
+			<FormControl  sx={{ m: 1, minWidth: 120 }}>
 				<InputLabel className='equipment-form' id='select-equipment-label'>
 					Equipment
 				</InputLabel>

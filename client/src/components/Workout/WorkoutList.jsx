@@ -1,5 +1,5 @@
 import React from "react";
-import { ListSubheader, List} from "@mui/material";
+import { ListSubheader, List } from "@mui/material";
 import WorkoutListItem from "./WorkoutListItem";
 
 export default function WorkoutList(props) {
@@ -13,7 +13,7 @@ export default function WorkoutList(props) {
 			></WorkoutListItem>
 		);
 	});
-  
+
 	return (
 		<List
 			sx={{ width: "100%", maxWidth: "700px", bgcolor: "inherit" }}
