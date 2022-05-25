@@ -18,7 +18,6 @@ export default function Signup() {
 
 	const nameSet = e => {
 		setName(e.target.value);
-		setCurrentUser(e.target.value)
 	};
 	const emailSet = e => {
 		setEmail(e.target.value);
