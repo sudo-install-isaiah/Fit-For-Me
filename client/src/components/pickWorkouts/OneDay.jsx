@@ -18,6 +18,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuscleGroup from "./MuscleGroup";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import MuscleGroupParent from "./MuscleGroupParent";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -45,13 +46,6 @@ TabPanel.propTypes = {
 	value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
-	return {
-		id: `simple-tab-${index}`,
-		"aria-controls": `simple-tabpanel-${index}`,
-	};
-}
-
 export default function OneDay() {
 	const [equipment, setEquipment] = useState("");
 	const [tabValue, setTabValue] = React.useState(0);
@@ -73,7 +67,7 @@ export default function OneDay() {
 					onChange={handleChange}
 					aria-label='basic tabs example'
 				>
-					<Tab label='Day One' {...a11yProps(0)} />
+					<Tab label='Day One' />
 				</Tabs>
 			</Box>
 			<TabPanel value={tabValue} index={0}>
@@ -83,37 +77,16 @@ export default function OneDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Chest
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"chest"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								<MuscleGroupParent
+									muscle={"Chest"}
+									equipiment={equipment}
+								></MuscleGroupParent>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Legs
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"upper legs"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								<MuscleGroupParent
+									muscle={"Upper Legs"}
+									equipiment={equipment}
+								></MuscleGroupParent>
+
 								<Accordion>
 									<AccordionSummary
 										expandIcon={<ExpandMoreIcon />}

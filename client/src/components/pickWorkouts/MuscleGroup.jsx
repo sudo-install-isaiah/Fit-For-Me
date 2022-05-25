@@ -152,6 +152,7 @@ export default function MuscleGroup(props) {
 
 	return (
 		<div className="muscle-group">
+			<p>Choose {props.priority} exercises for {bodyPart}</p>
 			<FormControl  sx={{ m: 1, minWidth: 120 }}>
 				<InputLabel className='equipment-form' id='select-equipment-label'>
 					Equipment
