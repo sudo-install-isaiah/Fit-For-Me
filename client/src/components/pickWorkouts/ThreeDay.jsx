@@ -90,37 +90,7 @@ export default function ThreeDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Chest
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"chest"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Shoulders
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"shoulders"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
 								<Divider />
 							</List>
 						</AccordionDetails>
@@ -137,37 +107,9 @@ export default function ThreeDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Back
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"back"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Legs
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"upper Legs"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								
 								<Divider />
 							</List>
 						</AccordionDetails>
@@ -184,37 +126,9 @@ export default function ThreeDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Arms
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"upper arms"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Core
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"waist"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+
 								<Divider />
 							</List>
 						</AccordionDetails>
