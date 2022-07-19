@@ -83,71 +83,21 @@ export default function OneDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Chest
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"chest"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								<MuscleGroup muscle={"chest"} equipment={equipment} />
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Legs
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"upper legs"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Arms
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"upper arms"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								<MuscleGroup muscle={"back"} equipment={equipment} />
 								<Divider />
-								<Accordion>
-									<AccordionSummary
-										expandIcon={<ExpandMoreIcon />}
-										aria-controls='panel1a-content'
-										id='panel1a-header'
-									>
-										{" "}
-										<Typography component={"span"} align='center'>
-											Core
-										</Typography>
-									</AccordionSummary>
-									<AccordionDetails>
-										<MuscleGroup muscle={"waist"} equipment={equipment} />
-									</AccordionDetails>
-								</Accordion>
+								<MuscleGroup muscle={"shoulders"} equipment={equipment} />
+								<Divider />
+								<MuscleGroup muscle={"upper arms"} equipment={equipment} />
+								<Divider />
+								<MuscleGroup muscle={"upper legs"} equipment={equipment} />
+								<Divider />
+								<MuscleGroup muscle={"waist"} equipment={equipment} />
 								<Divider />
 							</List>
 						</AccordionDetails>
+
 						<Button onClick={handleSubmit} variant='contained'>
 							{" "}
 							Submit

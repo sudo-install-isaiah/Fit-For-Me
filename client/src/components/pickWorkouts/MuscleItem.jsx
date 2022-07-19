@@ -97,7 +97,7 @@ const example = [
 	},
 ];
 
-export default function MuscleGroup(props) {
+export default function MuscleItem (props) {
 	const { exercise, setExercise, setChoice } = useContext(WorkoutContext);
 	const [equipment, setEquipment] = useState("");
 	const bodyPart = props.muscle; // keep
