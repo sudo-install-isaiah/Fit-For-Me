@@ -7,7 +7,7 @@ import MuscleGroup from "./MuscleGroup";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { useNavigate } from "react-router-dom";
 
-
+// TODO extract this to helpers
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -28,6 +28,7 @@ function TabPanel(props) {
 	);
 }
 
+// TODO extract this to helpers
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,

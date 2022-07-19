@@ -19,6 +19,8 @@ import MuscleGroup from "./MuscleGroup";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
+
+// TODO extract this to helpers
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -39,12 +41,14 @@ function TabPanel(props) {
 	);
 }
 
+// TODO extract this to helpers
 TabPanel.propTypes = {
 	children: PropTypes.node,
 	index: PropTypes.number.isRequired,
 	value: PropTypes.number.isRequired,
 };
 
+// TODO extract this to helpers
 function a11yProps(index) {
 	return {
 		id: `simple-tab-${index}`,

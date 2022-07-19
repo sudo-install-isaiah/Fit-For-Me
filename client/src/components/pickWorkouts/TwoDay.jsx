@@ -20,6 +20,7 @@ import MuscleGroup from "./MuscleGroup";
 import { WorkoutContext } from "../providers/WorkoutFormProvider";
 import { useNavigate } from "react-router-dom";
 
+// TODO extract this to helpers
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -40,6 +41,7 @@ function TabPanel(props) {
 	);
 }
 
+// TODO extract this to helpers
 TabPanel.propTypes = {
 	children: PropTypes.node,
 	index: PropTypes.number.isRequired,
@@ -53,9 +55,11 @@ export default function TwoDay() {
 	const [toggleTab, setToggleTab] = useState(true);
 	let navigate = useNavigate();
 
+	// TODO extract this to helpers
 	const handleChange = (event, newValue) => {
 		setSelectedTab(newValue);
 	};
+
 
 	const toggleTabs = () => {
 		if (selectedTab === 0) {
@@ -88,11 +92,11 @@ export default function TwoDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								
+
 								<Divider />
-								
+
 								<Divider />
-								
+
 								<Divider />
 							</List>
 						</AccordionDetails>
@@ -109,11 +113,11 @@ export default function TwoDay() {
 						<AccordionDetails>
 							<List>
 								<Divider />
-								
+
 								<Divider />
-								
+
 								<Divider />
-								
+
 								<Divider />
 							</List>
 						</AccordionDetails>
